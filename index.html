@@ -62,9 +62,20 @@
         }
 
         .nav-tabs {
-            display: flex;
-            gap: 50px;
-        }
+    		display: flex;
+    		gap: 50px;
+		}
+
+		@media (max-width: 768px) {
+    		.nav-tabs {
+        		gap: 15px;
+    		}
+    
+   	 .nav-tab {
+    	    font-size: 0.75rem;
+        	padding: 8px 0;
+	    }
+	}
 
         .nav-tab {
             font-size: 0.95rem;
@@ -524,6 +535,14 @@
                 height: 24px;
             }
         }
+
+		/* Fix Google Form on mobile */
+		@media (max-width: 768px) {
+    		iframe {
+        		min-width: 100%;
+        		width: 100% !important;
+    		}
+		}
 
         /* Touch devices - show overlay on tap */
         @media (hover: none) {
