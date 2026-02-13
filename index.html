@@ -52,30 +52,38 @@
         }
 
         .nav-container {
-            max-width: 1800px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 40px;
-            height: 70px;
-        }
-
-        .nav-tabs {
-    		display: flex;
-    		gap: 50px;
+	    	max-width: 1800px;
+		    margin: 0 auto;
+	    	display: flex;
+	    	justify-content: center;
+	    	align-items: center;
+	    	padding: 0 20px;
+	    	height: auto;
+	    	min-height: 70px;
 		}
 
-		@media (max-width: 768px) {
-    		.nav-tabs {
-        		gap: 15px;
-    		}
-    
-   	 .nav-tab {
-    	    font-size: 0.75rem;
-        	padding: 8px 0;
-	    }
-	}
+		.nav-tabs {
+	    	display: flex;
+	    	gap: 20px;
+	    	flex-wrap: wrap;
+	    	justify-content: center;
+	    	width: 100%;
+		}
+
+		.nav-tab {
+    		font-size: 0.8rem;
+    		font-weight: 600;
+    		letter-spacing: 0.08em;
+    		text-transform: uppercase;
+    		color: #666;
+    		cursor: pointer;
+    		padding: 10px 5px;
+	    	position: relative;
+    		transition: color 0.3s ease;
+    		border: none;
+	    	background: none;
+		    white-space: nowrap;
+		}
 
         .nav-tab {
             font-size: 0.95rem;
@@ -994,7 +1002,7 @@
     <div class="container">
         <h1 class="section-title">Free Resources</h1>
 
-        <div style="max-width: 800px; margin: 0 auto; background: rgba(255, 255, 255, 0.95); border-radius: 20px; padding: 60px 50px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="max-width: 100%; margin: 0 auto; background: rgba(255, 255, 255, 0.95); border-radius: 20px; padding: 60px 50px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1); text-align: center;">
     <h2 style="font-size: 2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 20px;">Get Free Promo Videos & Event Updates</h2>
     <p style="font-size: 1.1rem; color: #666; margin-bottom: 40px; line-height: 1.6;">
         Sign up to receive exclusive promotional materials, event updates, and bonus content delivered directly to your inbox.
