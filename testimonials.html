@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonials – The Chiro Event</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{--gold:#C9A84C;--gold-light:#E8C86A;--black:#0A0A0A;--black-2:#111111;--black-3:#181818;--white:#FFFFFF;--gray:#888}
+  html{scroll-behavior:smooth}
+  body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;overflow-x:hidden}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:76px;background:rgba(10,10,10,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.2)}
+  .nav-links{display:flex;gap:40px;list-style:none}
+  .nav-links a{text-decoration:none;color:var(--white);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:2px;text-transform:uppercase;transition:color .2s;position:relative}
+  .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+  .nav-links a:hover,.nav-links a.active{color:var(--gold)}
+  .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+  .nav-star{font-size:20px;color:var(--gold);animation:spin-star 8s linear infinite}
+  @keyframes spin-star{to{transform:rotate(360deg)}}
+  .nav-right{display:flex;align-items:center;gap:16px}
+  .nav-bonus-btn{background:var(--gold);color:var(--black);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:10px 18px;border:none;cursor:pointer;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));transition:background .2s;white-space:nowrap}
+  .nav-bonus-btn:hover{background:var(--gold-light)}
+
+  /* PAGE HERO */
+  .page-hero{margin-top:76px;background:var(--black-2);padding:80px 60px 72px;position:relative;overflow:hidden;border-bottom:1px solid rgba(201,168,76,0.15)}
+  .page-hero::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.12) 0%,transparent 65%);pointer-events:none}
+  .page-hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.06) 0%,transparent 65%);pointer-events:none}
+  .page-eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+  .page-eyebrow::before{content:'';display:block;width:32px;height:2px;background:var(--gold)}
+  .page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,7vw,100px);line-height:.92;text-transform:uppercase;margin-bottom:24px}
+  .page-title span{color:var(--gold)}
+  .page-subtitle{font-size:18px;line-height:1.7;color:rgba(255,255,255,0.55);max-width:600px}
+  .page-stars{display:flex;align-items:center;gap:6px;margin-top:28px}
+  .page-stars .star-icon{color:var(--gold);font-size:22px}
+  .page-stars .star-count{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;letter-spacing:1px;margin-left:10px}
+  .page-stars .star-label{font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:2px;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:700}
+
+  /* FILTER BAR */
+  .filter-bar{background:var(--black);padding:24px 60px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+  .filter-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-right:4px}
+  .filter-btn{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:8px 18px;cursor:pointer;transition:all .2s}
+  .filter-btn:hover,.filter-btn.active{background:var(--gold);border-color:var(--gold);color:var(--black)}
+
+  /* REVIEWS GRID */
+  .reviews-section{padding:60px 60px 100px;background:var(--black)}
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+
+  /* REVIEW CARD */
+  .review-card{background:var(--black-2);border:1px solid rgba(255,255,255,0.06);padding:32px;position:relative;transition:border-color .3s,transform .3s;overflow:hidden}
+  .review-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+  .review-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-4px)}
+  .review-card:hover::before{transform:scaleX(1)}
+  .review-quote-mark{font-family:'Bebas Neue',sans-serif;font-size:72px;color:var(--gold);line-height:0.7;opacity:.2;margin-bottom:8px;user-select:none}
+  .review-text{font-size:15px;line-height:1.75;color:rgba(255,255,255,0.8);margin-bottom:24px;flex:1}
+  .review-text strong{color:var(--white);font-weight:700}
+  .review-footer{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.07)}
+  .review-avatar{width:52px;height:52px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);flex-shrink:0}
+  .review-avatar img{width:100%;height:100%;object-fit:cover}
+  .review-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:17px;letter-spacing:.5px;text-transform:uppercase}
+  .review-stars{display:flex;gap:3px;margin-top:4px}
+  .review-stars span{color:var(--gold);font-size:14px}
+  .review-card-inner{display:flex;flex-direction:column;height:100%}
+
+  /* CTA BOTTOM */
+  .reviews-cta{background:var(--gold);padding:80px 60px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:60px}
+  .reviews-cta-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,5vw,64px);line-height:1;color:var(--black);text-transform:uppercase}
+  .reviews-cta-sub{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:rgba(0,0,0,0.55);margin-bottom:10px}
+  .btn-dark{display:inline-flex;align-items:center;gap:12px;background:var(--black);color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;letter-spacing:3px;text-transform:uppercase;padding:20px 40px;text-decoration:none;border:none;cursor:pointer;white-space:nowrap;transition:background .2s,transform .15s;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
+  .btn-dark:hover{background:#1a1a1a;transform:translateY(-2px)}
+
+  /* MODAL */
+  .modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.85);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+  .modal-overlay.active{opacity:1;pointer-events:all}
+  .modal{background:var(--black-2);width:90%;max-width:520px;border:1px solid rgba(201,168,76,0.3);position:relative;transform:translateY(30px);transition:transform .3s}
+  .modal-overlay.active .modal{transform:translateY(0)}
+  .modal-top{background:var(--gold);padding:32px 40px;position:relative}
+  .modal-eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:rgba(0,0,0,0.6);margin-bottom:8px}
+  .modal-title{font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:1;color:var(--black);text-transform:uppercase}
+  .modal-body{padding:40px}
+  .modal-desc{font-size:15px;line-height:1.65;color:rgba(255,255,255,0.65);margin-bottom:28px}
+  .modal-form{display:flex;flex-direction:column;gap:14px}
+  .modal-form input{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:var(--white);font-family:'Barlow',sans-serif;font-size:15px;padding:14px 18px;outline:none;transition:border-color .2s}
+  .modal-form input::placeholder{color:rgba(255,255,255,0.3)}
+  .modal-form input:focus{border-color:var(--gold)}
+  .modal-submit{background:var(--gold);color:var(--black);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;letter-spacing:3px;text-transform:uppercase;padding:18px;border:none;cursor:pointer;margin-top:6px;transition:background .2s;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
+  .modal-submit:hover{background:var(--gold-light)}
+  .modal-close{position:absolute;top:16px;right:16px;background:rgba(0,0,0,.2);border:none;color:var(--black);width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .modal-success{display:none;text-align:center;padding:48px 40px}
+  .modal-success .check{font-size:56px;margin-bottom:16px}
+  .modal-success h3{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);margin-bottom:12px}
+  .modal-success p{color:rgba(255,255,255,.6);font-size:15px;line-height:1.6}
+
+  /* FOOTER */
+  footer{background:#050505;padding:48px 60px 28px;border-top:1px solid rgba(201,168,76,0.2)}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center}
+  .footer-copy{font-size:13px;color:rgba(255,255,255,0.25)}
+  .footer-copy span{color:var(--gold)}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  @media(max-width:900px){
+    nav{padding:0 20px} .nav-links{gap:16px}
+    .page-hero,.reviews-section,.filter-bar{padding-left:24px;padding-right:24px}
+    .reviews-grid{grid-template-columns:1fr}
+    .reviews-cta{grid-template-columns:1fr;padding:56px 24px;gap:28px}
+    footer{padding:40px 24px 24px}
+    .footer-bottom{flex-direction:column;gap:10px;text-align:center}
+  }
+  @media(min-width:901px) and (max-width:1200px){
+    .reviews-grid{grid-template-columns:repeat(2,1fr)}
+  }
+</style>
+</head>
+<body>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="bonusModal">
+  <div class="modal">
+    <div class="modal-top">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-eyebrow">Free Resource</div>
+      <div class="modal-title">Claim Your<br>Free Bonus<br>Content</div>
+    </div>
+    <div id="modalFormWrap" class="modal-body">
+      <p class="modal-desc">Get our exclusive <strong style="color:var(--white)">Disc & Neuropathy Practice Growth Toolkit</strong> — marketing scripts, patient presentation templates, and top case-acceptance strategies. 100% free.</p>
+      <form class="modal-form" onsubmit="submitModal(event)">
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <input type="text" placeholder="Practice Name">
+        <input type="text" placeholder="City, State">
+        <button type="submit" class="modal-submit">Send Me the Free Toolkit →</button>
+      </form>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div class="check">✦</div>
+      <h3>You're In!</h3>
+      <p>Check your inbox — your free toolkit is on its way!</p>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="speakers.html">Speakers</a></li>
+    <li><a href="testimonials.html" class="active">Testimonials</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <span class="nav-star">✦</span>
+  <div class="nav-right">
+    <button class="nav-bonus-btn" onclick="openModal()">Free Bonus Content</button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-eyebrow">What Doctors Say</div>
+  <h1 class="page-title">Real Results.<br><span>Real Doctors.</span></h1>
+  <p class="page-subtitle">Over 500 chiropractors have transformed their practices with The Chiro Event. Here's what they have to say.</p>
+  <div class="page-stars">
+    <span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span>
+    <span class="star-count">5.0</span>
+    <span class="star-label">· 31 Reviews</span>
+  </div>
+</section>
+
+<!-- REVIEWS GRID -->
+<section class="reviews-section">
+  <div class="reviews-grid" id="reviewsGrid">
+
+    <!-- Review 1 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">I'm Astounded. So much information. Highest quality materials, photos, videos, printed materials & MORE. The <strong>CHIRO EVENT</strong> made this happen. Everything is <strong>FIRST RATE!!</strong></p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-01.png" alt="Dr. Ron Bartay"></div>
+          <div><div class="review-name">Dr. Ron Bartay</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 2 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">This is about <strong>COMMUNICATION</strong>, which you Learn Here. This is the Mercedes Benz & <strong>The BENTLEY</strong> of Training. We went Home with <strong>SO MUCH.</strong> Dr. Kaplan & Dr. Bard are <strong>THE BEST</strong> in the INDUSTRY!!</p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-02.png" alt="Dr. David Cifra"></div>
+          <div><div class="review-name">Dr. David Cifra</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 3 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">I have multiple clinics & a strong P.I. practice. By bringing in a <strong>CASH MODEL</strong>, I would position myself for the future. I now own <strong>11 Spinal Decompression Tables</strong>. My Practices have <strong>GROWN</strong> beyond measure. <strong>Best Year EVER!!!</strong></p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-03.png" alt="Dr. Thomas Dow"></div>
+          <div><div class="review-name">Dr. Thomas Dow</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 4 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">I've learned <strong>SO MUCH</strong> in just the short time that I've attended. I've envisioned my future. <strong>BETTER</strong> processes, <strong>BETTER</strong> procedures. I would do this a <strong>MILLION times</strong> over!!!</p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-04.png" alt="Dr. Melissa Faulkenberry"></div>
+          <div><div class="review-name">Dr. Melissa Faulkenberry</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 5 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">There's so much information and these guys are <strong>GREAT!</strong> When they say "Under-promise & Over-deliver" that's EXACTLY what they do. The content is <strong>UN-Matched</strong> and I came from California. They're <strong>FANTASTIC!!!</strong></p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-05.png" alt="Dr. Tom Ferrigno"></div>
+          <div><div class="review-name">Dr. Tom Ferrigno</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 6 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">It has been filled with information that will help me and equip me to go back into my practice and help it <strong>EXPLODE, EXPAND & SCALE.</strong> All of the information that we have gotten here this whole day has been <strong>TRANSFORMATIVE.</strong></p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-06.png" alt="Dr. Cecil Forbes"></div>
+          <div><div class="review-name">Dr. Cecil Forbes</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 7 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">The Training Helps Me Treat Patients Much <strong>Better</strong> & to Run a <strong>Better</strong> Office with <strong>MORE Confidence.</strong> It's Fun and True Meat & Potatoes. It Gives Me Comfort to Know That I am <strong>GROWING!!!</strong></p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-07.png" alt="Dr. Calvin George"></div>
+          <div><div class="review-name">Dr. Calvin George</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 8 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">You two really are <strong>UNBELIEVABLE!</strong> We as a group are truly lucky to have met you both. If I didn't go to <strong>"THE CHIRO EVENT"</strong> to meet you both, I definitely would not be where I am today. Love You Both!!!</p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-08.png" alt="Dr. Roger Huang"></div>
+          <div><div class="review-name">Dr. Roger Huang</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 9 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">The <strong>CHIRO EVENT</strong> is AMAZING! I have received <strong>SO MUCH</strong> Marketing information and direction — providing all of the <strong>"How To's."</strong> I am <strong>SUPER EXCITED</strong> to be a part of this level of Training and Details.</p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-09.png" alt="Dr. Joseph Kirk"></div>
+          <div><div class="review-name">Dr. Joseph Kirk</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 10 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">I'm so thankful for this amazing seminar. The content is just <strong>Tremendous.</strong> It gives me more fuel. My mind is racing with things to do, and ways to become a <strong>Better Doctor</strong> to better serve my patients & to become the <strong>"Go-To"</strong> Doctor home.</p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-10.png" alt="Dr. Chris Lauria"></div>
+          <div><div class="review-name">Dr. Chris Lauria</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 11 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">I'm <strong>BLOWN AWAY.</strong> The Amount of <strong>DELIVERABLES</strong> is Amazing. This is a <strong>FAMILY</strong> and the <strong>FAMILY</strong> Environment is SPECIAL. I LOVE that they <strong>DO THE THINGS</strong> that they <strong>SHOW YOU.</strong> I simply LOVE IT!!!</p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-11.png" alt="Dr. Nick Leverette"></div>
+          <div><div class="review-name">Dr. Nick Leverette</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 12 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text"><strong>LOVE The CHIRO EVENT.</strong> I've Collected over $24k Monday, another $6800 tomorrow. This coming Monday $6,800 plus $6,300. Not bad for a week and a day — so <strong>total $43,900.00.</strong></p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-12.png" alt="Dr. Mark Losagio"></div>
+          <div><div class="review-name">Dr. Mark Losagio</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 13 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">If you are on the fence and wondering — I traveled six and a half hours on a plane. That's <strong>HOW IMPORTANT</strong> this seminar was to me and my office. Get on the plane, get your fanny here. You get <strong>SO MUCH</strong> information!!!</p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-13.png" alt="Dr. Scott Maystrovich"></div>
+          <div><div class="review-name">Dr. Scott Maystrovich</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 14 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">Thank You for helping me with my <strong>EXIT STRATEGY.</strong> I do not plan on retiring anytime soon as I am having <strong>TOO MUCH FUN</strong> helping <strong>DISC</strong> patients. From practicing in my house to the <strong>MOST Incredible office</strong>, ever!!!</p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-14.png" alt="Dr. Karen Shoemaker"></div>
+          <div><div class="review-name">Dr. Karen Shoemaker</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 15 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">I wanted to share with both of you that last year was my <strong>BEST year in 30 years</strong> and <strong>THE CHIRO EVENT</strong> made a tremendous impact. I also wanted to thank <strong>BOTH</strong> of you for what you have done for both my practice & my Brothers Practice. <strong>Best Decision Ever!!!</strong></p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-15.png" alt="Dr. Thomas Bianco"></div>
+          <div><div class="review-name">Dr. Thomas Bianco</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 16 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">I am forever grateful that I met Dr. Kaplan when I did. I was burnt out and could only focus on quitting. <strong>Thank you, Dr. Kaplan</strong>, for your honesty when I needed it and your ability to <strong>translate your successes</strong> into <strong>SO MANY</strong> others in our profession.</p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-16.png" alt="Dr. Charles Schuster"></div>
+          <div><div class="review-name">Dr. Charles Schuster</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 17 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">Thanks to Dr. Kaplan & Dr. Bard & <strong>THE CHIRO EVENT</strong> I have been able to finally create the <strong>DREAM Practice</strong> that I envisioned & Now I am the <strong>GO-TO Disc & Nerve SPECIALIST</strong> in my Market!!!</p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-17.png" alt="Dr. Susan Cunico"></div>
+          <div><div class="review-name">Dr. Susan Cunico</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 18 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">I've now LEARNED how to <strong>"STEP-BACK"</strong> from my Physical Hands-On Treatment and <strong>AUTO-PILOT</strong> my Practice to HELP More Cases. I have my <strong>ENERGY</strong> back. This has Changed <strong>MY LIFE</strong> & My Patients Lives....Forever!!!</p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-18.png" alt="Dr. David Ackerman"></div>
+          <div><div class="review-name">Dr. David Ackerman</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 19 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">My GOAL was to build a <strong>"State of the Art"</strong> Practice when I relocated to North Carolina. The <strong>Brand</strong>, the <strong>Materials</strong>, the <strong>Marketing</strong> & the <strong>TEAM</strong> Approach is the Reason I am so <strong>HAPPY.</strong></p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-19.png" alt="Dr. Jason Davis"></div>
+          <div><div class="review-name">Dr. Jason Davis</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 20 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">I've been to multiple <strong>CHIRO EVENTS.</strong> I always pick up at least ONE NEW technique/tool — whether it be a new mindset, communication, evaluation techniques, or marketing. <strong>I LOVE</strong> seeing all the <strong>SUCCESSFUL Doctors!!</strong></p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-20.png" alt="Dr. Troy Dreiling"></div>
+          <div><div class="review-name">Dr. Troy Dreiling</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 21 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">I met Dr. Kaplan & Dr. Bard & I LEARNED that I Can <strong>LEARN So Much MORE.</strong> Everything that I Received is AMAZING. This is <strong>SO DIFFERENT.</strong> It Gives Me the <strong>TOOLS</strong> to Help Patients Avoid Back Surgeries & sets you <strong>FINANCIALLY FREE!!</strong></p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-21.png" alt="Dr. Peter Ferraro"></div>
+          <div><div class="review-name">Dr. Peter Ferraro</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 22 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text"><strong>LOVE the training</strong>, the research, and the way that they help me to explain things to my patients and <strong>overcome objections.</strong> That's why I bring my staff with me — it's a <strong>WIN-WIN Situation!</strong></p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-22.png" alt="Dr. Mark Groff"></div>
+          <div><div class="review-name">Dr. Mark Groff</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 23 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text"><strong>THE CHIRO EVENT</strong> — Absolutely LOVE the training. Absolutely TOP NOTCH. LOVE the opportunity you gave Deion and myself to LEARN more & to <strong>EARN more!!</strong></p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-23.png" alt="Dr. Anissa Jones"></div>
+          <div><div class="review-name">Dr. Anissa Jones</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 24 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">Dr. Kaplan, Dr. Bard and the materials presented are <strong>SPECTACULAR.</strong> This is many levels above anything I've attended and learned before. Putting together plans based upon <strong>what each patient needs</strong> is the key.</p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-24.png" alt="Dr. Angelo Karakasis"></div>
+          <div><div class="review-name">Dr. Angelo Karakasis</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 25 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">We didn't initially plan on doing Non Surgical Spinal Decompression. I attended <strong>THE CHIRO EVENT</strong> & Now I have Two Machines and it's going really, really well. I'm getting <strong>RESULTS</strong> that I could not get any other way. Both my son & I Thank You!</p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-25.png" alt="Dr. Joseph Mascaro"></div>
+          <div><div class="review-name">Dr. Joseph Mascaro</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 26 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">They have <strong>EVERYTHING</strong> in place for us Doctors. It's turn-key. The presentations, the Protocols, the Marketing, and the support. It's really like having an <strong>"On-Call"</strong> Coach, 24/7. Simply Awesome. Do Not Miss <strong>THE CHIRO EVENT!!!</strong></p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-26.png" alt="Dr. Kurt Simons"></div>
+          <div><div class="review-name">Dr. Kurt Simons</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 27 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">Dr. Bard & Dr. Kaplan, they know what they are talking about. They do an <strong>EXCELLENT</strong> job. They give you a <strong>TON</strong> of information. I can't give <strong>HIGHER PRAISE</strong> for what they do. They have their heart & their souls into <strong>EVERYTHING</strong> they do.</p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-27.png" alt="Dr. Todd Tyminski"></div>
+          <div><div class="review-name">Dr. Todd Tyminski</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 28 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">My wife Discovered Dr. Kaplan & Dr. Bard. She saw the physical toll practice was having on me, Physically & Financially. I wanted to be a <strong>BETTER DOCTOR.</strong> I am so <strong>VERY HAPPY</strong>, (Wife too) that I found them.</p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-28.png" alt="Dr. Tomas Canseco"></div>
+          <div><div class="review-name">Dr. Tomas Canseco</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 29 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">I love the <strong>ENERGY</strong> with Dr. Kaplan & Dr. Bard, and it is great to meet some of the other docs around the country. We've <strong>LEARNED A LOT</strong> already today. A training like no other place in the country. <strong>We LOVE Decompression!!!</strong></p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-29.png" alt="Dr. Sheila White"></div>
+          <div><div class="review-name">Dr. Sheila White</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 30 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">There is Nothing Like <strong>THE CHIRO EVENT.</strong> The Content as well as the <strong>ENERGY</strong> that is shared by Dr. Kaplan & Dr. Bard guides you to be a <strong>BETTER</strong> Doctor, <strong>BETTER</strong> Husband, <strong>BETTER</strong> Father, <strong>BETTER</strong> Leader. I've now <strong>EXPANDED</strong> into 5000 Sq. Ft with the <strong>MOST</strong> Beautiful Practice!</p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-30.png" alt="Dr. Jeffrey Young"></div>
+          <div><div class="review-name">Dr. Jeffrey Young</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 31 -->
+    <div class="review-card reveal">
+      <div class="review-card-inner">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">An <strong>Extraordinary</strong> day as usual. You both blew me away with, first of all, the <strong>LOVE</strong> & support you have always shown me, but also the mountains of <strong>information</strong> & <strong>education</strong> that gives me all the <strong>tools I need to be a SUCCESS!!!</strong></p>
+        <div class="review-footer">
+          <div class="review-avatar"><img src="site_assets/testimonials/testimonial-avatar-31.png" alt="Dr. Michelle Zielecki"></div>
+          <div><div class="review-name">Dr. Michelle Zielecki</div><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="reviews-cta">
+  <div>
+    <div class="reviews-cta-sub">Join Them</div>
+    <div class="reviews-cta-title">Your Success Story<br>Starts Here</div>
+  </div>
+  <a href="events.html" class="btn-dark">View Upcoming Events →</a>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 <span>The Chiro Event</span>. All rights reserved.</div>
+    <div class="footer-copy"><a href="index.html" style="color:rgba(255,255,255,0.25);text-decoration:none">← Back to Home</a></div>
+  </div>
+</footer>
+
+<script>
+  function openModal(){document.getElementById('bonusModal').classList.add('active');document.body.style.overflow='hidden'}
+  function closeModal(){document.getElementById('bonusModal').classList.remove('active');document.body.style.overflow=''}
+  document.getElementById('bonusModal').addEventListener('click',function(e){if(e.target===this)closeModal()})
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()})
+  function submitModal(e){
+    e.preventDefault();
+    const form = e.target;
+    const inputs = form.querySelectorAll('input');
+    const data = new FormData();
+    data.append('entry.903233644',  inputs[0].value);
+    data.append('entry.1315110832', inputs[1].value);
+    data.append('entry.472339817',  inputs[2].value);
+    data.append('entry.724827533',  inputs[3].value);
+    data.append('entry.605481896',  inputs[4].value);
+    data.append('entry.1702631455', inputs[5].value);
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLSd6dXGrExv5uT6GLsNumBc76X6PXnyrJsJ5REImLNGxMSADZA/formResponse', { method: 'POST', mode: 'no-cors', body: data });
+    document.getElementById('modalFormWrap').style.display='none';
+    document.getElementById('modalSuccess').style.display='block';
+  }
+
+  // Staggered reveal
+  const obs = new IntersectionObserver(entries => entries.forEach(e => {
+    if(e.isIntersecting) e.target.classList.add('visible');
+  }), { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach((el,i) => {
+    el.style.transitionDelay = (i % 3) * 0.08 + 's';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>

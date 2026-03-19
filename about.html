@@ -3,17 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The Chiro Event is the #1 in-person practice growth training for chiropractors—decompression, neuropathy, nerve issues, team systems, marketing, and select CE credits. Backed by 250+ clinics across 45 states.">
-<link rel="canonical" href="https://chiroevent.com/">
-<meta property="og:title" content="The Chiro Event — Chiropractic CE, Certification & Practice Growth">
-<meta property="og:description" content="The #1 in-person practice growth training for chiropractors—decompression, neuropathy, nerve issues, team systems, marketing, and select CE credits.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://chiroevent.com/">
-<meta name="twitter:card" content="summary_large_image">
-
-<title>The Chiro Event | Practice Growth Seminars for Chiropractors (Decompression & Neuropathy)</title>
+<title>Chiropractic Practice Growth Seminars for Decompression & Neuropathy | The Chiro Event</title>
+<meta name="description" content="The Chiro Event is the #1 in-person chiropractic practice growth seminar for decompression, neuropathy, and nerve issues. Learn clinical systems, marketing, team conversion, and optional CE credits at select events.">
+<link rel="canonical" href="https://chiroevent.com/chiropractic-practice-growth-seminars">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
+
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
     --gold: #C9A84C; --gold-light: #E8C86A; --gold-dark: #A07830;
@@ -440,118 +435,111 @@
     .events-header { flex-direction: column; align-items: flex-start; }
   }
 
-  /* NEXT EVENT ANNOUNCEMENT */
-  .next-event-announcement {
-    width: 100%;
-    background: rgba(201,168,76,0.06);
-    border: 1px solid rgba(201,168,76,0.25);
-    border-left: 3px solid var(--gold);
-    padding: 16px 18px;
-    position: relative;
-    overflow: hidden;
-  }
-  .next-event-announcement::before {
-    content: '';
-    position: absolute;
-    top: -30px; right: -30px;
-    width: 80px; height: 80px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .nea-eyebrow {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700; font-size: 9px;
-    letter-spacing: 3px; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 8px;
-    display: flex; align-items: center; gap: 6px;
-  }
-  .nea-eyebrow::before {
-    content: ''; display: block;
-    width: 14px; height: 1px; background: var(--gold);
-  }
-  .nea-date {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px; line-height: 1; color: var(--white);
-    margin-bottom: 4px;
-  }
-  .nea-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900; font-size: 13px;
-    text-transform: uppercase; letter-spacing: 1px;
-    color: var(--gold); margin-bottom: 6px;
-    line-height: 1.2;
-  }
-  .nea-location {
-    font-size: 11px;
-    color: rgba(255,255,255,0.45);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700; letter-spacing: 1px;
-    text-transform: uppercase;
-    display: flex; align-items: center; gap: 5px;
-    margin-bottom: 12px;
-  }
-  .nea-location svg { color: var(--gold); flex-shrink: 0; }
-  .nea-cta {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900; font-size: 10px;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: var(--black); background: var(--gold);
-    padding: 7px 14px; text-decoration: none;
-    transition: background 0.2s;
-    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
-  }
-  .nea-cta:hover { background: var(--gold-light); }
-  @media (max-width: 900px) {
-    .next-event-announcement { display: none; }
+  /* PILLAR PAGE */
+  .pillar-hero{margin-top:76px;background:var(--black-2);padding:88px 60px 70px;position:relative;overflow:hidden;border-bottom:1px solid rgba(201,168,76,0.15)}
+  .pillar-hero::before{content:'';position:absolute;top:-120px;right:-120px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.10) 0%,transparent 65%);pointer-events:none}
+  .pillar-kicker{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+  .pillar-kicker::before{content:'';display:block;width:32px;height:2px;background:var(--gold)}
+  .pillar-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,6.6vw,92px);line-height:.93;text-transform:uppercase;margin-bottom:18px}
+  .pillar-title span{color:var(--gold)}
+  .pillar-sub{max-width:860px;font-size:18px;line-height:1.75;color:rgba(255,255,255,0.62)}
+  .toc{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px}
+  .toc a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.18);padding:10px 14px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:12px;transition:border-color .2s,color .2s}
+  .toc a:hover{border-color:var(--gold);color:var(--gold)}
+  .pillar{padding:88px 60px;background:var(--black)}
+  .pillar-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:60px;align-items:start}
+  .pillar h2{font-family:'Bebas Neue',sans-serif;font-size:46px;line-height:1.05;text-transform:uppercase;margin:48px 0 16px}
+  .pillar h2 span{color:var(--gold)}
+  .pillar h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:2px;margin:26px 0 10px;font-size:16px;color:rgba(255,255,255,0.92)}
+  .pillar p{font-size:16px;line-height:1.85;color:rgba(255,255,255,0.65);margin-bottom:16px}
+  .callout{background:var(--black-3);border:1px solid rgba(201,168,76,0.25);padding:22px 22px;margin:22px 0}
+  .callout strong{color:var(--white)}
+  .sidecard{position:sticky;top:96px;background:var(--black-2);border:1px solid rgba(255,255,255,0.10);padding:26px 24px}
+  .sidecard-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-size:12px;margin-bottom:14px}
+  .sidecard a{display:flex;justify-content:space-between;gap:10px;text-decoration:none;color:rgba(255,255,255,0.78);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px}
+  .sidecard a:last-child{border-bottom:none}
+  .sidecard a:hover{color:var(--gold)}
+  .faq{margin-top:18px}
+  .faq-item{border-top:1px solid rgba(255,255,255,0.08);padding:18px 0}
+  .faq-q{display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer}
+  .faq-q span{font-family:'Barlow Condensed',sans-serif;font-weight:900;letter-spacing:1px;text-transform:uppercase}
+  .faq-a{display:none;padding-top:12px}
+  .faq-a.open{display:block}
+  @media(max-width:900px){
+    .pillar-hero{padding:64px 24px 56px}
+    .pillar{padding:56px 24px}
+    .pillar-grid{grid-template-columns:1fr;gap:36px}
+    .sidecard{position:relative;top:auto}
+    .pillar h2{font-size:38px;margin-top:38px}
   }
 
-  /* HERO SLIDESHOW */
-  .hero-slides { position: absolute; inset: 0; }
-  .hero-slide {
-    position: absolute; inset: 0;
-    background-size: cover;
-    background-position: center center;
-    opacity: 0;
-    z-index: 1;
-    transition: opacity 0.8s ease;
-  }
-  .hero-slide.active {
-    opacity: 1;
-    z-index: 2;
-  }
-
-  .hero-slide-dots {
-    position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
-    display: flex; gap: 8px; z-index: 3;
-  }
-  .hero-dot {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: rgba(255,255,255,0.35); cursor: pointer;
-    transition: background 0.3s, transform 0.3s; border: none;
-  }
-  .hero-dot.active { background: var(--gold); transform: scale(1.3); }
 </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "The Chiro Event",
-  "url": "https://chiroevent.com/",
-  "description": "Chiropractic continuing education (CE) seminars, spinal decompression & neuropathy certification, and practice growth systems for chiropractors.",
-  "areaServed": "US",
-  "founders": [
-    { "@type": "Person", "name": "Dr. Eric S. Kaplan" },
-    { "@type": "Person", "name": "Dr. Perry M. Bard" }
+  "@type": "WebPage",
+  "name": "Chiropractic Practice Growth Seminars for Chiropractors | Decompression & Neuropathy | The Chiro Event",
+  "url": "https://chiroevent.com/chiropractic-practice-growth-seminars",
+  "description": "A complete guide to chiropractic practice growth seminars for decompression and neuropathy profit centers: clinical frameworks, marketing and case acceptance systems, implementation, and optional CE credits at select events.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "The Chiro Event",
+    "url": "https://chiroevent.com/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is The Chiro Event?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Chiro Event is an in-person chiropractic practice growth seminar focused on building decompression and neuropathy profit centers with implementation-ready systems for marketing, consults, team communication, and retention."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is spinal decompression training worth it for practice growth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When decompression fits your market, the ROI comes from standardizing case selection, expectations, documentation, and a repeatable consult process\u2014so your team can convert and deliver consistently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does a neuropathy program increase collections?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A neuropathy program grows when it\u2019s built as a complete pathway: screening and case criteria, patient education, a clear care plan and follow-up cadence, and team workflows that support implementation and retention."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer chiropractic CE credits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CE credits are available at select events. Check the Events page for the most current CE hours, eligibility, and registration details for each location."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where should I start?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with an upcoming live event, then implement for 30\u201390 days using the systems you install. If you want a fast on-ramp, grab the free Disc & Neuropathy Practice Growth Toolkit."
+      }
+    }
   ]
 }
 </script>
-
 </head>
 <body>
 
-<!-- BONUS MODAL -->
+<!-- BONUS MODAL (reuse from homepage) -->
 <div class="modal-overlay" id="bonusModal">
   <div class="modal">
     <div class="modal-top">
@@ -560,7 +548,7 @@
       <div class="modal-title">Claim Your<br>Free Bonus<br>Content</div>
     </div>
     <div id="modalFormWrap" class="modal-body">
-      <p class="modal-desc">Get our exclusive <strong style="color:var(--white)">Disc & Neuropathy Practice Growth Toolkit</strong> — includes marketing scripts, patient presentation templates, and our top case-acceptance strategies. 100% free.</p>
+      <p class="modal-desc">Get our exclusive <strong style="color:var(--white)">Disc & Neuropathy Practice Growth Toolkit</strong> — marketing scripts, patient presentation templates, and case-acceptance strategies. 100% free.</p>
       <form class="modal-form" onsubmit="submitModal(event)">
         <input type="text" placeholder="First Name" required>
         <input type="text" placeholder="Last Name" required>
@@ -574,7 +562,7 @@
     <div class="modal-success" id="modalSuccess">
       <div class="check">✦</div>
       <h3>You're In!</h3>
-      <p>Check your inbox — your free Disc & Neuropathy Practice Growth Toolkit is on its way. We'll be in touch shortly.</p>
+      <p>Check your inbox — your free toolkit is on its way!</p>
     </div>
   </div>
 </div>
@@ -582,11 +570,11 @@
 <!-- NAV -->
 <nav>
   <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="events.html">Events</a></li>
     <li><a href="speakers.html">Speakers</a></li>
     <li><a href="testimonials.html">Testimonials</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
   </ul>
   <span class="nav-star">✦</span>
   <div class="nav-right">
@@ -599,350 +587,243 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-left">
-    <div class="hero-left-top">
-      <span class="small-star star-tl">✦</span>
-      <!-- Professional spine/chiropractic icon -->
-      <div class="brand-icon-wrap">
-        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Stylized spine vertebrae -->
-          <rect x="13" y="2" width="10" height="6" rx="1.5" fill="#0A0A0A"/>
-          <rect x="11" y="5" width="14" height="2" rx="1" fill="#0A0A0A" opacity="0.5"/>
-          <rect x="13" y="10" width="10" height="6" rx="1.5" fill="#0A0A0A"/>
-          <rect x="11" y="13" width="14" height="2" rx="1" fill="#0A0A0A" opacity="0.5"/>
-          <rect x="13" y="18" width="10" height="6" rx="1.5" fill="#0A0A0A"/>
-          <rect x="11" y="21" width="14" height="2" rx="1" fill="#0A0A0A" opacity="0.5"/>
-          <rect x="13" y="26" width="10" height="6" rx="1.5" fill="#0A0A0A"/>
-          <line x1="18" y1="2" x2="18" y2="32" stroke="#0A0A0A" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.3"/>
-        </svg>
+<section class="pillar-hero" id="top">
+  <div class="pillar-kicker">Practice Growth Seminars · Decompression · Neuropathy</div>
+  <h1 class="pillar-title">Chiropractic <span>Practice Growth</span> Seminars<br>for Decompression & Neuropathy</h1>
+  <p class="pillar-sub">This page is built to help you find the highest-ROI training in chiropractic — not just “credits,” but <strong style="color:var(--white)">systems that grow collections</strong>, improve case acceptance, and turn decompression & neuropathy into a true profit center. Our flagship experience is <strong style="color:var(--white)">The Chiro Event</strong>: an in-person practice growth seminar covering decompression, neuropathy, nerve issues, team communication, and implementation. <strong style="color:var(--white)">CE credits are available at select events</strong>.<br><br>Learn more at <a href="https://thechiroevent.com" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:700">TheChiroEvent.com</a> and <a href="https://vegaschiroevent.com" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:700">VegasChiroEvent.com</a>.</p>
+
+  <div class="toc">
+    <a href="#the-chiro-event">The Chiro Event</a>
+    <a href="#decompression">Decompression Profit Center</a>
+    <a href="#neuropathy">Neuropathy Profit Center</a>
+    <a href="#implementation">Implementation Systems</a>
+    <a href="#ce-optional">CE (Optional)</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</section>
+
+<section class="pillar">
+  <div class="pillar-grid">
+    <article>
+
+      
+      <h2 id="the-chiro-event">What is <span>The Chiro Event</span>?</h2>
+      <p>
+        The Chiro Event is our flagship <strong style="color:var(--white)">in-person practice growth seminar</strong> for chiropractors building (or upgrading)
+        decompression and neuropathy profit centers. It’s not a “lecture weekend” — it’s an implementation-driven event designed to install the systems that
+        create growth: lead flow, consult structure, case acceptance, team communication, patient experience, and retention.
+      </p>
+
+      <div class="callout">
+        <strong>Built for doctors who want to lead their market.</strong>
+        <p style="margin:10px 0 0;color:rgba(255,255,255,0.65)">
+          Backed by the largest decompression clinic network in the U.S. — <strong>250+ clinics</strong> across <strong>45 states</strong> — with frameworks proven at scale.
+        </p>
       </div>
-      <div>
-        <div class="brand-text-wrap">
-          <div class="brand-name">The Chiro<br><span>Event</span></div>
-          <div class="brand-sub">Chiropractic Growth Experts</div>
+
+      <h3>Why in-person matters</h3>
+      <p>
+        Online training can give you ideas. In-person training changes behavior — yours and your team’s. The fastest way to grow a specialty service isn’t
+        “more information.” It’s <strong style="color:var(--white)">clear standards + a repeatable workflow + a team that executes</strong>.
+      </p>
+
+      <h3>What you’ll actually leave with</h3>
+      <p>
+        Expect clinical decision frameworks, patient communication scripts, consult and report-of-findings structure, implementation checklists, and the operational
+        cadence that turns decompression and neuropathy into predictable revenue.
+      </p>
+
+      <p>
+        Learn more at
+        <a href="https://thechiroevent.com" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:700">TheChiroEvent.com</a>
+        and
+        <a href="https://vegaschiroevent.com" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:700">VegasChiroEvent.com</a>.
+      </p>
+
+      <h2 id="decompression">Spinal decompression <span>training that grows a profit center</span></h2>
+Spinal decompression <span>certification for chiropractors</span></h2>
+      <p>
+        Spinal decompression is one of the most searched and most misunderstood services in chiropractic. Certification matters because it helps you standardize:
+        which cases to accept, how to communicate expectations, how to document properly, and how to deliver consistent outcomes.
+      </p>
+      <p>
+        The Chiro Event is behind the National Spinal Decompression Certification and supports the largest decompression clinic network in the country
+        (<strong style="color:var(--white)">250+ clinics across 45 states</strong>). That scale creates a feedback loop: better protocols, clearer standards, and
+        training that reflects what is actually working in the market.
+      </p>
+
+      <div class="callout">
+        <strong>What “real” decompression training includes:</strong>
+        <p style="margin:10px 0 0;color:rgba(255,255,255,0.65)">
+          Clinical criteria · documentation & compliance · patient education frameworks · case acceptance systems · and an implementation plan your staff can run.
+        </p>
+      </div>
+
+      <h2 id="neuropathy">Neuropathy–decompression <span>training & certification</span></h2>
+      <p>
+        Neuropathy programs can transform a practice when they are built as a complete system — not a single protocol. The fastest-growing neuropathy practices
+        combine a consistent clinical pathway with strong patient communication and a clear operational rhythm.
+      </p>
+      <p>
+        Our neuropathy–decompression training is designed for chiropractors who want to build a durable “profit center” while improving outcomes and retention.
+        The goal is simple: a program that runs predictably, trains your team, and creates momentum.
+      </p>
+
+      
+      <h2 id="implementation">The implementation <span>systems that create growth</span></h2>
+      <p>
+        Most chiropractors don’t need more information — they need an operating system. The Chiro Event is built around implementation:
+        how you generate qualified leads, how you run a consult, how you present care, how you train your team, and how you keep patients engaged long enough
+        to get outcomes (and referrals).
+      </p>
+
+      <h3>Marketing that matches your specialty</h3>
+      <p>
+        Decompression and neuropathy succeed when your message is specific and your process is consistent. We focus on patient education, offer structure, and
+        ethical positioning that attracts the right cases — not bargain hunters.
+      </p>
+
+      <h3>Case acceptance & team conversion</h3>
+      <p>
+        Your growth ceiling is usually communication, not technique. You’ll leave with scripts, visual explanations, and a report-of-findings framework your
+        team can execute — so care plans make sense and patients say yes.
+      </p>
+
+      <h3>90-day execution cadence</h3>
+      <p>
+        Growth compounds when you install systems, run them for 30–90 days, then return for the next layer. That’s how real clinics scale — stepwise, with
+        standards and accountability.
+      </p>
+
+      <div class="callout">
+        <strong>Proof at scale.</strong>
+        <p style="margin:10px 0 0;color:rgba(255,255,255,0.65)">
+          Dr. Perry Bard averaged <strong>20 new patients per day</strong> for four consecutive years in a single practice. Between Dr. Bard and Dr. Eric Kaplan,
+          <strong>11+ multi-million dollar practices</strong> have been built and systemized.
+        </p>
+        <p style="margin:12px 0 0">
+          <a href="events.html" class="btn-secondary" style="display:inline-flex">View Upcoming Events →</a>
+        </p>
+      </div>
+
+		<h2>Advanced Certification & <span>Elite Continuing Education</span></h2>
+		<p>
+			Dr. Kaplan and Dr. Bard are also behind the National Decompression Certification and the Neuropathy & Decompression Certification — advanced clinical programs built for chiropractors who want to operate at a higher level.
+		</p>
+		<p>
+			These certifications are not standard CE hours. They are structured, authority-building programs designed to elevate your clinical credibility, improve documentation, and position you as the decompression and neuropathy specialist in your market.
+		</p>
+		<p>
+			For doctors who require continuing education credits, approved CE hours are available at select events where applicable. But more importantly, the training provides the systems, positioning, and implementation strategy that create long-term practice growth.
+		</p>
+		<p>
+			Many of the most successful doctors in our community go on to build specialized decompression and neuropathy programs within their practices — and some expand into larger collaborative clinic networks over time.
+		</p>
+
+      <div class="callout">
+        <strong>Quick CE checklist:</strong>
+        <p style="margin:10px 0 0;color:rgba(255,255,255,0.65)">
+          Check your state renewal cycle · confirm approved hours · verify documentation requirements · register for the correct event/location.
+        </p>
+      </div>
+
+      <h2 id="faq">Frequently asked <span>questions</span></h2>
+Frequently asked <span>questions</span></h2>
+      
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What is The Chiro Event?</span><span style="color:var(--gold)">+</span></div>
+          <div class="faq-a"><p>The Chiro Event is an in-person chiropractic practice growth seminar focused on building decompression and neuropathy profit centers with implementation-ready systems for marketing, consults, team communication, and retention.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Is decompression training worth it?</span><span style="color:var(--gold)">+</span></div>
+          <div class="faq-a"><p>When decompression fits your market, the ROI comes from standardizing case selection, expectations, documentation, and a repeatable consult process—so your team can convert and deliver consistently.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>How does a neuropathy program increase collections?</span><span style="color:var(--gold)">+</span></div>
+          <div class="faq-a"><p>A neuropathy program grows when it’s built as a complete pathway: screening and case criteria, patient education, a clear care plan and follow-up cadence, and team workflows that support implementation and retention.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Do your events offer CE credits?</span><span style="color:var(--gold)">+</span></div>
+          <div class="faq-a"><p>CE credits are available at select events. Check the Events page for the most current CE hours, eligibility, and registration details for each location.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Where should I start?</span><span style="color:var(--gold)">+</span></div>
+          <div class="faq-a"><p>Start with an upcoming live event, then implement for 30–90 days using the systems you install. If you want a fast on-ramp, grab the free Disc &amp; Neuropathy Practice Growth Toolkit.</p></div>
         </div>
       </div>
-    </div>
-    <div class="hero-divider"></div>
-        <div class="next-event-announcement">
-      <div class="nea-eyebrow">Next Event</div>
-      <div class="nea-date">April 18, 2026</div>
-      <div class="nea-name">The Chiro Event<br>Jupiter, Florida</div>
-      <div class="nea-location">
-        <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Trump National · Jupiter, FL
-      </div>
-      <a href="events.html" class="nea-cta">View Details →</a>
-    </div>
-    
-    <div class="hero-divider"></div>
-    <div>
-      <a href="events.html" class="read-more-btn">
-        Learn More
-        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </div>
 
-  <div class="hero-image" id="heroSlider">
-    <div class="hero-slides">
-      <div class="hero-slide active" style="background-image:url('site_assets/hero-slide-1.jpg')"></div>
-      <div class="hero-slide" style="background-image:url('site_assets/hero-slide-2.jpg')"></div>
-      <div class="hero-slide" style="background-image:url('site_assets/hero-slide-3.jpg');background-position:center 30%"></div>
-      <div class="hero-slide" style="background-image:url('site_assets/hero-slide-4.jpg')"></div>
-    </div>
-    <div class="hero-slide-dots">
-      <span class="hero-dot active" onclick="goToSlide(0)"></span>
-      <span class="hero-dot" onclick="goToSlide(1)"></span>
-      <span class="hero-dot" onclick="goToSlide(2)"></span>
-      <span class="hero-dot" onclick="goToSlide(3)"></span>
-    </div>
-    <div class="hero-image-overlay"></div>
-  </div>
 
-  <div class="hero-social">
-    <a class="social-icon" href="https://www.facebook.com/thechiroeventofficial" target="_blank" rel="noopener" aria-label="Facebook">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-    </a>
-    <a class="social-icon" href="https://www.instagram.com/thechiroevent/" target="_blank" rel="noopener" aria-label="Instagram">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
-    </a>
-    <a class="social-icon" href="tel:888-990-9660" aria-label="Phone">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12a19.79 19.79 0 0 1-3-8.57A2 2 0 0 1 3.11 1.4h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
-    </a>
-    <span style="color:var(--gold);font-size:16px">✦</span>
-  </div>
-</section>
+    </article>
 
-<!-- HEADLINE -->
-<section class="hero-headline reveal">
-  <div class="headline-eyebrow">Practice Growth Seminars • Decompression • Neuropathy</div>
-  <h1 class="big-headline">The National Authority in<br><span class="gold">Disc & Neuropathy</span><br>Certification & Practice Growth</h1>
-  <p class="headline-body">The Chiro Event is our flagship, in-person practice growth training — built for chiropractors who want the highest-converting decompression and neuropathy systems in the world. Attend for the clinical mastery, the marketing, and the team-driven implementation. Continuing education (CE) credits are available at select events. <br><br>Learn more at <a href="https://thechiroevent.com" style="color:var(--gold);text-decoration:none;font-weight:700" target="_blank" rel="noopener">TheChiroEvent.com</a> and <a href="https://vegaschiroevent.com" style="color:var(--gold);text-decoration:none;font-weight:700" target="_blank" rel="noopener">VegasChiroEvent.com</a>.<br><br>Backed by the largest decompression clinic network in the country: <strong style="color:var(--white)">250+ clinics across 45 states</strong>.</p>
-  <div class="cta-row">
-    <a href="events.html" class="btn-primary">View Upcoming Events →</a>
-    <button class="btn-secondary" onclick="openModal()">Get Free Bonus Content</button>
-  </div>
-</section>
+    <aside class="sidecard">
+      <div class="sidecard-title">Quick links</div>
+      <a href="events.html"><span>Upcoming Events</span><span>→</span></a>
+      <a href="speakers.html"><span>Meet the Speakers</span><span>→</span></a>
+      <a href="testimonials.html"><span>Read Reviews</span><span>→</span></a>
+      <a href="index.html#contact"><span>Contact</span><span>→</span></a>
 
-<!-- SERVICES STRIP -->
-<div class="services-strip">
-  <div class="strip-item"><span class="strip-dot"></span>Chiropractic CE Seminars</div>
-  <div class="strip-item"><span class="strip-dot"></span>Spinal Decompression Certification</div>
-  <div class="strip-item"><span class="strip-dot"></span>Neuropathy–Decompression Training</div>
-  <div class="strip-item"><span class="strip-dot"></span>Practice Growth Systems</div>
-  <div class="strip-item"><span class="strip-dot"></span>Case Acceptance &amp; Patient Experience</div>
-  <div class="strip-item"><span class="strip-dot"></span>Multi-Million Dollar Clinics</div>
-</div>
-
-<!-- FEATURES -->
-<section class="features" id="programs">
-  <div class="reveal">
-    <div class="section-label">What We Offer</div>
-    <h2 class="section-title">Programs Built for <span>Market Leaders</span></h2>
-  </div>
-  <div class="features-grid stagger">
-    <div class="feature-card">
-      <div class="feature-number">01</div>
-      <div class="feature-icon">🏛️</div>
-      <div class="feature-title">National Decompression Certification</div>
-      <p class="feature-body">Become the recognized decompression authority in your area with proven clinical protocols, documentation standards, and marketing systems designed for chiropractors who want premium cases and premium outcomes.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-number">02</div>
-      <div class="feature-icon">⚡</div>
-      <div class="feature-title">Neuropathy–Decompression Certification</div>
-      <p class="feature-body">Build a real neuropathy profit center with case selection, patient communication, and scalable operations — taught by the team behind the leading decompression clinic network in the U.S.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-number">03</div>
-      <div class="feature-icon">📈</div>
-      <div class="feature-title">Practice Acceleration Systems</div>
-      <p class="feature-body">Stop guessing. Learn repeatable systems for patient acquisition, case acceptance, and growth. Dr. Bard averaged <strong style="color:var(--white)">20 new patients/day</strong> for four years straight — and we teach the infrastructure that made it possible.</p>
-    </div>
-</div>
-</section>
-
-<!-- STATS -->
-<section class="stats stagger">
-  <div class="stat-item"><span class="stat-num">250+</span><span class="stat-label">Decompression Clinics</span></div>
-  <div class="stat-item"><span class="stat-num">45</span><span class="stat-label">States Represented</span></div>
-  <div class="stat-item"><span class="stat-num">11+</span><span class="stat-label">Multi-Million Practices Built</span></div>
-  <div class="stat-item"><span class="stat-num">20</span><span class="stat-label">New Patients/Day (4 Years)</span></div>
-</section>
-
-<!-- EVENTS PREVIEW -->
-<section class="events" id="events">
-  <div class="events-header reveal">
-    <div>
-      <div class="section-label">Live Events</div>
-      <h2 class="section-title" style="margin-bottom:0">Upcoming <span>Seminars</span></h2>
-    </div>
-    <a href="events.html" class="btn-secondary">View All Events →</a>
-  </div>
-  <div class="events-grid stagger">
-    <div class="event-card" style="opacity:0.55;cursor:default">
-      <div class="event-date-block" style="background:#555"><div class="event-month">Feb</div><div class="event-day">28</div></div>
-      <div class="event-info">
-        <div class="event-tag" style="color:#e85c5c">SOLD OUT · Passed</div>
-        <div class="event-name">Neuropathy–Decompression Certificate Class</div>
-        <div class="event-location"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Life University · Marietta, GA</div>
-      </div>
-    </div>
-    <a href="events.html" class="event-card">
-      <div class="event-date-block"><div class="event-month">Mar</div><div class="event-day">21</div></div>
-      <div class="event-info">
-        <div class="event-tag">Practice Growth · Live Training</div>
-        <div class="event-name">The Las Vegas Chiro Event</div>
-        <div class="event-location"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>5-Star Hotel · Las Vegas, NV</div>
-      </div>
-      <span class="event-arrow">→</span>
-    </a>
-    <a href="events.html" class="event-card">
-      <div class="event-date-block"><div class="event-month">Apr</div><div class="event-day">18</div></div>
-      <div class="event-info">
-        <div class="event-tag">Practice Growth · Cash Practice</div>
-        <div class="event-name">The Chiro Event — Jupiter, FL</div>
-        <div class="event-location"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Trump National · Jupiter, FL</div>
-      </div>
-      <span class="event-arrow">→</span>
-    </a>
-</div>
-</section>
-
-<!-- TESTIMONIAL PREVIEW -->
-<section class="testimonial-section">
-  <div class="reveal">
-    <div class="quote-mark">"</div>
-    <p class="quote-text">Last year was my best year in 30 years and The Chiro Event made a tremendous impact. Best Decision Ever!</p>
-    <div class="quote-author">
-      <div class="quote-avatar"><img src="site_assets/quote-avatar.png" alt="Dr. Thomas Bianco"></div>
-      <div>
-        <div class="quote-name">Dr. Thomas Bianco</div>
-        <div class="quote-role">5-Star Review</div>
-      </div>
-    </div>
-    <a href="testimonials.html" class="view-all-link">Read All 31 Reviews →</a>
-  </div>
-  <div class="reveal">
-    <div class="testimonial-visual">
-      <div class="t-stat"><span class="t-stat-num">$5K+</span><span class="t-stat-label">Average Patient Value</span></div>
-      <div class="t-stat"><span class="t-stat-num">75+</span><span class="t-stat-label">Combined Years as Chiropractors</span></div>
-      <div class="t-stat"><span class="t-stat-num">100%</span><span class="t-stat-label">Satisfaction Guaranteed</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- VIDEO SECTION -->
-<section class="video-section" id="video">
-  <div class="reveal">
-    <div class="section-label">See It In Action</div>
-    <h2 class="section-title">Watch What <span>Doctors Say</span></h2>
-  </div>
-  <div class="video-wrap reveal">
-    <iframe
-      style="position:absolute;inset:0;width:100%;height:100%;border:none;"
-      src="https://www.youtube.com/embed/Nbf2UyvFB_c?rel=0&modestbranding=1&color=white"
-      title="The Chiro Event"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
+      <div style="height:18px"></div>
+      <div class="sidecard-title">Next best step</div>
+      <p style="margin:0 0 14px;font-size:14px;line-height:1.7;color:rgba(255,255,255,0.6)">
+        Claim the Disc & Neuropathy Practice Growth Toolkit — scripts, patient education, and implementation checklists.
+      </p>
+      <button class="nav-bonus-btn" style="width:100%" onclick="openModal()">Get the Free Toolkit →</button>
+    </aside>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section">
   <div>
-    <div class="cta-eyebrow">Limited Seats Available</div>
-    <h2 class="cta-title">Ready to Dominate<br>Your Market?</h2>
+    <div class="cta-eyebrow">Build the Authority</div>
+    <h2 class="cta-title">Stop Competing.<br>Start Leading.</h2>
   </div>
-  <a href="events.html" class="btn-dark">Register Now →</a>
+  <a href="events.html" class="btn-dark">See Upcoming Events →</a>
 </section>
 
-<!-- CONTACT / FOOTER -->
-<footer id="contact">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logo">
-        <div class="footer-logo-icon">
-          <svg viewBox="0 0 36 36" fill="none"><rect x="13" y="2" width="10" height="6" rx="1.5" fill="#0A0A0A"/><rect x="13" y="10" width="10" height="6" rx="1.5" fill="#0A0A0A"/><rect x="13" y="18" width="10" height="6" rx="1.5" fill="#0A0A0A"/><rect x="13" y="26" width="10" height="6" rx="1.5" fill="#0A0A0A"/></svg>
-        </div>
-        <div class="footer-logo-text">The Chiro<br><span>Event</span></div>
-      </div>
-      <p class="footer-desc">Helping chiropractors become the go-to disc & neuropathy doctor in their market through world-class education, coaching, and business systems.</p>
-      <div class="footer-socials">
-        <a class="footer-social-btn" href="https://www.facebook.com/thechiroeventofficial" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a class="footer-social-btn" href="https://www.instagram.com/thechiroevent/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a>
-        <a class="footer-social-btn" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47a2.78 2.78 0 0 0-1.95 1.95A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.5C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg></a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title">Programs</div>
-      <ul class="footer-links">
-        <li><a href="about.html">Practice Growth Seminars</a></li>
-        <!-- hidden: Disc Mastery -->
-        <!-- hidden: Neuropathy Training -->
-        <!-- hidden: Practice Consulting -->
-        <!-- hidden: CE Seminars -->
-        <!-- hidden: Online Courses -->
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Company</div>
-      <ul class="footer-links">
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="speakers.html">Our Speakers</a></li>
-        <li><a href="testimonials.html">Testimonials</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Contact</div>
-      <ul class="footer-links">
-        <li><a href="mailto:hello@chiroevent.com">hello@chiroevent.com</a></li>
-        <li><a href="tel:888-990-9660">888-990-9660</a></li>
-        <li><a href="#" onclick="openModal();return false;">Get Free Bonus Content</a></li>
-        <li><a href="events.html">Register for an Event</a></li>
-      </ul>
-    </div>
-  </div>
+<!-- FOOTER (simplified, same style) -->
+<footer>
   <div class="footer-bottom">
     <div class="footer-copy">© 2026 <span>The Chiro Event</span>. All rights reserved.</div>
-    <div class="footer-copy"><a href="privacy-policy.html" style="color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Privacy Policy</a></div>
+    <div class="footer-copy"><a href="#top" style="color:rgba(255,255,255,0.25);text-decoration:none">Back to Top ↑</a></div>
   </div>
 </footer>
 
 <script>
-  // Modal
-  function openModal() { document.getElementById('bonusModal').classList.add('active'); document.body.style.overflow='hidden'; }
-  function closeModal() { document.getElementById('bonusModal').classList.remove('active'); document.body.style.overflow=''; }
-  document.getElementById('bonusModal').addEventListener('click', function(e){ if(e.target===this) closeModal(); });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
-function submitModal(e) {
+  function openModal(){document.getElementById('bonusModal').classList.add('active');document.body.style.overflow='hidden'}
+  function closeModal(){document.getElementById('bonusModal').classList.remove('active');document.body.style.overflow=''}
+  document.getElementById('bonusModal').addEventListener('click',function(e){if(e.target===this)closeModal()})
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()})
+  function submitModal(e){
     e.preventDefault();
     const form = e.target;
     const inputs = form.querySelectorAll('input');
     const data = new FormData();
-    data.append('entry.903233644',  inputs[0].value); // First Name
-    data.append('entry.1315110832', inputs[1].value); // Last Name
-    data.append('entry.472339817',  inputs[2].value); // Email
-    data.append('entry.724827533',  inputs[3].value); // Phone
-    data.append('entry.605481896',  inputs[4].value); // Practice Name
-    data.append('entry.1702631455', inputs[5].value); // City, State
+    data.append('entry.903233644',  inputs[0].value);
+    data.append('entry.1315110832', inputs[1].value);
+    data.append('entry.472339817',  inputs[2].value);
+    data.append('entry.724827533',  inputs[3].value);
+    data.append('entry.605481896',  inputs[4].value);
+    data.append('entry.1702631455', inputs[5].value);
     fetch('https://docs.google.com/forms/d/e/1FAIpQLSd6dXGrExv5uT6GLsNumBc76X6PXnyrJsJ5REImLNGxMSADZA/formResponse', { method: 'POST', mode: 'no-cors', body: data });
     document.getElementById('modalFormWrap').style.display='none';
     document.getElementById('modalSuccess').style.display='block';
   }
 
-  // Scroll reveal
+  // Simple FAQ toggles (accessible enough for now)
+  function toggleFaq(el){
+    const ans = el.parentElement.querySelector('.faq-a');
+    const icon = el.querySelector('span:last-child');
+    const isOpen = ans.classList.contains('open');
+    document.querySelectorAll('.faq-a').forEach(a=>a.classList.remove('open'));
+    document.querySelectorAll('.faq-q span:last-child').forEach(i=>i.textContent = '+');
+    if(!isOpen){ ans.classList.add('open'); icon.textContent='–'; }
+  }
+
+  // Reveal animations
   const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.12 });
   document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
-
-  // Hero slideshow
-  (function() {
-    const slider = document.getElementById('heroSlider');
-    const slides = slider.querySelectorAll('.hero-slide');
-    const dots = slider.querySelectorAll('.hero-dot');
-    let current = 0;
-    window.goToSlide = function(n) {
-      slides[current].classList.remove('active');
-      dots[current].classList.remove('active');
-      current = n;
-      slides[current].classList.add('active');
-      dots[current].classList.add('active');
-    };
-    setInterval(function() {
-      goToSlide((current + 1) % slides.length);
-    }, 4000);
-  })();
-
-  // Stat count-up
-  function animateCount(el, target, suffix='') {
-    let start=0; const duration=1600;
-    const step = ts => {
-      if(!start) start=ts;
-      const p = Math.min((ts-start)/duration,1);
-      const ease = 1 - Math.pow(1-p,3);
-      el.textContent = Math.floor(ease*parseFloat(target))+suffix;
-      if(p<1) requestAnimationFrame(step);
-      else el.textContent = target+suffix;
-    };
-    requestAnimationFrame(step);
-  }
-  const statsObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(e.isIntersecting) {
-        e.target.querySelectorAll('.stat-num,.t-stat-num').forEach(n => {
-          const m = n.textContent.match(/^(\d+)(.*)$/);
-          if(m) animateCount(n, m[1], m[2]);
-        });
-        statsObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  document.querySelectorAll('.stats,.testimonial-visual').forEach(el => statsObs.observe(el));
 </script>
 </body>
 </html>

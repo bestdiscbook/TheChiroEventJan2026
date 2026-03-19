@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speakers – The Chiro Event</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{--gold:#C9A84C;--gold-light:#E8C86A;--gold-dark:#A07830;--black:#0A0A0A;--black-2:#111111;--black-3:#181818;--white:#FFFFFF}
+  html{scroll-behavior:smooth}
+  body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;overflow-x:hidden}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:76px;background:rgba(10,10,10,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.2)}
+  .nav-links{display:flex;gap:40px;list-style:none}
+  .nav-links a{text-decoration:none;color:var(--white);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:2px;text-transform:uppercase;transition:color .2s;position:relative}
+  .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+  .nav-links a:hover,.nav-links a.active{color:var(--gold)}
+  .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+  .nav-star{font-size:20px;color:var(--gold);animation:spin-star 8s linear infinite}
+  @keyframes spin-star{to{transform:rotate(360deg)}}
+  .nav-right{display:flex;align-items:center;gap:16px}
+  .nav-bonus-btn{background:var(--gold);color:var(--black);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:10px 18px;border:none;cursor:pointer;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));transition:background .2s;white-space:nowrap}
+  .nav-bonus-btn:hover{background:var(--gold-light)}
+
+  /* PAGE HERO */
+  .page-hero{margin-top:76px;background:var(--black-2);padding:80px 60px 72px;position:relative;overflow:hidden;border-bottom:1px solid rgba(201,168,76,0.15)}
+  .page-hero::before{content:'';position:absolute;top:-120px;right:-120px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.1) 0%,transparent 65%);pointer-events:none}
+  .page-hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.06) 0%,transparent 65%);pointer-events:none}
+  .page-eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+  .page-eyebrow::before{content:'';display:block;width:32px;height:2px;background:var(--gold)}
+  .page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,7vw,100px);line-height:.92;text-transform:uppercase;margin-bottom:20px}
+  .page-title span{color:var(--gold)}
+  .page-subtitle{font-size:18px;line-height:1.7;color:rgba(255,255,255,0.55);max-width:640px}
+
+  /* SPEAKER PROFILES */
+  .speakers-section{padding:80px 60px 100px;background:var(--black)}
+
+  .speaker-block{display:grid;grid-template-columns:420px 1fr;gap:0;margin-bottom:4px;overflow:hidden;position:relative}
+  .speaker-block:nth-child(even){grid-template-columns:1fr 420px}
+  .speaker-block:nth-child(even) .speaker-image-col{order:2}
+  .speaker-block:nth-child(even) .speaker-content{order:1}
+
+  /* Image column */
+  .speaker-image-col{position:relative;overflow:hidden;min-height:600px;background:var(--black-3)}
+  .speaker-img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 6s ease}
+  .speaker-image-col:hover .speaker-img{transform:scale(1.04)}
+  .speaker-img-placeholder{width:100%;height:100%;min-height:600px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:var(--black-3);position:relative}
+  .speaker-img-placeholder::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(201,168,76,0.08) 0%,transparent 60%)}
+  .speaker-img-placeholder-icon{width:120px;height:120px;border-radius:50%;background:rgba(201,168,76,0.1);border:2px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-size:52px;z-index:1}
+  .speaker-img-placeholder-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.2);z-index:1;text-align:center}
+
+  /* Gold corner accent */
+  .speaker-image-col::after{content:'';position:absolute;top:0;right:0;width:60px;height:60px;background:var(--gold);clip-path:polygon(100% 0,0 0,100% 100%);pointer-events:none}
+  .speaker-block:nth-child(even) .speaker-image-col::after{left:0;right:auto;clip-path:polygon(0 0,100% 0,0 100%)}
+
+  /* Speaker name overlay on image */
+  .speaker-name-tag{position:absolute;bottom:0;left:0;right:0;padding:28px 32px;background:linear-gradient(to top,rgba(10,10,10,0.95) 0%,transparent 100%);z-index:2}
+  .speaker-name-tag h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3vw,42px);line-height:1;text-transform:uppercase}
+  .speaker-name-tag .credentials{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:4px}
+
+  /* Content column */
+  .speaker-content{background:var(--black-2);padding:56px 56px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid rgba(255,255,255,0.05)}
+  .speaker-block:nth-child(even) .speaker-content{border-left:none;border-right:1px solid rgba(255,255,255,0.05)}
+
+  .speaker-role-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:6px 14px;margin-bottom:24px}
+
+  .speaker-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,2.5vw,40px);line-height:1.05;text-transform:uppercase;margin-bottom:20px}
+  .speaker-headline span{color:var(--gold)}
+
+  .speaker-intro{font-size:16px;line-height:1.75;color:rgba(255,255,255,0.65);margin-bottom:32px}
+
+  /* Credentials list */
+  .credentials-list{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+  .cred-item{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,0.7);line-height:1.5}
+  .cred-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:6px}
+
+  /* Experience bar */
+  .exp-strip{display:flex;gap:0;margin-bottom:32px;flex-wrap:wrap}
+  .exp-item{text-align:center;padding:18px 24px;border-right:1px solid rgba(255,255,255,0.08);flex:1;min-width:100px}
+  .exp-item:last-child{border-right:none}
+  .exp-num{font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--gold);line-height:1;display:block}
+  .exp-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:4px;display:block}
+  .exp-strip-wrap{background:var(--black-3);border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:32px}
+
+  /* Full bio toggle */
+  .bio-toggle{cursor:pointer;display:inline-flex;align-items:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);background:none;border:none;padding:0;transition:gap .2s}
+  .bio-toggle:hover{gap:16px}
+  .bio-full{display:none;margin-top:24px;font-size:15px;line-height:1.8;color:rgba(255,255,255,0.6);border-top:1px solid rgba(255,255,255,0.08);padding-top:24px}
+  .bio-full.open{display:block}
+  .bio-full p{margin-bottom:14px}
+  .bio-full p:last-child{margin-bottom:0}
+
+  /* MEDIA / APPEARANCES */
+  .media-section{padding:80px 60px;background:var(--black-2)}
+  .section-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+  .section-label::before{content:'';display:block;width:32px;height:2px;background:var(--gold)}
+  .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,64px);line-height:1;text-transform:uppercase;margin-bottom:48px}
+  .section-title span{color:var(--gold)}
+
+  .media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+  .media-card{background:var(--black-3);padding:36px 32px;position:relative;overflow:hidden;transition:background .3s}
+  .media-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+  .media-card:hover::before{transform:scaleX(1)}
+  .media-card:hover{background:#1a1a1a}
+  .media-icon{font-size:28px;margin-bottom:16px}
+  .media-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;text-transform:uppercase;margin-bottom:10px}
+  .media-body{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.5)}
+
+  /* SHARED ACHIEVEMENTS */
+  .achievements{padding:80px 60px;background:var(--black);display:grid;grid-template-columns:1fr 1fr;gap:2px}
+  .achieve-col{background:var(--black-2);padding:56px 48px}
+  .achieve-col h3{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);text-transform:uppercase;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid rgba(201,168,76,0.2)}
+  .achieve-list{display:flex;flex-direction:column;gap:14px}
+  .achieve-item{display:flex;align-items:flex-start;gap:14px;font-size:15px;color:rgba(255,255,255,0.7);line-height:1.6}
+  .achieve-num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:rgba(201,168,76,0.3);line-height:1;min-width:32px}
+
+  /* CTA */
+  .cta-section{padding:100px 60px;background:var(--gold);display:grid;grid-template-columns:1fr auto;align-items:center;gap:60px;position:relative;overflow:hidden}
+  .cta-section::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;border-radius:50%;background:rgba(0,0,0,0.08)}
+  .cta-eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:rgba(0,0,0,0.6);margin-bottom:12px}
+  .cta-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,5vw,70px);line-height:1;color:var(--black);text-transform:uppercase}
+  .btn-dark{display:inline-flex;align-items:center;gap:12px;background:var(--black);color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;letter-spacing:3px;text-transform:uppercase;padding:20px 40px;text-decoration:none;border:none;cursor:pointer;white-space:nowrap;transition:background .2s,transform .15s;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
+  .btn-dark:hover{background:#1a1a1a;transform:translateY(-2px)}
+
+  /* FOOTER */
+  footer{background:#050505;padding:40px 60px 28px;border-top:1px solid rgba(201,168,76,.2)}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center}
+  .footer-copy{font-size:13px;color:rgba(255,255,255,.25)}
+  .footer-copy span{color:var(--gold)}
+
+  /* MODAL */
+  .modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.85);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+  .modal-overlay.active{opacity:1;pointer-events:all}
+  .modal{background:var(--black-2);width:90%;max-width:520px;border:1px solid rgba(201,168,76,0.3);position:relative;transform:translateY(30px);transition:transform .3s}
+  .modal-overlay.active .modal{transform:translateY(0)}
+  .modal-top{background:var(--gold);padding:32px 40px}
+  .modal-eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:rgba(0,0,0,.6);margin-bottom:8px}
+  .modal-title{font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:1;color:var(--black);text-transform:uppercase}
+  .modal-body{padding:40px}
+  .modal-desc{font-size:15px;line-height:1.65;color:rgba(255,255,255,.65);margin-bottom:28px}
+  .modal-form{display:flex;flex-direction:column;gap:14px}
+  .modal-form input{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);color:var(--white);font-family:'Barlow',sans-serif;font-size:15px;padding:14px 18px;outline:none;transition:border-color .2s}
+  .modal-form input::placeholder{color:rgba(255,255,255,.3)}
+  .modal-form input:focus{border-color:var(--gold)}
+  .modal-submit{background:var(--gold);color:var(--black);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;letter-spacing:3px;text-transform:uppercase;padding:18px;border:none;cursor:pointer;margin-top:6px;transition:background .2s;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
+  .modal-submit:hover{background:var(--gold-light)}
+  .modal-close{position:absolute;top:16px;right:16px;background:rgba(0,0,0,.2);border:none;color:var(--black);width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .modal-success{display:none;text-align:center;padding:48px 40px}
+  .modal-success h3{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);margin-bottom:12px}
+  .modal-success p{color:rgba(255,255,255,.6);font-size:15px;line-height:1.6}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  @media(max-width:900px){
+    nav{padding:0 20px} .nav-links{gap:16px}
+  }
+  @media(max-width:1024px){
+    .speaker-block,.speaker-block:nth-child(even){grid-template-columns:1fr}
+    .speaker-block:nth-child(even) .speaker-image-col{order:1}
+    .speaker-block:nth-child(even) .speaker-content{order:2}
+    .speaker-image-col{min-height:420px}
+    .achievements{grid-template-columns:1fr}
+    .media-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:768px){
+    .page-hero,.speakers-section,.media-section,.achievements,.cta-section{padding-left:24px;padding-right:24px}
+    .speaker-content{padding:36px 24px}
+    .media-grid{grid-template-columns:1fr}
+    .cta-section{grid-template-columns:1fr;gap:28px}
+    footer{padding:32px 24px}
+    .footer-bottom{flex-direction:column;gap:10px;text-align:center}
+    .exp-strip{flex-wrap:wrap}
+    .exp-item{min-width:50%;border-bottom:1px solid rgba(255,255,255,0.06)}
+  }
+</style>
+</head>
+<body>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="bonusModal">
+  <div class="modal">
+    <div class="modal-top">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-eyebrow">Free Resource</div>
+      <div class="modal-title">Claim Your<br>Free Bonus<br>Content</div>
+    </div>
+    <div id="modalFormWrap" class="modal-body">
+      <p class="modal-desc">Get our exclusive <strong style="color:var(--white)">Disc & Neuropathy Practice Growth Toolkit</strong> — marketing scripts, patient presentation templates, and case-acceptance strategies. 100% free.</p>
+      <form class="modal-form" onsubmit="submitModal(event)">
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <input type="text" placeholder="Practice Name">
+        <input type="text" placeholder="City, State">
+        <button type="submit" class="modal-submit">Send Me the Free Toolkit →</button>
+      </form>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div style="font-size:56px;margin-bottom:16px">✦</div>
+      <h3>You're In!</h3>
+      <p>Check your inbox — your free toolkit is on its way!</p>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="speakers.html" class="active">Speakers</a></li>
+    <li><a href="testimonials.html">Testimonials</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <span class="nav-star">✦</span>
+  <div class="nav-right">
+    <button class="nav-bonus-btn" onclick="openModal()">Free Bonus Content</button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-eyebrow">Meet the Experts</div>
+  <h1 class="page-title">Featured<br><span>Speakers</span></h1>
+  <p class="page-subtitle">Dr. Eric Kaplan and Dr. Perry Bard have spent a combined 84 years building multi-million dollar practices and training chiropractors across the country to do the same.</p>
+</section>
+
+<!-- SPEAKER 1: DR. KAPLAN -->
+<section class="speakers-section" style="padding-bottom:4px">
+  <div class="speaker-block reveal">
+
+	<div class="speaker-image-col">
+		<img src="site_assets/drkaplan.png" alt="Dr. Eric S. Kaplan" class="speaker-img">
+
+		<div class="speaker-name-tag">
+			<h2>Dr. Eric S. Kaplan</h2>
+			<div class="credentials">D.C., F.I.A.M.A. · CEO, Concierge Coaches</div>
+		</div>
+	</div>
+
+    <div class="speaker-content">
+      <div class="speaker-role-badge">✦ Co-Founder · The Chiro Event · DISC Centers of America · The National Spinal Decompression Certification · NeuroDoc Neuropathy Centers · Knee Centers of America</div>
+      <h2 class="speaker-headline">3-Time #1 Best-Selling Author &<br><span>Spinal Decompression Authority</span></h2>
+
+      <p class="speaker-intro">In his 45th year of practice, Dr. Eric Kaplan is one of the most recognized chiropractors in the world. He has owned six multi-million dollar clinics and helped thousands of doctors implement advanced spinal decompression and neuropathy programs.</p>
+
+      <div class="exp-strip-wrap">
+        <div class="exp-strip">
+          <div class="exp-item"><span class="exp-num">45</span><span class="exp-label">Years in Practice</span></div>
+          <div class="exp-item"><span class="exp-num">6</span><span class="exp-label">Multi-Million Dollar Clinics</span></div>
+          <div class="exp-item"><span class="exp-num">3×</span><span class="exp-label">#1 Best-Selling Author</span></div>
+          <div class="exp-item"><span class="exp-num">1000s</span><span class="exp-label">Doctors Trained</span></div>
+        </div>
+      </div>
+
+      <div class="credentials-list">
+        <div class="cred-item"><div class="cred-dot"></div>3-Time #1 Best-Selling Author</div>
+        <div class="cred-item"><div class="cred-dot"></div>Co-Creator of the National Spinal Decompression Certification</div>
+        <div class="cred-item"><div class="cred-dot"></div>Former President & COO, Nutrisystem</div>
+        <div class="cred-item"><div class="cred-dot"></div>Featured on ABC, CBS, NBC, CNBC, CNN, FOX & The Dr. Oz Show</div>
+        <div class="cred-item"><div class="cred-dot"></div>Founder: DISC Centers of America, NEURODoc & KNEE Centers</div>
+        <div class="cred-item"><div class="cred-dot"></div>Co-Chair, International Medical Advisory Board on Spinal Decompression</div>
+        <div class="cred-item"><div class="cred-dot"></div>Pinnacle Award — Fairleigh Dickinson University (selected from 130,000+ alumni)</div>
+        <div class="cred-item"><div class="cred-dot"></div>CEO: I.D.E.A. (International Disc Education Association)</div>
+      </div>
+
+      <button class="bio-toggle" onclick="toggleBio('bio-kaplan', this)">
+        Read Full Bio <span>→</span>
+      </button>
+      <div class="bio-full" id="bio-kaplan">
+        <p>Dr. Kaplan is the author of <em>The Ultimate Spinal Decompression Book</em>, <em>The Ultimate Peripheral Neuropathy Book</em>, <em>All Roads Lead to Disc</em>, <em>Awaken the Wellness Within</em>, <em>The 5-Minute Motivator</em>, and <em>Can't Stop Me</em>.</p>
+        <p>He served as President and COO of Nutrisystem and has appeared on major networks including ABC, CBS, NBC, CNBC, CNN, FOX, and <em>The Dr. Oz Show</em>.</p>
+        <p>He currently serves as Co-President & CEO of Concierge Coaches, CEO of I.D.E.A. (International Disc Education Association), and Co-President of the International Neuropathy Association.</p>
+        <p>He was honored with the Pinnacle Award from Fairleigh Dickinson University, selected from over 130,000 alumni. He has been happily married for 45 years and is the proud father of two sons — one a medical doctor and the other a chiropractor.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SPEAKER 2: DR. BARD -->
+<section class="speakers-section" style="padding-top:4px;padding-bottom:80px">
+  <div class="speaker-block reveal">
+
+	<div class="speaker-image-col">
+		<img src="site_assets/drbard.png" alt="Dr. Eric S. Kaplan" class="speaker-img">
+      <div class="speaker-name-tag">
+        <h2>Dr. Perry M. Bard</h2>
+        <div class="credentials">D.C. &nbsp;·&nbsp; CEO, Concierge Coaches</div>
+      </div>
+    </div>
+
+    <div class="speaker-content">
+      <div class="speaker-role-badge">✦ Co-Founder · The Chiro Event · DISC Centers of America · The National Spinal Decompression Certification · NeuroDoc Neuropathy Centers · Knee Centers of America</div>
+      <h2 class="speaker-headline">Clinical Strategist &<br><span>Practice Growth Authority</span></h2>
+
+      <p class="speaker-intro">With 39 years of experience, Dr. Perry Bard built and owned five multi-million dollar clinics and is widely recognized for generating 20+ new paying patients per day for four consecutive years in a single practice.</p>
+
+      <div class="exp-strip-wrap">
+        <div class="exp-strip">
+          <div class="exp-item"><span class="exp-num">39</span><span class="exp-label">Years in Practice</span></div>
+          <div class="exp-item"><span class="exp-num">5</span><span class="exp-label">Multi-Million Dollar Clinics</span></div>
+          <div class="exp-item"><span class="exp-num">20+</span><span class="exp-label">New Patients/Day (4 yrs)</span></div>
+          <div class="exp-item"><span class="exp-num">2×</span><span class="exp-label">Best-Selling Author</span></div>
+        </div>
+      </div>
+
+      <div class="credentials-list">
+        <div class="cred-item"><div class="cred-dot"></div>20+ new paying patients per day for 4 consecutive years in one practice</div>
+        <div class="cred-item"><div class="cred-dot"></div>Co-Creator of the National Spinal Decompression Certification</div>
+        <div class="cred-item"><div class="cred-dot"></div>Best-selling author — Decompression & Neuropathy</div>
+        <div class="cred-item"><div class="cred-dot"></div>Co-Founder: DISC Centers of America, NEURODoc & KNEE Centers</div>
+        <div class="cred-item"><div class="cred-dot"></div>Board Member, International Medical Advisory Board on Spinal Decompression</div>
+        <div class="cred-item"><div class="cred-dot"></div>Co-Creator, Chiropractic Peripheral Neuropathy Certification University Program</div>
+        <div class="cred-item"><div class="cred-dot"></div>Former host, "The Physician Spotlight Radio Show"</div>
+        <div class="cred-item"><div class="cred-dot"></div>Care provider for MLB teams, PGA, USA Bodybuilding & Screen Actors Guild</div>
+      </div>
+
+      <button class="bio-toggle" onclick="toggleBio('bio-bard', this)">
+        Read Full Bio <span>→</span>
+      </button>
+      <div class="bio-full" id="bio-bard">
+        <p>Dr. Bard is a nationally respected chiropractor, entrepreneur, and clinical marketing strategist. He is Co-President & CEO of Concierge Coaches and is known for bridging clinical excellence with strategic patient communication and practice growth.</p>
+        <p>He is a former host of "The Physician Spotlight Radio Show," and has provided care for professional athletes and organizations including Major League Baseball teams, the PGA, USA bodybuilding and powerlifting associations, and members of the Screen Actors Guild.</p>
+        <p>He has been happily married for 34 years and is the proud father of two sons — one a dental surgeon and the other a chiropractor.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MEDIA APPEARANCES -->
+<section class="media-section">
+  <div class="reveal">
+    <div class="section-label">As Seen On</div>
+    <h2 class="section-title">Media &<br><span>Recognition</span></h2>
+  </div>
+  <div class="media-grid reveal">
+    <div class="media-card">
+      <div class="media-icon">📺</div>
+      <div class="media-title">Major TV Networks</div>
+      <p class="media-body">Dr. Kaplan has appeared on ABC, CBS, NBC, CNBC, CNN, FOX, and The Dr. Oz Show — bringing chiropractic and spinal decompression to a national audience.</p>
+    </div>
+    <div class="media-card">
+      <div class="media-icon">📚</div>
+      <div class="media-title">Best-Selling Books</div>
+      <p class="media-body">Combined authors of 8 best-selling books including <em>The Ultimate Spinal Decompression Book</em>, <em>The Ultimate Peripheral Neuropathy Book</em>, and <em>All Roads Lead to Disc</em>.</p>
+    </div>
+    <div class="media-card">
+      <div class="media-icon">🏆</div>
+      <div class="media-title">Industry Awards</div>
+      <p class="media-body">Dr. Kaplan received the Pinnacle Award from Fairleigh Dickinson University, selected from over 130,000 alumni. Recognized as top authorities in chiropractic nationwide.</p>
+    </div>
+    <div class="media-card">
+      <div class="media-icon">🎓</div>
+      <div class="media-title">Certification Creators</div>
+      <p class="media-body">Co-Creators of the ONLY National Spinal Decompression Chiropractic University 12-Hour CEU Program in the world.</p>
+    </div>
+    <div class="media-card">
+      <div class="media-icon">📻</div>
+      <div class="media-title">Radio & Podcasts</div>
+      <p class="media-body">Dr. Bard hosted "The Physician Spotlight Radio Show" and both doctors have been featured across national healthcare media and chiropractic industry publications.</p>
+    </div>
+    <div class="media-card">
+      <div class="media-icon">⚕️</div>
+      <div class="media-title">Elite Clientele</div>
+      <p class="media-body">Dr. Bard has provided care for Major League Baseball teams, PGA tour players, USA bodybuilding and powerlifting associations, and Screen Actors Guild members.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SHARED ACHIEVEMENTS -->
+<section class="achievements reveal">
+  <div class="achieve-col">
+    <h3>Dr. Kaplan's Practice Highlights</h3>
+    <div class="achieve-list">
+      <div class="achieve-item"><div class="achieve-num">01</div>Owned and operated six multi-million dollar chiropractic clinics</div>
+      <div class="achieve-item"><div class="achieve-num">02</div>Former President & COO of Nutrisystem — a publicly traded company</div>
+      <div class="achieve-item"><div class="achieve-num">03</div>Founder of DISC Centers of America franchise system</div>
+      <div class="achieve-item"><div class="achieve-num">04</div>Co-President of the International Neuropathy Association</div>
+      <div class="achieve-item"><div class="achieve-num">05</div>CEO of I.D.E.A. — International Disc Education Association</div>
+      <div class="achieve-item"><div class="achieve-num">06</div>Author of 6 published books on health, wellness, and chiropractic</div>
+    </div>
+  </div>
+  <div class="achieve-col">
+    <h3>Dr. Bard's Practice Highlights</h3>
+    <div class="achieve-list">
+      <div class="achieve-item"><div class="achieve-num">01</div>Built and owned five multi-million dollar chiropractic practices</div>
+      <div class="achieve-item"><div class="achieve-num">02</div>Generated 20+ new paying patients per day for four consecutive years</div>
+      <div class="achieve-item"><div class="achieve-num">03</div>Co-Founder of the DISC Centers of America franchise system</div>
+      <div class="achieve-item"><div class="achieve-num">04</div>Co-Creator of the Chiropractic Peripheral Neuropathy Certification</div>
+      <div class="achieve-item"><div class="achieve-num">05</div>Board Member, International Medical Advisory Board on Spinal Decompression</div>
+      <div class="achieve-item"><div class="achieve-num">06</div>Pioneer in connecting clinical excellence with patient marketing strategy</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div>
+    <div class="cta-eyebrow">Learn From the Best</div>
+    <h2 class="cta-title">See Dr. Kaplan &<br>Dr. Bard Live</h2>
+  </div>
+  <a href="events.html" class="btn-dark">View Upcoming Events →</a>
+</section>
+
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 <span>The Chiro Event</span>. All rights reserved.</div>
+    <div class="footer-copy"><a href="index.html" style="color:rgba(255,255,255,0.25);text-decoration:none">← Back to Home</a></div>
+  </div>
+</footer>
+
+<script>
+  function openModal(){document.getElementById('bonusModal').classList.add('active');document.body.style.overflow='hidden'}
+  function closeModal(){document.getElementById('bonusModal').classList.remove('active');document.body.style.overflow=''}
+  document.getElementById('bonusModal').addEventListener('click',function(e){if(e.target===this)closeModal()})
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()})
+  function submitModal(e){
+    e.preventDefault();
+    const form = e.target;
+    const inputs = form.querySelectorAll('input');
+    const data = new FormData();
+    data.append('entry.903233644',  inputs[0].value);
+    data.append('entry.1315110832', inputs[1].value);
+    data.append('entry.472339817',  inputs[2].value);
+    data.append('entry.724827533',  inputs[3].value);
+    data.append('entry.605481896',  inputs[4].value);
+    data.append('entry.1702631455', inputs[5].value);
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLSd6dXGrExv5uT6GLsNumBc76X6PXnyrJsJ5REImLNGxMSADZA/formResponse', { method: 'POST', mode: 'no-cors', body: data });
+    document.getElementById('modalFormWrap').style.display='none';
+    document.getElementById('modalSuccess').style.display='block';
+  }
+
+  function toggleBio(id, btn) {
+    const bio = document.getElementById(id);
+    bio.classList.toggle('open');
+    btn.querySelector('span').textContent = bio.classList.contains('open') ? '↑' : '→';
+    btn.firstChild.textContent = bio.classList.contains('open') ? 'Hide Bio ' : 'Read Full Bio ';
+  }
+
+  const obs = new IntersectionObserver(entries => entries.forEach(e => {
+    if(e.isIntersecting) e.target.classList.add('visible');
+  }), {threshold: 0.08});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

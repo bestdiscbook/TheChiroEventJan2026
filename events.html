@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events – The Chiro Event</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{--gold:#C9A84C;--gold-light:#E8C86A;--black:#0A0A0A;--black-2:#111111;--black-3:#181818;--white:#FFFFFF}
+  html{scroll-behavior:smooth}
+  body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;overflow-x:hidden}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:76px;background:rgba(10,10,10,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.2)}
+  .nav-links{display:flex;gap:40px;list-style:none}
+  .nav-links a{text-decoration:none;color:var(--white);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:2px;text-transform:uppercase;transition:color .2s;position:relative}
+  .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+  .nav-links a:hover,.nav-links a.active{color:var(--gold)}
+  .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+  .nav-star{font-size:20px;color:var(--gold);animation:spin-star 8s linear infinite}
+  @keyframes spin-star{to{transform:rotate(360deg)}}
+  .nav-right{display:flex;align-items:center;gap:16px}
+  .nav-bonus-btn{background:var(--gold);color:var(--black);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:10px 18px;border:none;cursor:pointer;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));transition:background .2s;white-space:nowrap}
+  .nav-bonus-btn:hover{background:var(--gold-light)}
+
+  /* PAGE HERO */
+  .page-hero{margin-top:76px;background:var(--black-2);padding:80px 60px 72px;position:relative;overflow:hidden;border-bottom:1px solid rgba(201,168,76,0.15)}
+  .page-hero::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.12) 0%,transparent 65%);pointer-events:none}
+  .page-eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+  .page-eyebrow::before{content:'';display:block;width:32px;height:2px;background:var(--gold)}
+  .page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,7vw,100px);line-height:.92;text-transform:uppercase;margin-bottom:24px}
+  .page-title span{color:var(--gold)}
+  .page-subtitle{font-size:18px;line-height:1.7;color:rgba(255,255,255,0.55);max-width:600px}
+
+  /* EVENTS LIST */
+  .events-section{padding:80px 60px 100px;background:var(--black)}
+
+  /* YEAR DIVIDER */
+  .year-divider{display:flex;align-items:center;gap:20px;margin-bottom:40px;margin-top:60px}
+  .year-divider:first-child{margin-top:0}
+  .year-divider h2{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--gold);line-height:1;white-space:nowrap}
+  .year-divider::after{content:'';flex:1;height:1px;background:rgba(201,168,76,0.2)}
+
+  /* FEATURED EVENT */
+  .event-featured{background:var(--black-2);border:1px solid rgba(201,168,76,0.2);margin-bottom:16px;display:grid;grid-template-columns:200px 1fr auto;overflow:hidden;transition:border-color .3s}
+  .event-featured:hover{border-color:rgba(201,168,76,0.5)}
+  .event-date-col{background:var(--gold);padding:32px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  .event-date-month{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:rgba(0,0,0,0.7)}
+  .event-date-day{font-family:'Bebas Neue',sans-serif;font-size:72px;line-height:1;color:var(--black)}
+  .event-date-year{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:3px;color:rgba(0,0,0,0.6)}
+  .event-main{padding:40px 40px 40px 48px}
+  .event-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:6px 14px;margin-bottom:16px}
+  .event-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,3vw,48px);line-height:1;text-transform:uppercase;margin-bottom:16px}
+  .event-meta{display:flex;flex-wrap:wrap;gap:20px;margin-bottom:20px}
+  .event-meta-item{display:flex;align-items:center;gap:7px;font-size:14px;color:rgba(255,255,255,0.5);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+  .event-meta-item svg{width:14px;height:14px;flex-shrink:0;color:var(--gold)}
+  .event-desc{font-size:15px;line-height:1.7;color:rgba(255,255,255,0.55);max-width:640px}
+  .event-includes{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .event-tag-pill{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:5px 12px}
+  .event-action{padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;border-left:1px solid rgba(255,255,255,0.06);min-width:200px}
+  .event-price{text-align:center}
+  .event-price-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:4px}
+  .event-price-val{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--gold);line-height:1}
+  .event-price-note{font-size:12px;color:rgba(255,255,255,0.3);margin-top:4px}
+  .btn-register{display:block;background:var(--gold);color:var(--black);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;letter-spacing:3px;text-transform:uppercase;padding:16px 28px;text-decoration:none;border:none;cursor:pointer;text-align:center;width:100%;transition:background .2s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
+  .btn-register:hover{background:var(--gold-light)}
+  .btn-info{display:block;background:transparent;color:rgba(255,255,255,0.5);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:12px 28px;text-decoration:none;border:1px solid rgba(255,255,255,0.15);cursor:pointer;text-align:center;width:100%;transition:border-color .2s,color .2s}
+  .btn-info:hover{border-color:var(--gold);color:var(--gold)}
+  .seats-left{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);text-align:center}
+  .seats-left span{color:#e85c5c}
+
+  /* SOLD OUT */
+  .event-featured.sold-out .event-date-col{background:#333}
+  .event-featured.sold-out .btn-register{background:#333;color:rgba(255,255,255,0.3);cursor:not-allowed;clip-path:none}
+  .sold-out-badge{background:#e85c5c;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:4px 12px;display:inline-block;margin-bottom:12px}
+
+  /* INFO MODAL */
+  .event-modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.88);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+  .event-modal-overlay.active{opacity:1;pointer-events:all}
+  .event-modal{background:var(--black-2);width:90%;max-width:680px;border:1px solid rgba(201,168,76,0.3);max-height:90vh;overflow-y:auto;transform:translateY(30px);transition:transform .3s}
+  .event-modal-overlay.active .event-modal{transform:translateY(0)}
+  .event-modal-header{background:var(--gold);padding:32px 40px;position:sticky;top:0;display:flex;justify-content:space-between;align-items:flex-start;z-index:2}
+  .event-modal-title{font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:1;color:var(--black);text-transform:uppercase}
+  .event-modal-date{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:rgba(0,0,0,0.6);margin-top:4px}
+  .modal-close-btn{background:rgba(0,0,0,.15);border:none;color:var(--black);width:36px;height:36px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-left:20px}
+  .event-modal-body{padding:40px}
+  .event-modal-body h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin:28px 0 12px}
+  .event-modal-body h3:first-child{margin-top:0}
+  .event-modal-body p{font-size:15px;line-height:1.75;color:rgba(255,255,255,0.65);margin-bottom:12px}
+  .what-you-get{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+  .wyg-item{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);line-height:1.5}
+  .wyg-item::before{content:'✦';color:var(--gold);font-size:10px;margin-top:3px;flex-shrink:0}
+  .event-modal-footer{padding:28px 40px;border-top:1px solid rgba(255,255,255,0.08);display:flex;gap:12px;align-items:center}
+
+  /* BONUS MODAL */
+  .modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.85);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+  .modal-overlay.active{opacity:1;pointer-events:all}
+  .modal{background:var(--black-2);width:90%;max-width:520px;border:1px solid rgba(201,168,76,0.3);position:relative;transform:translateY(30px);transition:transform .3s}
+  .modal-overlay.active .modal{transform:translateY(0)}
+  .modal-top{background:var(--gold);padding:32px 40px}
+  .modal-eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:rgba(0,0,0,.6);margin-bottom:8px}
+  .modal-title{font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:1;color:var(--black);text-transform:uppercase}
+  .modal-body{padding:40px}
+  .modal-desc{font-size:15px;line-height:1.65;color:rgba(255,255,255,.65);margin-bottom:28px}
+  .modal-form{display:flex;flex-direction:column;gap:14px}
+  .modal-form input{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);color:var(--white);font-family:'Barlow',sans-serif;font-size:15px;padding:14px 18px;outline:none;transition:border-color .2s}
+  .modal-form input::placeholder{color:rgba(255,255,255,.3)}
+  .modal-form input:focus{border-color:var(--gold)}
+  .modal-submit{background:var(--gold);color:var(--black);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;letter-spacing:3px;text-transform:uppercase;padding:18px;border:none;cursor:pointer;margin-top:6px;transition:background .2s;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
+  .modal-submit:hover{background:var(--gold-light)}
+  .modal-close-x{position:absolute;top:16px;right:16px;background:rgba(0,0,0,.2);border:none;color:var(--black);width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .modal-success{display:none;text-align:center;padding:48px 40px}
+  .modal-success h3{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);margin-bottom:12px}
+  .modal-success p{color:rgba(255,255,255,.6);font-size:15px;line-height:1.6}
+
+  /* FOOTER */
+  footer{background:#050505;padding:40px 60px 28px;border-top:1px solid rgba(201,168,76,.2)}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center}
+  .footer-copy{font-size:13px;color:rgba(255,255,255,.25)}
+  .footer-copy span{color:var(--gold)}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  @media(max-width:900px){
+    nav{padding:0 20px}.nav-links{gap:16px}
+    .page-hero,.events-section{padding-left:24px;padding-right:24px}
+    .event-featured{grid-template-columns:1fr;grid-template-rows:auto}
+    .event-date-col{flex-direction:row;padding:20px 24px;gap:12px}
+    .event-date-day{font-size:48px}
+    .event-main{padding:28px 24px}
+    .event-action{border-left:none;border-top:1px solid rgba(255,255,255,.06);padding:24px;flex-direction:row;flex-wrap:wrap;justify-content:space-between}
+    footer{padding:32px 24px}
+    .footer-bottom{flex-direction:column;gap:10px;text-align:center}
+    .event-modal-body .what-you-get{grid-template-columns:1fr}
+    .event-modal-footer{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+
+
+<!-- PHONE REGISTRATION MODAL -->
+<div class="event-modal-overlay" id="phoneModal" style="z-index:3000">
+  <div class="event-modal" style="max-width:440px">
+    <div class="event-modal-header" style="background:var(--gold);padding:28px 36px">
+      <div>
+        <div class="event-modal-title" style="font-size:32px">Register by Phone</div>
+        <div class="event-modal-date">The Las Vegas Chiro Event · March 21, 2026</div>
+      </div>
+      <button class="modal-close-btn" onclick="closePhoneModal()">✕</button>
+    </div>
+    <div class="event-modal-body" style="text-align:center;padding:48px 40px">
+      <div style="font-size:48px;margin-bottom:16px">📞</div>
+      <p style="font-size:16px;color:rgba(255,255,255,0.65);margin-bottom:28px;line-height:1.6">Registration for the Las Vegas Chiro Event is by phone only. Call us toll-free to reserve your seat — <strong style="color:var(--white)">seats are limited and sell out fast.</strong></p>
+      <a href="tel:888-990-9660" style="display:inline-flex;align-items:center;justify-content:center;gap:12px;background:var(--gold);color:var(--black);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;letter-spacing:3px;text-transform:uppercase;padding:20px 40px;text-decoration:none;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));transition:background 0.2s" onmouseover="this.style.background='#E8C86A'" onmouseout="this.style.background='#C9A84C'">888-990-9660</a>
+      <p style="margin-top:20px;font-size:13px;color:rgba(255,255,255,0.3);font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase">Toll Free · Mon–Fri</p>
+    </div>
+  </div>
+</div>
+
+<!-- BONUS MODAL -->
+<div class="modal-overlay" id="bonusModal">
+  <div class="modal">
+    <div class="modal-top">
+      <button class="modal-close-x" onclick="closeBonusModal()">✕</button>
+      <div class="modal-eyebrow">Free Resource</div>
+      <div class="modal-title">Claim Your<br>Free Bonus<br>Content</div>
+    </div>
+    <div id="modalFormWrap" class="modal-body">
+      <p class="modal-desc">Get our exclusive <strong style="color:var(--white)">Disc & Neuropathy Practice Growth Toolkit</strong> — marketing scripts, patient presentation templates, and case-acceptance strategies. 100% free.</p>
+      <form class="modal-form" onsubmit="submitBonusModal(event)">
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <input type="text" placeholder="Practice Name">
+        <input type="text" placeholder="City, State">
+        <button type="submit" class="modal-submit">Send Me the Free Toolkit →</button>
+      </form>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div style="font-size:56px;margin-bottom:16px">✦</div>
+      <h3>You're In!</h3>
+      <p>Check your inbox — your free toolkit is on its way!</p>
+    </div>
+  </div>
+</div>
+
+<!-- EVENT INFO MODAL -->
+<div class="event-modal-overlay" id="eventModal">
+  <div class="event-modal">
+    <div class="event-modal-header">
+      <div>
+        <div class="event-modal-title" id="modalEventTitle">Event Title</div>
+        <div class="event-modal-date" id="modalEventDate">Date · Location</div>
+      </div>
+      <button class="modal-close-btn" onclick="closeEventModal()">✕</button>
+    </div>
+    <div class="event-modal-body">
+      <div id="modalEventBody"></div>
+    </div>
+    <div class="event-modal-footer">
+      <a href="#" class="btn-register" style="flex:1;display:block;text-align:center" onclick="closeEventModal()">Register Now →</a>
+      <button onclick="closeEventModal()" style="background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 24px;cursor:pointer;transition:all .2s">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="events.html" class="active">Events</a></li>
+    <li><a href="speakers.html">Speakers</a></li>
+    <li><a href="testimonials.html">Testimonials</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <span class="nav-star">✦</span>
+  <div class="nav-right">
+    <button class="nav-bonus-btn" onclick="openBonusModal()">Free Bonus Content</button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-eyebrow">Live Events & Seminars</div>
+  <h1 class="page-title">Upcoming<br><span>Events</span></h1>
+  <p class="page-subtitle">Join hundreds of chiropractors at our hands-on seminars. CE credits available at all events.</p>
+</section>
+
+<!-- EVENTS -->
+<section class="events-section">
+
+  <div class="year-divider"><h2>2026</h2></div>
+
+  <!-- Feb 28 - PASSED / SOLD OUT -->
+  <div class="event-featured sold-out reveal" style="opacity:0.45;filter:grayscale(40%)">
+    <div class="event-date-col" style="background:#3a3a3a;position:relative">
+      <div style="position:absolute;top:0;left:0;right:0;background:#e85c5c;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:5px;text-align:center">SOLD OUT</div>
+      <div class="event-date-month" style="margin-top:24px">February</div>
+      <div class="event-date-day" style="color:rgba(0,0,0,0.4)">28</div>
+      <div class="event-date-year">2026</div>
+    </div>
+    <div class="event-main">
+      <div class="event-badge" style="opacity:0.5">✦ Neuropathy + Decompression · 8 CE Hours</div>
+      <div class="event-title" style="opacity:0.6">The Neuropathy-Decompression Certificate Class 2026</div>
+      <div class="event-meta">
+        <div class="event-meta-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Life University — Marietta, GA (RCCE Room #127)</div>
+        <div class="event-meta-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>One-day intensive · 8-hour class</div>
+      </div>
+      <p class="event-desc" style="opacity:0.5">Earn 8 hours of CE credit while learning the root causes of neuropathy, how to evaluate nerve entrapment syndromes, the connection between spinal disc disorders and neuropathy, and the chiropractic management of nerve and disc cases.</p>
+    </div>
+    <div class="event-action">
+      <div class="event-price" style="opacity:0.4">
+        <div class="event-price-label">Investment</div>
+        <div class="event-price-val" style="color:rgba(255,255,255,0.3)">$379</div>
+        <div class="event-price-note">Doctors (Students $229)</div>
+      </div>
+      <span style="display:block;background:#333;color:rgba(255,255,255,0.25);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;letter-spacing:3px;text-transform:uppercase;padding:16px 28px;text-align:center;cursor:not-allowed">This Event Has Passed</span>
+    </div>
+  </div>
+
+  <!-- Las Vegas March 21 - SOLD OUT -->
+  <div class="event-featured sold-out reveal" style="opacity:0.5;filter:grayscale(30%)">
+    <div class="event-date-col" style="background:#3a3a3a;position:relative">
+      <div style="position:absolute;top:0;left:0;right:0;background:#e85c5c;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:5px;text-align:center">SOLD OUT</div>
+      <div class="event-date-month" style="margin-top:24px">March</div>
+      <div class="event-date-day">21</div>
+      <div class="event-date-year">2026</div>
+    </div>
+    <div class="event-main">
+      <div class="event-badge" style="background:rgba(201,168,76,0.15);border-color:rgba(201,168,76,0.4)">✦ Practice Growth · Spinal Decompression · Neuropathy</div>
+      <div class="event-title">The Las Vegas Chiro Event</div>
+      <div class="event-meta">
+        <div class="event-meta-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>5-Star Las Vegas Hotel · Las Vegas, NV</div>
+        <div class="event-meta-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Saturday · One-Day Intensive</div>
+        <div class="event-meta-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Limited Seating — Sells Out Fast</div>
+      </div>
+      <p class="event-desc">A one-day, behind-the-scenes training presented by Dr. Eric Kaplan and Dr. Perry Bard — the team behind the largest branded spinal decompression network in the world. Discover exactly how top chiropractors are generating $5,000+ patient value averages with 100% cash programs in spinal decompression, neuropathy, and knee care. Open to doctors with or without a decompression table.</p>
+      <div class="event-includes">
+        <span class="event-tag-pill">Spinal Decompression Systems</span>
+        <span class="event-tag-pill">Neuropathy &amp; Knee Care</span>
+        <span class="event-tag-pill">Cash Practice Building</span>
+        <span class="event-tag-pill">Marketing &amp; New Patients</span>
+        <span class="event-tag-pill">Gourmet Working Lunch</span>
+        <span class="event-tag-pill">Free Book Gift</span>
+      </div>
+    </div>
+    <div class="event-action">
+      <div class="event-price">
+        <div class="event-price-label">Investment</div>
+        <div class="event-price-val">$249</div>
+        <div class="event-price-note">Includes 1 free staff member</div>
+      </div>
+      <span style="display:block;background:#333;color:rgba(255,255,255,0.25);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;letter-spacing:3px;text-transform:uppercase;padding:16px 28px;text-align:center;cursor:not-allowed">This Event Is Sold Out</span>
+      <button class="btn-info" onclick="openEventModal('The Las Vegas Chiro Event','Saturday, March 21, 2026 · 5-Star Las Vegas Hotel','<h3>About This Event</h3><p>A one-day live training by Dr. Eric Kaplan &amp; Dr. Perry Bard — the masters of non-surgical spinal decompression and creators of the largest group of branded spinal decompression centers in the world, Disc Centers of America.</p><p>Open to all doctors — including those without a decompression table. Covers spinal decompression, peripheral neuropathy, and knee care cash programs.</p><h3>What You\'ll Discover</h3><div class=\'what-you-get\'><div class=\'wyg-item\'>7 reliable sources for new patient production</div><div class=\'wyg-item\'>How to communicate chiropractic in 60 seconds</div><div class=\'wyg-item\'>3 proven staff motivation techniques</div><div class=\'wyg-item\'>Social media inner secrets &amp; portals of entry</div><div class=\'wyg-item\'>5 ways to create raving fan referrals</div><div class=\'wyg-item\'>Tools used by the top 1% of clinics</div><div class=\'wyg-item\'>How to build a $5,000+ patient value average</div><div class=\'wyg-item\'>Spinal decompression, neuropathy &amp; knee care systems</div><div class=\'wyg-item\'>100% cash — zero insurance required</div><div class=\'wyg-item\'>Open to doctors with or without a decompression table</div></div><h3>Event Details</h3><p><strong style=\'color:var(--white)\'>Date:</strong> Saturday, March 21, 2026</p><p><strong style=\'color:var(--white)\'>Location:</strong> 5-Star Las Vegas Hotel (confirmed at registration)</p><p><strong style=\'color:var(--white)\'>Includes:</strong> Full day training, gourmet working lunch, free copy of the 840+ page Ultimate Spinal Decompression Book</p><p><strong style=\'color:var(--white)\'>Investment:</strong> $249 per doctor · Includes 1 free staff member</p><p><strong style=\'color:var(--white)\'>Registration:</strong> Online at <a href=\'https://thechiroevent.com/\' target=\'_blank\' style=\'color:var(--gold)\'>thechiroevent.com</a> or by phone at <a href=\'tel:888-990-9660\' style=\'color:var(--gold)\'>888-990-9660</a></p><p>100% satisfaction guaranteed. Seats are extremely limited and will sell out.</p>')">More Info</button>
+      <div class="seats-left" style="color:#e85c5c">This event has sold out</div>
+    </div>
+  </div>
+
+  <!-- The Chiro Event - Jupiter FL April 18 -->
+  <div class="event-featured reveal">
+    <div class="event-date-col">
+      <div class="event-date-month">April</div>
+      <div class="event-date-day">18</div>
+      <div class="event-date-year">2026</div>
+    </div>
+    <div class="event-main">
+      <div class="event-badge">✦ Practice Growth · Cash Practice · 5-Star Venue</div>
+      <div class="event-title">The Chiro Event — Jupiter, Florida</div>
+      <div class="event-meta">
+        <div class="event-meta-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Trump National · Jupiter, FL</div>
+        <div class="event-meta-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Saturday · One-Day Intensive</div>
+        <div class="event-meta-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Limited Seating — Sells Out Fast</div>
+      </div>
+      <p class="event-desc">Dr. Kaplan and Dr. Bard return with their signature one-day live training — this time at the world-class Trump National in Jupiter, Florida. Discover the exact cash practice framework that has helped hundreds of chiropractors build high-value disc, nerve, and knee care programs. You leave with over 1,000 pages of content, tools, and take-home materials.</p>
+      <div class="event-includes">
+        <span class="event-tag-pill">Cash Practice Framework</span>
+        <span class="event-tag-pill">Disc &amp; Nerve Care Systems</span>
+        <span class="event-tag-pill">New Patient Mastery</span>
+        <span class="event-tag-pill">Marketing &amp; Branding</span>
+        <span class="event-tag-pill">Gourmet Lunch Included</span>
+        <span class="event-tag-pill">1,000+ Pages of Content</span>
+        <span class="event-tag-pill">Free Book Gift</span>
+        <span class="event-tag-pill">1 Free Guest Seat</span>
+      </div>
+    </div>
+    <div class="event-action">
+      <div class="event-price">
+        <div class="event-price-label">Investment</div>
+        <div class="event-price-val">$249</div>
+        <div class="event-price-note">Includes 1 free guest seat</div>
+      </div>
+      <a href="https://thechiroevent.com/" target="_blank" rel="noopener" class="btn-register">Reserve My Seat →</a>
+      <div style="text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin:-8px 0">or</div>
+      <button onclick="openPhoneModal()" style="display:block;width:100%;background:transparent;border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:12px 28px;cursor:pointer;transition:border-color .2s,background .2s" onmouseover="this.style.borderColor='var(--gold)';this.style.background='rgba(201,168,76,0.08)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.3)';this.style.background='transparent'">Register by Phone →</button>
+      <button class="btn-info" onclick="openEventModal('The Chiro Event — Jupiter, Florida','Saturday, April 18, 2026 · Trump National, Jupiter, FL','<h3>About This Event</h3><p>The #1 rated one-day chiropractic business training in the world, held at the prestigious Trump National in Jupiter, Florida. Presented by Dr. Eric Kaplan and Dr. Perry Bard — creators of DISC Centers of America, NEURODoc Neuropathy Centers, and KNEE Centers of America.</p><h3>What You\'ll Discover</h3><div class=\'what-you-get\'><div class=\'wyg-item\'>The Cash Model of Practice Success framework</div><div class=\'wyg-item\'>How to attract high-quality disc &amp; nerve patients</div><div class=\'wyg-item\'>The Time-Money Success Model</div><div class=\'wyg-item\'>Owning the turn-key new patient machine</div><div class=\'wyg-item\'>Branding &amp; marketing secrets from the top 1%</div><div class=\'wyg-item\'>How to build a $5,000+ patient value average</div><div class=\'wyg-item\'>Staff-driven practice systems</div><div class=\'wyg-item\'>100% cash — zero insurance required</div></div><h3>Event Details</h3><p><strong style=\'color:var(--white)\'>Date:</strong> Saturday, April 18, 2026</p><p><strong style=\'color:var(--white)\'>Venue:</strong> Trump National, Jupiter, Florida — 5-star setting</p><p><strong style=\'color:var(--white)\'>Includes:</strong> Gourmet lunch, 1,000+ pages of content, tools &amp; take-home materials, University Edition of the Ultimate Spinal Decompression Book, 1 free guest seat</p><p><strong style=\'color:var(--white)\'>Investment:</strong> $249 per doctor (regularly $549)</p><p><strong style=\'color:var(--white)\'>Registration:</strong> Online at <a href=\'https://thechiroevent.com/\' target=\'_blank\' style=\'color:var(--gold)\'>thechiroevent.com</a> or by phone at <a href=\'tel:888-990-9660\' style=\'color:var(--gold)\'>888-990-9660</a></p><p>100% satisfaction guaranteed. Seats are extremely limited.</p>')">More Info</button>
+      <div class="seats-left">Online or call <a href="tel:888-990-9660" style="color:#e85c5c;text-decoration:none">888-990-9660</a></div>
+    </div>
+  </div>
+
+  <!-- TBA Placeholder 2 -->
+  <div class="event-featured reveal" style="opacity:0.5">
+    <div class="event-date-col" style="background:rgba(201,168,76,0.08);border-right:1px solid rgba(201,168,76,0.15)">
+      <div class="event-date-month" style="color:rgba(201,168,76,0.4)">Coming</div>
+      <div class="event-date-day" style="color:rgba(201,168,76,0.2);font-size:48px">TBA</div>
+      <div class="event-date-year" style="color:rgba(201,168,76,0.3)">2026</div>
+    </div>
+    <div class="event-main">
+      <div class="event-badge" style="opacity:0.6">✦ Event Announced Soon</div>
+      <div class="event-title" style="opacity:0.5">Future Chiro Event <span style="color:rgba(201,168,76,0.4)">— To Be Announced</span></div>
+      <div class="event-meta">
+        <div class="event-meta-item" style="opacity:0.5"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Location TBA</div>
+        <div class="event-meta-item" style="opacity:0.5"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Date &amp; Format TBA</div>
+      </div>
+      <p class="event-desc" style="opacity:0.5">Stay tuned — more events are being planned for later in 2026. Get on our early access list to be notified first.</p>
+    </div>
+    <div class="event-action">
+      <div class="event-price">
+        <div class="event-price-label">Pricing</div>
+        <div class="event-price-val" style="font-size:32px;color:rgba(201,168,76,0.3)">TBA</div>
+      </div>
+      <button class="btn-register" onclick="openModal()" style="background:rgba(201,168,76,0.1);color:rgba(201,168,76,0.4);border:1px solid rgba(201,168,76,0.15);clip-path:none;cursor:default" disabled>Stay Tuned</button>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 <span>The Chiro Event</span>. All rights reserved.</div>
+    <div class="footer-copy"><a href="index.html" style="color:rgba(255,255,255,0.25);text-decoration:none">← Back to Home</a></div>
+  </div>
+</footer>
+
+<script>
+  // Bonus modal
+  function openBonusModal(){document.getElementById('bonusModal').classList.add('active');document.body.style.overflow='hidden'}
+  function openPhoneModal(){document.getElementById("phoneModal").classList.add("active");document.body.style.overflow="hidden";}
+  function closePhoneModal(){document.getElementById("phoneModal").classList.remove("active");document.body.style.overflow="";}
+  document.getElementById("phoneModal").addEventListener("click",function(e){if(e.target===this)closePhoneModal();});
+  function closeBonusModal(){document.getElementById('bonusModal').classList.remove('active');document.body.style.overflow=''}
+  document.getElementById('bonusModal').addEventListener('click',function(e){if(e.target===this)closeBonusModal()})
+  function submitBonusModal(e){
+    e.preventDefault();
+    const form = e.target;
+    const inputs = form.querySelectorAll('input');
+    const data = new FormData();
+    data.append('entry.903233644',  inputs[0].value);
+    data.append('entry.1315110832', inputs[1].value);
+    data.append('entry.472339817',  inputs[2].value);
+    data.append('entry.724827533',  inputs[3].value);
+    data.append('entry.605481896',  inputs[4].value);
+    data.append('entry.1702631455', inputs[5].value);
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLSd6dXGrExv5uT6GLsNumBc76X6PXnyrJsJ5REImLNGxMSADZA/formResponse', { method: 'POST', mode: 'no-cors', body: data });
+    document.getElementById('modalFormWrap').style.display='none';
+    document.getElementById('modalSuccess').style.display='block';
+  }
+
+  // Event info modal
+  function openEventModal(title, date, bodyHTML) {
+    document.getElementById('modalEventTitle').textContent = title;
+    document.getElementById('modalEventDate').textContent = date;
+    document.getElementById('modalEventBody').innerHTML = bodyHTML;
+    document.getElementById('eventModal').classList.add('active');
+    document.body.style.overflow='hidden';
+  }
+  function closeEventModal(){document.getElementById('eventModal').classList.remove('active');document.body.style.overflow=''}
+  document.getElementById('eventModal').addEventListener('click',function(e){if(e.target===this)closeEventModal()})
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeEventModal();closeBonusModal()}})
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => entries.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible')}
+  }), {threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
