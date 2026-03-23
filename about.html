@@ -473,6 +473,37 @@
     .pillar h2{font-size:38px;margin-top:38px}
   }
 
+
+  /* HAMBURGER MENU */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 200;
+  }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s ease; transform-origin: center; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-nav { display: none; position: fixed; top: 76px; left: 0; right: 0; background: rgba(10,10,10,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.2); padding: 24px; z-index: 99; flex-direction: column; gap: 0; }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a { display: block; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); color: var(--white); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
+  .mobile-nav a:last-child { border-bottom: none; }
+  .mobile-nav a:hover { color: var(--gold); }
+  .mobile-nav .mobile-bonus-btn { margin-top: 20px; background: var(--gold); color: var(--black); font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; padding: 14px 24px; border: none; cursor: pointer; width: 100%; text-align: center; }
+
+  @media(max-width:900px){
+    nav{padding:0 20px}
+    .hamburger{display:flex}
+    .nav-links{display:none}
+    .nav-bonus-btn{display:none}
+    .nav-star{display:none}
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -570,11 +601,15 @@
 
 <!-- NAV -->
 <nav>
+  <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="events.html">Events</a></li>
     <li><a href="speakers.html">Speakers</a></li>
     <li><a href="testimonials.html">Testimonials</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
   <span class="nav-star">✦</span>
@@ -586,6 +621,17 @@
     <button class="nav-bonus-btn" onclick="openModal()">Free Bonus Content</button>
   </div>
 </nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="closeMobileNav()">Home</a>
+  <a href="events.html" onclick="closeMobileNav()">Events</a>
+  <a href="speakers.html" onclick="closeMobileNav()">Speakers</a>
+  <a href="testimonials.html" onclick="closeMobileNav()">Testimonials</a>
+  <a href="about.html" onclick="closeMobileNav()">About</a>
+  <a href="index.html#contact" onclick="closeMobileNav()">Contact</a>
+  <button class="mobile-bonus-btn" onclick="closeMobileNav();openBonusModal()">Free Bonus Content</button>
+</div>
 
 <!-- HERO -->
 <section class="pillar-hero" id="top">

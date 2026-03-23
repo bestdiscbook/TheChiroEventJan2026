@@ -418,15 +418,89 @@
   .stagger.visible > *:nth-child(3) { opacity:1;transform:translateY(0);transition-delay:.2s }
   .stagger.visible > *:nth-child(4) { opacity:1;transform:translateY(0);transition-delay:.3s }
 
+
+  /* HAMBURGER MENU */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 200;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 76px; left: 0; right: 0;
+    background: rgba(10,10,10,0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 24px;
+    z-index: 99;
+    flex-direction: column;
+    gap: 0;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    display: block;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .mobile-nav a:last-child { border-bottom: none; }
+  .mobile-nav a:hover { color: var(--gold); }
+  .mobile-nav .mobile-bonus-btn {
+    margin-top: 20px;
+    background: var(--gold);
+    color: var(--black);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+  }
   @media (max-width: 900px) {
     nav { padding: 0 20px; }
-    .nav-links { gap: 16px; }
+    .hamburger { display: flex; }
+    .nav-links { display: none; }
+    .nav-search { display: none; }
+    .nav-bonus-btn { display: none; }
+    .nav-star { display: none; }
     .nav-search { display: none; }
     .hero { grid-template-columns: 1fr; height: auto; max-height: none; }
-    .hero-left { flex-direction: row; align-items: center; padding: 20px 24px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .hero-divider { width: 1px; height: 60px; }
-    .hero-image { height: 60vw; }
-    .hero-social { flex-direction: row; padding: 20px; border-left: none; border-top: 1px solid rgba(255,255,255,0.08); justify-content: center; }
+    .hero-left { flex-direction: column; align-items: flex-start; padding: 24px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 16px; }
+    .hero-left-top { flex-direction: row; align-items: center; gap: 16px; }
+    .hero-divider { display: none; }
+    .next-event-announcement { display: block; width: 100%; }
+    .read-more-btn { display: none; }
+    .hero-image { height: 56vw; min-height: 240px; }
+    .hero-social { flex-direction: row; padding: 16px 24px; border-left: none; border-top: 1px solid rgba(255,255,255,0.08); justify-content: center; }
     .hero-headline, .features, .events, .testimonial-section, .video-section, .cta-section { padding: 56px 24px; }
     .features-grid { grid-template-columns: 1fr; }
     .stats { grid-template-columns: 1fr 1fr; padding: 48px 24px; }
@@ -438,6 +512,24 @@
     footer { padding: 48px 24px 24px; }
     .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
     .events-header { flex-direction: column; align-items: flex-start; }
+    .services-strip { flex-wrap: wrap; padding: 0 24px; }
+    .strip-item { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.1); width: 100%; }
+    .big-headline { font-size: clamp(40px, 10vw, 80px); }
+    .cta-row { flex-direction: column; align-items: flex-start; }
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    .video-wrap { padding-bottom: 56.25%; }
+    .quote-text { font-size: 18px; }
+    .modal { width: 95%; }
+    .modal-body { padding: 24px; }
+    .modal-top { padding: 24px; }
+  }
+  @media (max-width: 480px) {
+    .stats { grid-template-columns: 1fr; }
+    .brand-name { font-size: 28px; }
+    .hero-headline { padding: 40px 20px; }
+    .big-headline { font-size: clamp(36px, 9vw, 60px); }
+    .headline-body { font-size: 15px; }
+    .section-title { font-size: clamp(32px, 8vw, 48px); }
   }
 
   /* NEXT EVENT ANNOUNCEMENT */
@@ -504,9 +596,59 @@
   }
   .nea-cta:hover { background: var(--gold-light); }
   @media (max-width: 900px) {
-    .next-event-announcement { display: none; }
+    .next-event-announcement { display: block; width: 100%; }
+    .nea-countdown-num { font-size: 22px; }
   }
 
+
+  /* COUNTDOWN TIMER */
+  .nea-countdown {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    margin-top: 4px;
+  }
+  .nea-countdown-unit {
+    flex: 1;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 8px 4px 6px;
+    text-align: center;
+  }
+  .nea-countdown-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    line-height: 1;
+    color: var(--gold);
+    display: block;
+  }
+  .nea-countdown-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    display: block;
+    margin-top: 3px;
+  }
+  /* PULSING DOT */
+  .nea-pulse {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-right: 6px;
+    animation: pulse-dot 1.8s ease-in-out infinite;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
   /* HERO SLIDESHOW */
   .hero-slides { position: absolute; inset: 0; }
   .hero-slide {
@@ -581,12 +723,16 @@
 
 <!-- NAV -->
 <nav>
+  <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="events.html">Events</a></li>
     <li><a href="speakers.html">Speakers</a></li>
     <li><a href="testimonials.html">Testimonials</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="/cdn-cgi/l/email-protection#046c6168686b44676c6d766b6172616a702a676b69">Contact</a></li>
   </ul>
   <span class="nav-star">✦</span>
   <div class="nav-right">
@@ -597,6 +743,17 @@
     <button class="nav-bonus-btn" onclick="openModal()">Free Bonus Content</button>
   </div>
 </nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="closeMobileNav()">Home</a>
+  <a href="events.html" onclick="closeMobileNav()">Events</a>
+  <a href="speakers.html" onclick="closeMobileNav()">Speakers</a>
+  <a href="testimonials.html" onclick="closeMobileNav()">Testimonials</a>
+  <a href="about.html" onclick="closeMobileNav()">About</a>
+  <a href="/cdn-cgi/l/email-protection#0169646d6d6e41626968736e6477646f752f626e6c" onclick="closeMobileNav()">Contact</a>
+  <button class="mobile-bonus-btn" onclick="closeMobileNav();openModal()">Free Bonus Content</button>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -626,14 +783,20 @@
     </div>
     <div class="hero-divider"></div>
         <div class="next-event-announcement">
-      <div class="nea-eyebrow">Next Event</div>
+      <div class="nea-eyebrow"><span class="nea-pulse"></span>Next Event</div>
       <div class="nea-date">April 18, 2026</div>
       <div class="nea-name">The Chiro Event<br>Jupiter, Florida</div>
       <div class="nea-location">
         <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         Trump National · Jupiter, FL
       </div>
-      <a href="events.html#jupiter-event" class="nea-cta">View Details →</a>
+      <div class="nea-countdown">
+        <div class="nea-countdown-unit"><span class="nea-countdown-num" id="cd-days">--</span><span class="nea-countdown-label">Days</span></div>
+        <div class="nea-countdown-unit"><span class="nea-countdown-num" id="cd-hrs">--</span><span class="nea-countdown-label">Hrs</span></div>
+        <div class="nea-countdown-unit"><span class="nea-countdown-num" id="cd-min">--</span><span class="nea-countdown-label">Min</span></div>
+        <div class="nea-countdown-unit"><span class="nea-countdown-num" id="cd-sec">--</span><span class="nea-countdown-label">Sec</span></div>
+      </div>
+      <a href="events.html#jupiter-event" class="nea-cta">Reserve My Seat →</a>
     </div>
     
     <div class="hero-divider"></div>
@@ -679,7 +842,7 @@
 <section class="hero-headline reveal">
   <div class="headline-eyebrow">Practice Growth Seminars • Decompression • Neuropathy</div>
   <h1 class="big-headline">The National Authority in<br><span class="gold">Disc & Neuropathy</span><br>Certification & Practice Growth</h1>
-  <p class="headline-body">The Chiro Event is our flagship, in-person practice growth training — built for chiropractors who want the highest-converting decompression and neuropathy systems in the world. Attend for the clinical mastery, the marketing, and the team-driven implementation. Continuing education (CE) credits are available at select events. <br><br>Learn more at <a href="https://thechiroevent.com" style="color:var(--gold);text-decoration:none;font-weight:700" target="_blank" rel="noopener">TheChiroEvent.com</a> and <a href="https://vegaschiroevent.com" style="color:var(--gold);text-decoration:none;font-weight:700" target="_blank" rel="noopener">VegasChiroEvent.com</a>.<br><br>Backed by the largest decompression clinic network in the country: <strong style="color:var(--white)">250+ clinics across 45 states</strong>.</p>
+  <p class="headline-body">The Chiro Event is our flagship, in-person practice growth training — built for chiropractors who want the highest-converting decompression and neuropathy systems in the world. Attend for the clinical mastery, the marketing, and the team-driven implementation. Continuing education (CE) credits are available at select events. <br><br>Learn more at <a href="https://thechiroevent.com" style="color:var(--gold);text-decoration:none;font-weight:700" target="_blank" rel="noopener">TheChiroEvent.com</a> and <a href="https://conciergecoaches.com" style="color:var(--gold);text-decoration:none;font-weight:700" target="_blank" rel="noopener">ConciergeCoaches.com</a>.<br><br>Backed by the largest decompression clinic network in the country: <strong style="color:var(--white)">250+ clinics across 45 states</strong>.</p>
   <div class="cta-row">
     <a href="events.html" class="btn-primary">View Upcoming Events →</a>
     <button class="btn-secondary" onclick="openModal()">Get Free Bonus Content</button>
@@ -750,16 +913,14 @@
         <div class="event-location"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Life University · Marietta, GA</div>
       </div>
     </div>
-    <a href="events.html" class="event-card">
+    <div class="event-card" style="opacity:0.55;cursor:default">
       <div class="event-date-block" style="background:#555"><div class="event-month">Mar</div><div class="event-day">21</div></div>
       <div class="event-info">
         <div class="event-tag" style="color:#e85c5c">SOLD OUT · Passed</div>
-        <div class="event-tag">Practice Growth · Live Training</div>
         <div class="event-name">The Las Vegas Chiro Event</div>
         <div class="event-location"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>5-Star Hotel · Las Vegas, NV</div>
       </div>
-      <span class="event-arrow">→</span>
-    </a>
+    </div>
     <a href="events.html" class="event-card">
       <div class="event-date-block"><div class="event-month">Apr</div><div class="event-day">18</div></div>
       <div class="event-info">
@@ -856,13 +1017,13 @@
         <li><a href="speakers.html">Our Speakers</a></li>
         <li><a href="testimonials.html">Testimonials</a></li>
         <li><a href="events.html">Events</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#78101d141417381b10110a171d0e1d160c561b1715">Contact</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Contact</div>
       <ul class="footer-links">
-        <li><a href="mailto:hello@chiroevent.com">hello@chiroevent.com</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#96fef3fafaf9d6f5feffe4f9f3e0f3f8e2b8f5f9fb"><span class="__cf_email__" data-cfemail="d9b1bcb5b5b699bab1b0abb6bcafbcb7adf7bab6b4">[email&#160;protected]</span></a></li>
         <li><a href="tel:888-990-9660">888-990-9660</a></li>
         <li><a href="#" onclick="openModal();return false;">Get Free Bonus Content</a></li>
         <li><a href="events.html">Register for an Event</a></li>
@@ -875,7 +1036,22 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+  // Mobile nav
+  function toggleMobileNav() {
+    const nav = document.getElementById('mobileNav');
+    const btn = document.getElementById('hamburgerBtn');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  }
+  function closeMobileNav() {
+    document.getElementById('mobileNav').classList.remove('open');
+    document.getElementById('hamburgerBtn').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
   // Modal
   function openModal() { document.getElementById('bonusModal').classList.add('active'); document.body.style.overflow='hidden'; }
   function closeModal() { document.getElementById('bonusModal').classList.remove('active'); document.body.style.overflow=''; }
@@ -901,6 +1077,32 @@ function submitModal(e) {
   const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.12 });
   document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
 
+
+  // Countdown to April 18, 2026
+  (function() {
+    const target = new Date('2026-04-18T08:00:00-05:00').getTime();
+    function tick() {
+      const now = Date.now();
+      const diff = target - now;
+      if (diff <= 0) {
+        document.getElementById('cd-days').textContent = '0';
+        document.getElementById('cd-hrs').textContent = '0';
+        document.getElementById('cd-min').textContent = '0';
+        document.getElementById('cd-sec').textContent = '0';
+        return;
+      }
+      const days = Math.floor(diff / 86400000);
+      const hrs  = Math.floor((diff % 86400000) / 3600000);
+      const min  = Math.floor((diff % 3600000) / 60000);
+      const sec  = Math.floor((diff % 60000) / 1000);
+      document.getElementById('cd-days').textContent = String(days).padStart(2,'0');
+      document.getElementById('cd-hrs').textContent  = String(hrs).padStart(2,'0');
+      document.getElementById('cd-min').textContent  = String(min).padStart(2,'0');
+      document.getElementById('cd-sec').textContent  = String(sec).padStart(2,'0');
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
   // Hero slideshow
   (function() {
     const slider = document.getElementById('heroSlider');
