@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Pixel Test</title>
-
+  <title>Redirecting...</title>
+  
   <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -21,8 +21,25 @@
     <img height="1" width="1" style="display:none"
          src="https://www.facebook.com/tr?id=974113655174097&ev=PageView&noscript=1"/>
   </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <!-- Redirect Script - AFTER pixel fires -->
+  <script>
+    // Wait for pixel to load and fire
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'PageView', {}, {
+        eventID: 'form_redirect_' + Date.now()
+      });
+    }
+    
+    // Redirect after giving pixel time to send
+    setTimeout(function () {
+      window.location.replace("https://conciergecoaches.wufoo.com/forms/q2ft3no0xv01sl/");
+    }, 3000); // Increased to 3 seconds for safety
+  </script>
 </head>
 <body>
-  <p>Pixel test page. No redirect right now.</p>
+  <p>Redirecting to the form…</p>
+  <p><a href="https://conciergecoaches.wufoo.com/forms/q2ft3no0xv01sl/">Click here if you are not redirected.</a></p>
 </body>
 </html>
