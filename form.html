@@ -3,7 +3,13 @@
 <head>
   <meta charset="utf-8">
   <title>Redirecting...</title>
-  
+
+  <script>
+    setTimeout(function () {
+      window.location.replace("https://conciergecoaches.wufoo.com/forms/q2ft3no0xv01sl/");
+    }, 2000);
+  </script>
+
   <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -15,6 +21,7 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '974113655174097');
+    fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
@@ -23,23 +30,7 @@
   <!-- End Meta Pixel Code -->
 </head>
 <body>
-  <h1>Testing Pixel</h1>
-  <p>If you see this page, the pixel should fire.</p>
-  <p>Check Meta Events Manager Test Events tab.</p>
-  
-  <!-- Manual pixel fire after page loads -->
-  <script>
-    window.addEventListener('load', function() {
-      console.log('Page loaded, firing pixel...');
-      fbq('track', 'PageView');
-      console.log('Pixel fired!');
-      
-      // Redirect after 5 seconds
-      setTimeout(function() {
-        console.log('Redirecting now...');
-        window.location.href = "https://conciergecoaches.wufoo.com/forms/q2ft3no0xv01sl/";
-      }, 5000);
-    });
-  </script>
+  <p>Redirecting to the form…</p>
+  <p><a href="https://conciergecoaches.wufoo.com/forms/q2ft3no0xv01sl/">Click here if you are not redirected.</a></p>
 </body>
 </html>
