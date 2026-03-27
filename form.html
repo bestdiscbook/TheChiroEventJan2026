@@ -15,31 +15,31 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '974113655174097');
-    fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
          src="https://www.facebook.com/tr?id=974113655174097&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
-
-  <!-- Redirect Script - AFTER pixel fires -->
-  <script>
-    // Wait for pixel to load and fire
-    if (typeof fbq !== 'undefined') {
-      fbq('track', 'PageView', {}, {
-        eventID: 'form_redirect_' + Date.now()
-      });
-    }
-    
-    // Redirect after giving pixel time to send
-    setTimeout(function () {
-      window.location.replace("https://conciergecoaches.wufoo.com/forms/q2ft3no0xv01sl/");
-    }, 3000); // Increased to 3 seconds for safety
-  </script>
 </head>
 <body>
-  <p>Redirecting to the form…</p>
-  <p><a href="https://conciergecoaches.wufoo.com/forms/q2ft3no0xv01sl/">Click here if you are not redirected.</a></p>
+  <h1>Testing Pixel</h1>
+  <p>If you see this page, the pixel should fire.</p>
+  <p>Check Meta Events Manager Test Events tab.</p>
+  
+  <!-- Manual pixel fire after page loads -->
+  <script>
+    window.addEventListener('load', function() {
+      console.log('Page loaded, firing pixel...');
+      fbq('track', 'PageView');
+      console.log('Pixel fired!');
+      
+      // Redirect after 5 seconds
+      setTimeout(function() {
+        console.log('Redirecting now...');
+        window.location.href = "https://conciergecoaches.wufoo.com/forms/q2ft3no0xv01sl/";
+      }, 5000);
+    });
+  </script>
 </body>
 </html>
