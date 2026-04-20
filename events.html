@@ -326,7 +326,7 @@
     <li><a href="speakers.html">Speakers</a></li>
     <li><a href="testimonials.html">Testimonials</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="mailto:hello@chiroevent.com">Contact</a></li>
   </ul>
   <span class="nav-star">✦</span>
   <div class="nav-right">
@@ -341,7 +341,7 @@
   <a href="speakers.html" onclick="closeMobileNav()">Speakers</a>
   <a href="testimonials.html" onclick="closeMobileNav()">Testimonials</a>
   <a href="about.html" onclick="closeMobileNav()">About</a>
-  <a href="index.html#contact" onclick="closeMobileNav()">Contact</a>
+  <a href="mailto:hello@chiroevent.com" onclick="closeMobileNav()">Contact</a>
   <button class="mobile-bonus-btn" onclick="closeMobileNav();openBonusModal()">Free Bonus Content</button>
 </div>
 
@@ -425,9 +425,10 @@
   </div>
 
   <!-- The Chiro Event - Jupiter FL April 18 -->
-  <div class="event-featured reveal" id="jupiter-event">
-    <div class="event-date-col">
-      <div class="event-date-month">April</div>
+  <div class="event-featured sold-out reveal" id="jupiter-event" style="opacity:0.45;filter:grayscale(40%)" onclick="toggleSoldOut(this)">
+    <div class="event-date-col" style="background:#3a3a3a;position:relative">
+      <div style="position:absolute;top:0;left:0;right:0;background:#e85c5c;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:5px;text-align:center">SOLD OUT</div>
+      <div class="event-date-month" style="margin-top:24px">April</div>
       <div class="event-date-day">18</div>
       <div class="event-date-year">2026</div>
     </div>
@@ -457,11 +458,9 @@
         <div class="event-price-val">$249</div>
         <div class="event-price-note">Includes 1 free guest seat</div>
       </div>
-      <a href="https://thechiroevent.com/" target="_blank" rel="noopener" class="btn-register">Reserve My Seat →</a>
-      <div style="text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin:-8px 0">or</div>
-      <button onclick="openPhoneModal()" style="display:block;width:100%;background:transparent;border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:12px 28px;cursor:pointer;transition:border-color .2s,background .2s" onmouseover="this.style.borderColor='var(--gold)';this.style.background='rgba(201,168,76,0.08)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.3)';this.style.background='transparent'">Register by Phone →</button>
+      <span style="display:block;background:#333;color:rgba(255,255,255,0.25);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;letter-spacing:3px;text-transform:uppercase;padding:16px 28px;text-align:center;cursor:not-allowed">This Event Has Passed</span>
       <button class="btn-info" onclick="openEventModal('The Chiro Event — Jupiter, Florida','Saturday, April 18, 2026 · Trump National, Jupiter, FL','<h3>About This Event</h3><p>The #1 rated one-day chiropractic business training in the world, held at the prestigious Trump National in Jupiter, Florida. Presented by Dr. Eric Kaplan and Dr. Perry Bard — creators of DISC Centers of America, NEURODoc Neuropathy Centers, and KNEE Centers of America.</p><h3>What You\'ll Discover</h3><div class=\'what-you-get\'><div class=\'wyg-item\'>The Cash Model of Practice Success framework</div><div class=\'wyg-item\'>How to attract high-quality disc &amp; nerve patients</div><div class=\'wyg-item\'>The Time-Money Success Model</div><div class=\'wyg-item\'>Owning the turn-key new patient machine</div><div class=\'wyg-item\'>Branding &amp; marketing secrets from the top 1%</div><div class=\'wyg-item\'>How to build a $5,000+ patient value average</div><div class=\'wyg-item\'>Staff-driven practice systems</div><div class=\'wyg-item\'>100% cash — zero insurance required</div></div><h3>Event Details</h3><p><strong style=\'color:var(--white)\'>Date:</strong> Saturday, April 18, 2026</p><p><strong style=\'color:var(--white)\'>Venue:</strong> Trump National, Jupiter, Florida — 5-star setting</p><p><strong style=\'color:var(--white)\'>Includes:</strong> Gourmet lunch, 1,000+ pages of content, tools &amp; take-home materials, University Edition of the Ultimate Spinal Decompression Book, 1 free guest seat</p><p><strong style=\'color:var(--white)\'>Investment:</strong> $249 per doctor (regularly $549)</p><p><strong style=\'color:var(--white)\'>Registration:</strong> Online at <a href=\'https://thechiroevent.com/\' target=\'_blank\' style=\'color:var(--gold)\'>thechiroevent.com</a> or by phone at <a href=\'tel:888-990-9660\' style=\'color:var(--gold)\'>888-990-9660</a></p><p>100% satisfaction guaranteed. Seats are extremely limited.</p>')">More Info</button>
-      <div class="seats-left">Online or call <a href="tel:888-990-9660" style="color:#e85c5c;text-decoration:none">888-990-9660</a></div>
+      <div class="seats-left" style="color:#e85c5c">This event has sold out</div>
     </div>
   </div>
 
@@ -523,6 +522,173 @@
     document.body.style.overflow = '';
   }
   function openBonusModal(){document.getElementById('bonusModal').classList.add('active');document.body.style.overflow='hidden'}
+  function openChicagoModal() {
+    const modal = document.getElementById('phoneModal');
+    modal.querySelector('.event-modal-title').textContent = 'Register by Phone';
+    modal.querySelector('.event-modal-date').textContent = 'The Chicago Chiro Event · July 11, 2026';
+    modal.querySelector('p').innerHTML = 'Registration for the Chicago Chiro Event is by phone only. Ask for <strong style="color:var(--white)">Lacey</strong> to reserve your seat — seats are limited and will sell out.';
+    modal.classList.add('active');
+    document.body.style.overflow='hidden';
+  }
+  function openPhoneModal(){document.getElementById("phoneModal").classList.add("active");document.body.style.overflow="hidden";}
+  function closePhoneModal(){document.getElementById("phoneModal").classList.remove("active");document.body.style.overflow="";}
+  document.getElementById("phoneModal").addEventListener("click",function(e){if(e.target===this)closePhoneModal();});
+  function closeBonusModal(){document.getElementById('bonusModal').classList.remove('active');document.body.style.overflow=''}
+  document.getElementById('bonusModal').addEventListener('click',function(e){if(e.target===this)closeBonusModal()})
+  function submitBonusModal(e){
+    e.preventDefault();
+    const form = e.target;
+    const inputs = form.querySelectorAll('input');
+    const data = new FormData();
+    data.append('entry.903233644',  inputs[0].value);
+    data.append('entry.1315110832', inputs[1].value);
+    data.append('entry.472339817',  inputs[2].value);
+    data.append('entry.724827533',  inputs[3].value);
+    data.append('entry.605481896',  inputs[4].value);
+    data.append('entry.1702631455', inputs[5].value);
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLSd6dXGrExv5uT6GLsNumBc76X6PXnyrJsJ5REImLNGxMSADZA/formResponse', { method: 'POST', mode: 'no-cors', body: data });
+    document.getElementById('modalFormWrap').style.display='none';
+    document.getElementById('modalSuccess').style.display='block';
+  }
+
+  // Event info modal
+  function openEventModal(title, date, bodyHTML) {
+    document.getElementById('modalEventTitle').textContent = title;
+    document.getElementById('modalEventDate').textContent = date;
+    document.getElementById('modalEventBody').innerHTML = bodyHTML;
+    document.getElementById('eventModal').classList.add('active');
+    document.body.style.overflow='hidden';
+  }
+  function closeEventModal(){document.getElementById('eventModal').classList.remove('active');document.body.style.overflow=''}
+  document.getElementById('eventModal').addEventListener('click',function(e){if(e.target===this)closeEventModal()})
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeEventModal();closeBonusModal()}})
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => entries.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible')}
+  }), {threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>  <!-- The Chiro Event - Jupiter FL June 27 -->
+  <div class="event-featured reveal" id="jupiter-june-event">
+    <div class="event-date-col">
+      <div class="event-date-month">June</div>
+      <div class="event-date-day">27</div>
+      <div class="event-date-year">2026</div>
+    </div>
+    <div class="event-main">
+      <div class="event-badge" style="background:rgba(201,168,76,0.15);border-color:rgba(201,168,76,0.4)">✦ Practice Growth · Cash Practice · 5-Star Venue</div>
+      <div class="event-title">The Chiro Event — Jupiter, Florida</div>
+      <div class="event-meta">
+        <div class="event-meta-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Trump National · Jupiter, FL</div>
+        <div class="event-meta-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Saturday · One-Day Intensive</div>
+        <div class="event-meta-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Limited Seating — Sells Out Fast</div>
+      </div>
+      <p class="event-desc">Dr. Kaplan and Dr. Bard return to Trump National in Jupiter, Florida with their signature one-day cash practice training. Discover the exact framework that has helped hundreds of chiropractors build high-value disc, nerve, and knee care programs. Leave with over 1,000 pages of content, tools, and take-home materials.</p>
+      <div class="event-includes">
+        <span class="event-tag-pill">Cash Practice Framework</span>
+        <span class="event-tag-pill">Disc &amp; Nerve Care Systems</span>
+        <span class="event-tag-pill">New Patient Mastery</span>
+        <span class="event-tag-pill">Marketing &amp; Branding</span>
+        <span class="event-tag-pill">Gourmet Lunch Included</span>
+        <span class="event-tag-pill">1,000+ Pages of Content</span>
+        <span class="event-tag-pill">Free Book Gift</span>
+        <span class="event-tag-pill">1 Free Guest Seat</span>
+      </div>
+    </div>
+    <div class="event-action">
+      <div class="event-price">
+        <div class="event-price-label">Investment</div>
+        <div class="event-price-val">$249</div>
+        <div class="event-price-note">Includes 1 free guest seat</div>
+      </div>
+      <a href="https://thechiroevent.com/" target="_blank" rel="noopener" class="btn-register">Reserve My Seat →</a>
+      <div style="text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin:-8px 0">or</div>
+      <button onclick="openPhoneModal()" style="display:block;width:100%;background:transparent;border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:12px 28px;cursor:pointer;transition:border-color .2s,background .2s" onmouseover="this.style.borderColor='var(--gold)';this.style.background='rgba(201,168,76,0.08)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.3)';this.style.background='transparent'">Register by Phone →</button>
+      <div class="seats-left">Online or call <a href="tel:888-990-9660" style="color:#e85c5c;text-decoration:none">888-990-9660</a></div>
+    </div>
+  </div>
+
+  <!-- Chicago Chiro Event - July 11 -->
+  <div class="event-featured reveal" id="chicago-event">
+    <div class="event-date-col">
+      <div class="event-date-month">July</div>
+      <div class="event-date-day">11</div>
+      <div class="event-date-year">2026</div>
+    </div>
+    <div class="event-main">
+      <div class="event-badge">✦ By Popular Demand · Chicago · Practice Growth</div>
+      <div class="event-title">The Chicago Chiro Event</div>
+      <div class="event-meta">
+        <div class="event-meta-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>5-Star Property · Chicago, IL</div>
+        <div class="event-meta-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Saturday · 9:00 AM – 4:30 PM</div>
+        <div class="event-meta-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Limited Seating — Will Sell Out</div>
+      </div>
+      <p class="event-desc">By popular demand, Dr. Kaplan and Dr. Bard bring their signature training to Chicago. Learn exactly how top chiropractors are generating $20,000 collection days with 100% cash spinal decompression, neuropathy, and knee care programs — no insurance, no contracts, just pure cash.</p>
+      <div class="event-includes">
+        <span class="event-tag-pill">Spinal Decompression Systems</span>
+        <span class="event-tag-pill">Neuropathy &amp; Knee Care</span>
+        <span class="event-tag-pill">Cash Practice Building</span>
+        <span class="event-tag-pill">Marketing &amp; New Patients</span>
+        <span class="event-tag-pill">Gourmet Lunch Included</span>
+        <span class="event-tag-pill">Free 400+ Page Book</span>
+        <span class="event-tag-pill">1 Free Staff Member</span>
+      </div>
+    </div>
+    <div class="event-action">
+      <div class="event-price">
+        <div class="event-price-label">Investment</div>
+        <div class="event-price-val">$249</div>
+        <div class="event-price-note">Includes 1 free staff member</div>
+      </div>
+      <button class="btn-register" onclick="openChicagoModal()">Register by Phone →</button>
+      <button class="btn-info" onclick="openEventModal('The Chicago Chiro Event','Saturday, July 11, 2026 · 5-Star Property, Chicago, IL','<h3>About This Event</h3><p>By popular demand, Dr. Eric Kaplan and Dr. Perry Bard bring their signature one-day live training to Chicago. Learn exactly how the top chiropractors are generating $20,000 collection days with 100% cash programs in spinal decompression, neuropathy, and knee care.</p><h3>What You\'ll Discover</h3><div class=\'what-you-get\'><div class=\'wyg-item\'>The $20,000 collection day formula</div><div class=\'wyg-item\'>Spinal decompression, neuropathy &amp; knee care systems</div><div class=\'wyg-item\'>7 reliable sources for new patient production</div><div class=\'wyg-item\'>How to communicate chiropractic in 60 seconds</div><div class=\'wyg-item\'>Social media &amp; marketing secrets</div><div class=\'wyg-item\'>Staff motivation &amp; team systems</div><div class=\'wyg-item\'>100% cash — zero insurance required</div><div class=\'wyg-item\'>Open to doctors with or without a decompression table</div></div><h3>Event Details</h3><p><strong style=\'color:var(--white)\'>Date:</strong> Saturday, July 11, 2026</p><p><strong style=\'color:var(--white)\'>Time:</strong> 9:00 AM – 4:30 PM (includes gourmet lunch)</p><p><strong style=\'color:var(--white)\'>Location:</strong> 5-Star Property, Chicago, IL (confirmed at registration)</p><p><strong style=\'color:var(--white)\'>Includes:</strong> Full day training, gourmet lunch, free 400+ page book, 1 free staff member</p><p><strong style=\'color:var(--white)\'>Investment:</strong> $249 per doctor</p><p><strong style=\'color:var(--white)\'>Registration:</strong> By phone only — call <a href=\'tel:888-990-9660\' style=\'color:var(--gold)\'>888-990-9660</a>, ask for Lacey</p><p>100% satisfaction guaranteed. Seats are extremely limited and will sell out.</p>')">More Info</button>
+      <div class="seats-left">Call <a href="tel:888-990-9660" style="color:#e85c5c;text-decoration:none">888-990-9660</a> · Ask for Lacey</div>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 <span>The Chiro Event</span>. All rights reserved.</div>
+    <div class="footer-copy"><a href="index.html" style="color:rgba(255,255,255,0.25);text-decoration:none">← Back to Home</a></div>
+  </div>
+</footer>
+
+<script>
+  // Bonus modal
+
+
+  function toggleSoldOut(el) {
+    if (window.innerWidth <= 900) {
+      el.classList.toggle('expanded');
+    }
+  }
+  function toggleMobileNav() {
+    const nav = document.getElementById('mobileNav');
+    const btn = document.getElementById('hamburgerBtn');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  }
+  function closeMobileNav() {
+    document.getElementById('mobileNav').classList.remove('open');
+    document.getElementById('hamburgerBtn').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function openBonusModal(){document.getElementById('bonusModal').classList.add('active');document.body.style.overflow='hidden'}
+  function openChicagoModal() {
+    const modal = document.getElementById('phoneModal');
+    modal.querySelector('.event-modal-title').textContent = 'Register by Phone';
+    modal.querySelector('.event-modal-date').textContent = 'The Chicago Chiro Event · July 11, 2026';
+    modal.querySelector('p').innerHTML = 'Registration for the Chicago Chiro Event is by phone only. Ask for <strong style="color:var(--white)">Lacey</strong> to reserve your seat — seats are limited and will sell out.';
+    modal.classList.add('active');
+    document.body.style.overflow='hidden';
+  }
   function openPhoneModal(){document.getElementById("phoneModal").classList.add("active");document.body.style.overflow="hidden";}
   function closePhoneModal(){document.getElementById("phoneModal").classList.remove("active");document.body.style.overflow="";}
   document.getElementById("phoneModal").addEventListener("click",function(e){if(e.target===this)closePhoneModal();});
