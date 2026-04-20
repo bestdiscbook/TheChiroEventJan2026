@@ -464,113 +464,7 @@
     </div>
   </div>
 
-  <!-- TBA Placeholder 2 -->
-  <div class="event-featured reveal" style="opacity:0.5">
-    <div class="event-date-col" style="background:rgba(201,168,76,0.08);border-right:1px solid rgba(201,168,76,0.15)">
-      <div class="event-date-month" style="color:rgba(201,168,76,0.4)">Coming</div>
-      <div class="event-date-day" style="color:rgba(201,168,76,0.2);font-size:48px">TBA</div>
-      <div class="event-date-year" style="color:rgba(201,168,76,0.3)">2026</div>
-    </div>
-    <div class="event-main">
-      <div class="event-badge" style="opacity:0.6">✦ Event Announced Soon</div>
-      <div class="event-title" style="opacity:0.5">Future Chiro Event <span style="color:rgba(201,168,76,0.4)">— To Be Announced</span></div>
-      <div class="event-meta">
-        <div class="event-meta-item" style="opacity:0.5"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Location TBA</div>
-        <div class="event-meta-item" style="opacity:0.5"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Date &amp; Format TBA</div>
-      </div>
-      <p class="event-desc" style="opacity:0.5">Stay tuned — more events are being planned for later in 2026. Get on our early access list to be notified first.</p>
-    </div>
-    <div class="event-action">
-      <div class="event-price">
-        <div class="event-price-label">Pricing</div>
-        <div class="event-price-val" style="font-size:32px;color:rgba(201,168,76,0.3)">TBA</div>
-      </div>
-      <button class="btn-register" onclick="openModal()" style="background:rgba(201,168,76,0.1);color:rgba(201,168,76,0.4);border:1px solid rgba(201,168,76,0.15);clip-path:none;cursor:default" disabled>Stay Tuned</button>
-    </div>
-  </div>
-
-
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 <span>The Chiro Event</span>. All rights reserved.</div>
-    <div class="footer-copy"><a href="index.html" style="color:rgba(255,255,255,0.25);text-decoration:none">← Back to Home</a></div>
-  </div>
-</footer>
-
-<script>
-  // Bonus modal
-
-
-  function toggleSoldOut(el) {
-    if (window.innerWidth <= 900) {
-      el.classList.toggle('expanded');
-    }
-  }
-  function toggleMobileNav() {
-    const nav = document.getElementById('mobileNav');
-    const btn = document.getElementById('hamburgerBtn');
-    nav.classList.toggle('open');
-    btn.classList.toggle('open');
-    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
-  }
-  function closeMobileNav() {
-    document.getElementById('mobileNav').classList.remove('open');
-    document.getElementById('hamburgerBtn').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function openBonusModal(){document.getElementById('bonusModal').classList.add('active');document.body.style.overflow='hidden'}
-  function openChicagoModal() {
-    const modal = document.getElementById('phoneModal');
-    modal.querySelector('.event-modal-title').textContent = 'Register by Phone';
-    modal.querySelector('.event-modal-date').textContent = 'The Chicago Chiro Event · July 11, 2026';
-    modal.querySelector('p').innerHTML = 'Registration for the Chicago Chiro Event is by phone only. Ask for <strong style="color:var(--white)">Lacey</strong> to reserve your seat — seats are limited and will sell out.';
-    modal.classList.add('active');
-    document.body.style.overflow='hidden';
-  }
-  function openPhoneModal(){document.getElementById("phoneModal").classList.add("active");document.body.style.overflow="hidden";}
-  function closePhoneModal(){document.getElementById("phoneModal").classList.remove("active");document.body.style.overflow="";}
-  document.getElementById("phoneModal").addEventListener("click",function(e){if(e.target===this)closePhoneModal();});
-  function closeBonusModal(){document.getElementById('bonusModal').classList.remove('active');document.body.style.overflow=''}
-  document.getElementById('bonusModal').addEventListener('click',function(e){if(e.target===this)closeBonusModal()})
-  function submitBonusModal(e){
-    e.preventDefault();
-    const form = e.target;
-    const inputs = form.querySelectorAll('input');
-    const data = new FormData();
-    data.append('entry.903233644',  inputs[0].value);
-    data.append('entry.1315110832', inputs[1].value);
-    data.append('entry.472339817',  inputs[2].value);
-    data.append('entry.724827533',  inputs[3].value);
-    data.append('entry.605481896',  inputs[4].value);
-    data.append('entry.1702631455', inputs[5].value);
-    fetch('https://docs.google.com/forms/d/e/1FAIpQLSd6dXGrExv5uT6GLsNumBc76X6PXnyrJsJ5REImLNGxMSADZA/formResponse', { method: 'POST', mode: 'no-cors', body: data });
-    document.getElementById('modalFormWrap').style.display='none';
-    document.getElementById('modalSuccess').style.display='block';
-  }
-
-  // Event info modal
-  function openEventModal(title, date, bodyHTML) {
-    document.getElementById('modalEventTitle').textContent = title;
-    document.getElementById('modalEventDate').textContent = date;
-    document.getElementById('modalEventBody').innerHTML = bodyHTML;
-    document.getElementById('eventModal').classList.add('active');
-    document.body.style.overflow='hidden';
-  }
-  function closeEventModal(){document.getElementById('eventModal').classList.remove('active');document.body.style.overflow=''}
-  document.getElementById('eventModal').addEventListener('click',function(e){if(e.target===this)closeEventModal()})
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeEventModal();closeBonusModal()}})
-
-  // Scroll reveal
-  const obs = new IntersectionObserver(entries => entries.forEach(e => {
-    if(e.isIntersecting){e.target.classList.add('visible')}
-  }), {threshold:0.1});
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
-</body>
-</html>  <!-- The Chiro Event - Jupiter FL June 27 -->
+  <!-- The Chiro Event - Jupiter FL June 27 -->
   <div class="event-featured reveal" id="jupiter-june-event">
     <div class="event-date-col">
       <div class="event-date-month">June</div>
@@ -643,10 +537,12 @@
         <div class="event-price-note">Includes 1 free staff member</div>
       </div>
       <button class="btn-register" onclick="openChicagoModal()">Register by Phone →</button>
-      <button class="btn-info" onclick="openEventModal('The Chicago Chiro Event','Saturday, July 11, 2026 · 5-Star Property, Chicago, IL','<h3>About This Event</h3><p>By popular demand, Dr. Eric Kaplan and Dr. Perry Bard bring their signature one-day live training to Chicago. Learn exactly how the top chiropractors are generating $20,000 collection days with 100% cash programs in spinal decompression, neuropathy, and knee care.</p><h3>What You\'ll Discover</h3><div class=\'what-you-get\'><div class=\'wyg-item\'>The $20,000 collection day formula</div><div class=\'wyg-item\'>Spinal decompression, neuropathy &amp; knee care systems</div><div class=\'wyg-item\'>7 reliable sources for new patient production</div><div class=\'wyg-item\'>How to communicate chiropractic in 60 seconds</div><div class=\'wyg-item\'>Social media &amp; marketing secrets</div><div class=\'wyg-item\'>Staff motivation &amp; team systems</div><div class=\'wyg-item\'>100% cash — zero insurance required</div><div class=\'wyg-item\'>Open to doctors with or without a decompression table</div></div><h3>Event Details</h3><p><strong style=\'color:var(--white)\'>Date:</strong> Saturday, July 11, 2026</p><p><strong style=\'color:var(--white)\'>Time:</strong> 9:00 AM – 4:30 PM (includes gourmet lunch)</p><p><strong style=\'color:var(--white)\'>Location:</strong> 5-Star Property, Chicago, IL (confirmed at registration)</p><p><strong style=\'color:var(--white)\'>Includes:</strong> Full day training, gourmet lunch, free 400+ page book, 1 free staff member</p><p><strong style=\'color:var(--white)\'>Investment:</strong> $249 per doctor</p><p><strong style=\'color:var(--white)\'>Registration:</strong> By phone only — call <a href=\'tel:888-990-9660\' style=\'color:var(--gold)\'>888-990-9660</a>, ask for Lacey</p><p>100% satisfaction guaranteed. Seats are extremely limited and will sell out.</p>')">More Info</button>
+      <button class="btn-info" onclick="openEventModal('The Chicago Chiro Event','Saturday, July 11, 2026 · 5-Star Property, Chicago, IL','<h3>About This Event</h3><p>By popular demand, Dr. Eric Kaplan and Dr. Perry Bard bring their signature one-day live training to Chicago. Learn exactly how the top chiropractors are generating $20,000 collection days with 100% cash programs in spinal decompression, neuropathy, and knee care.</p><h3>What You\'ll Discover</h3><div class=\'what-you-get\'><div class=\'wyg-item\'>The $20,000 collection day formula</div><div class=\'wyg-item\'>Spinal decompression, neuropathy &amp; knee care systems</div><div class=\'wyg-item\'>7 reliable new patient production sources</div><div class=\'wyg-item\'>How to communicate chiropractic in 60 seconds</div><div class=\'wyg-item\'>Social media &amp; marketing secrets</div><div class=\'wyg-item\'>Staff motivation &amp; team systems</div><div class=\'wyg-item\'>100% cash — zero insurance required</div><div class=\'wyg-item\'>Open to doctors with or without a decompression table</div></div><h3>Event Details</h3><p><strong style=\'color:var(--white)\'>Date:</strong> Saturday, July 11, 2026</p><p><strong style=\'color:var(--white)\'>Time:</strong> 9:00 AM – 4:30 PM (includes gourmet lunch)</p><p><strong style=\'color:var(--white)\'>Location:</strong> 5-Star Property, Chicago, IL (confirmed at registration)</p><p><strong style=\'color:var(--white)\'>Includes:</strong> Full day training, gourmet lunch, free 400+ page book, 1 free staff member</p><p><strong style=\'color:var(--white)\'>Investment:</strong> $249 per doctor</p><p><strong style=\'color:var(--white)\'>Registration:</strong> By phone only — call <a href=\'tel:888-990-9660\' style=\'color:var(--gold)\'>888-990-9660</a>, ask for Lacey</p><p>100% satisfaction guaranteed. Seats extremely limited and will sell out.</p>')">More Info</button>
       <div class="seats-left">Call <a href="tel:888-990-9660" style="color:#e85c5c;text-decoration:none">888-990-9660</a> · Ask for Lacey</div>
     </div>
   </div>
+
+
 
 
 </section>
