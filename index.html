@@ -113,9 +113,10 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 300; height: 60px; di
 
 /* ─── STORY STRIP ─── */
 .story-strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--b2); }
-.story-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: repeat(3,1fr); }
+.story-inner { max-width: 1100px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(3,1fr); }
 .story-item { padding: 40px 28px; border-right: 1px solid var(--border); }
-.story-item:last-child { border-right: none; }
+.story-item:first-child { padding-left: 0; }
+.story-item:last-child { border-right: none; padding-right: 0; }
 .story-tag { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
 .story-body { font-size: 14px; line-height: 1.7; color: var(--text); margin-bottom: 16px; }
 .story-result { font-size: 14px; font-weight: 600; color: var(--white); padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.5; }
@@ -357,7 +358,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
               <input class="f-field" type="email" name="email" placeholder="Email address" required>
               <button type="submit" class="f-submit">Request my seat &rarr;</button>
             </form>
-            <p class="f-note">We'll be in touch to confirm your seat and collect payment.</p>
+            <p class="f-note">Lacey will call or text to confirm within the hour.</p>
           </div>
           <div class="f-success" id="formSuccess">
             <h3>You're in.</h3>
