@@ -54,16 +54,16 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 300; height: 60px; di
 
 /* ─── HERO ─── */
 .hero { position: relative; min-height: 100svh; display: flex; align-items: stretch; overflow: hidden; }
-.hero-video-wrap { position: absolute; inset: 0; z-index: 0; }
-.hero-video-wrap iframe { position: absolute; top: 50%; left: 50%; width: 177.78vh; height: 100vh; min-width: 100%; min-height: 56.25vw; transform: translate(-50%,-50%); pointer-events: none; }
+.hero-video-wrap { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.hero-video-wrap iframe { position: absolute; top: 50%; left: 50%; width: calc(177.78vh + 40px); height: calc(100vh + 40px); min-width: calc(100% + 40px); min-height: calc(56.25vw + 40px); transform: translate(-50%,-50%); pointer-events: none; }
 .hero-slides-fallback { position: absolute; inset: 0; z-index: 1; }
 .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity .8s ease; }
 .hero-slide.active { opacity: 1; }
 .hero-overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(to right, rgba(10,10,11,0.7) 0%, rgba(10,10,11,0.4) 50%, rgba(10,10,11,0.75) 100%); }
 
-/* Hero layout: left content + right card */
-.hero-inner { position: relative; z-index: 3; width: 100%; display: flex; align-items: center; padding: 80px 40px; gap: 40px; max-width: 1200px; margin: 0 auto; }
-.hero-content { flex: 1; min-width: 0; }
+/* Hero layout: left content flush left + right card flush right */
+.hero-inner { position: relative; z-index: 3; width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 80px 48px 60px; gap: 40px; min-height: 100svh; box-sizing: border-box; }
+.hero-content { flex: 1; min-width: 0; max-width: 560px; }
 .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; background: rgba(184,151,106,0.12); border: 1px solid rgba(184,151,106,0.3); padding: 6px 14px; border-radius: 999px; }
 .hero-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 1.8s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.6)} }
@@ -84,7 +84,12 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 300; height: 60px; di
 .cd-sep { font-size: 18px; font-weight: 300; color: var(--muted2); padding-bottom: 8px; }
 
 /* Hero event card — right side */
-.hero-card { width: 340px; flex-shrink: 0; background: rgba(17,17,20,0.92); border: 1px solid rgba(184,151,106,0.25); border-radius: 14px; backdrop-filter: blur(16px); overflow: hidden; }
+.hero-card { width: 320px; flex-shrink: 0; background: rgba(17,17,20,0.92); border: 1px solid rgba(184,151,106,0.25); border-radius: 14px; backdrop-filter: blur(16px); overflow: hidden; align-self: center; }
+
+/* Audio toggle */
+.audio-btn { position: absolute; bottom: 24px; left: 48px; z-index: 4; display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.6); background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(8px); padding: 7px 14px; border-radius: 999px; cursor: pointer; transition: color .15s, border-color .15s; }
+.audio-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.35); }
+.audio-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
 .hero-card-top { background: var(--gold); padding: 14px 20px; }
 .hero-card-top-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(0,0,0,0.6); margin-bottom: 2px; }
 .hero-card-top-title { font-size: 17px; font-weight: 700; color: var(--black); letter-spacing: -.4px; }
@@ -116,9 +121,9 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 300; height: 60px; di
 .story-result { font-size: 14px; font-weight: 600; color: var(--white); padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.5; }
 
 /* ─── STATS ─── */
-.stats-wrap { padding: 72px 40px 0; }
-.stats-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; }
-.stat-card { background: var(--b2); padding: 32px 28px; }
+.stats-wrap { padding: 72px 0 0; background: var(--black); }
+.stats-grid { width: 100%; display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); overflow: hidden; }
+.stat-card { background: var(--b2); padding: 36px 40px; }
 .stat-num { font-size: 42px; font-weight: 700; letter-spacing: -2px; color: var(--white); line-height: 1; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
 .stat-label { font-size: 13px; color: var(--muted); line-height: 1.4; }
 
@@ -211,9 +216,10 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
   .sticky-bar { display: block; }
   body { padding-bottom: 56px; }
   /* Hero stacks on mobile */
-  .hero { min-height: auto; }
-  .hero-inner { flex-direction: column; padding: 90px 20px 40px; gap: 0; }
+  .hero { min-height: 100svh; }
+  .hero-inner { flex-direction: column; padding: 80px 20px 40px; gap: 0; justify-content: center; min-height: 100svh; }
   .hero-card { display: none; }
+  .audio-btn { display: none; }
   .hero h1 { letter-spacing: -1.2px; }
   .hero-sub { font-size: 15px; }
   /* Mobile event section */
@@ -221,7 +227,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
   .story-inner { grid-template-columns: 1fr; padding: 0 20px; }
   .story-item { border-right: none; border-bottom: 1px solid var(--border); padding: 28px 0; }
   .story-item:last-child { border-bottom: none; }
-  .stats-wrap { padding: 56px 20px 0; }
+  .stats-wrap { padding: 0; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .results-inner { padding: 0 20px; }
   .results-sec { padding: 60px 0; }
@@ -293,7 +299,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-video-wrap" id="heroVideo">
-    <iframe src="https://www.youtube.com/embed/Nbf2UyvFB_c?autoplay=1&mute=1&loop=1&playlist=Nbf2UyvFB_c&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media" allowfullscreen title="The Chiro Event"></iframe>
+    <iframe src="https://www.youtube.com/embed/Nbf2UyvFB_c?autoplay=1&mute=1&loop=1&playlist=Nbf2UyvFB_c&controls=0&disablekb=1&iv_load_policy=3&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1" allow="autoplay; encrypted-media" allowfullscreen title="The Chiro Event" style="border:0;"></iframe>
   </div>
   <div class="hero-slides-fallback" id="heroSlides">
     <div class="hero-slide active" style="background-image:url('site_assets/hero-slide-1.jpg')"></div>
@@ -302,6 +308,11 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
     <div class="hero-slide" style="background-image:url('site_assets/hero-slide-4.jpg')"></div>
   </div>
   <div class="hero-overlay"></div>
+  <!-- Audio toggle -->
+  <button class="audio-btn" id="audioBtn" onclick="toggleAudio()" title="Toggle audio">
+    <svg id="audioIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+    <span id="audioLabel">Tap for audio</span>
+  </button>
   <div class="hero-inner">
     <!-- Left: headline + trust + countdown -->
     <div class="hero-content">
@@ -346,7 +357,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
               <input class="f-field" type="email" name="email" placeholder="Email address" required>
               <button type="submit" class="f-submit">Request my seat &rarr;</button>
             </form>
-            <p class="f-note">Lacey will call or text to confirm within the hour.</p>
+            <p class="f-note">We'll be in touch to confirm your seat and collect payment.</p>
           </div>
           <div class="f-success" id="formSuccess">
             <h3>You're in.</h3>
@@ -664,7 +675,23 @@ const sObs=new IntersectionObserver(entries=>{
 },{threshold:.3});
 document.querySelectorAll('.stats-grid').forEach(el=>sObs.observe(el));
 
-// Form submit — Formspree
+// Audio toggle for hero video
+let isMuted = true;
+function toggleAudio() {
+  const iframe = document.querySelector('#heroVideo iframe');
+  if (!iframe) return;
+  if (isMuted) {
+    iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+    iframe.contentWindow.postMessage('{"event":"command","func":"setVolume","args":[80]}', '*');
+    document.getElementById('audioIcon').innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
+    document.getElementById('audioLabel').textContent = 'Mute';
+  } else {
+    iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+    document.getElementById('audioIcon').innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+    document.getElementById('audioLabel').textContent = 'Tap for audio';
+  }
+  isMuted = !isMuted;
+}
 async function submitForm(e){
   e.preventDefault();
   try{
