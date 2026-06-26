@@ -3,1142 +3,684 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The Chiro Event is the #1 in-person practice growth training for chiropractors—decompression, neuropathy, nerve issues, team systems, marketing, and select CE credits. Backed by 250+ clinics across 45 states.">
+<meta name="description" content="The Chiro Event — the in-person practice growth training for chiropractors. Decompression, neuropathy, cash practice systems. Backed by 250+ clinics across 45 states.">
 <link rel="canonical" href="https://chiroevent.com/">
-<meta property="og:title" content="The Chiro Event — Chiropractic CE, Certification & Practice Growth">
-<meta property="og:description" content="The #1 in-person practice growth training for chiropractors—decompression, neuropathy, nerve issues, team systems, marketing, and select CE credits.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://chiroevent.com/">
-<meta name="twitter:card" content="summary_large_image">
-
-<title>The Chiro Event | Practice Growth Seminars for Chiropractors (Decompression & Neuropathy)</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
+<title>The Chiro Event | Practice Growth Seminars for Chiropractors</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --gold: #C9A84C; --gold-light: #E8C86A; --gold-dark: #A07830;
-    --black: #0A0A0A; --black-2: #111111; --black-3: #181818;
-    --white: #FFFFFF; --gray: #888888;
-  }
-  html { scroll-behavior: smooth; }
-  body { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; overflow-x: hidden; }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 48px; height: 76px;
-    background: rgba(10,10,10,0.97); backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-  }
-  .nav-links { display: flex; gap: 40px; list-style: none; }
-  .nav-links a {
-    text-decoration: none; color: var(--white);
-    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-    font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
-    transition: color 0.2s; position: relative;
-  }
-  .nav-links a::after {
-    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-    height: 2px; background: var(--gold);
-    transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease;
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-links a:hover::after { transform: scaleX(1); }
-  .nav-star { font-size: 20px; color: var(--gold); animation: spin-star 8s linear infinite; }
-  @keyframes spin-star { to { transform: rotate(360deg); } }
-  .nav-right { display: flex; align-items: center; gap: 16px; }
-  .nav-search {
-    display: flex; align-items: center;
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 4px; padding: 8px 14px; gap: 8px; transition: border-color 0.2s;
-  }
-  .nav-search:focus-within { border-color: var(--gold); }
-  .nav-search input { background: none; border: none; outline: none; color: var(--white); font-family: 'Barlow', sans-serif; font-size: 13px; width: 180px; }
-  .nav-bonus-btn {
-    background: var(--gold); color: var(--black);
-    font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
-    padding: 10px 18px; border: none; cursor: pointer;
-    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-    transition: background 0.2s; white-space: nowrap;
-  }
-  .nav-bonus-btn:hover { background: var(--gold-light); }
-
-  /* HERO */
-  .hero {
-    margin-top: 76px;
-    display: grid; grid-template-columns: 340px 1fr 72px;
-    height: calc(100vh - 76px); min-height: 500px; max-height: 680px;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; top: -100px; right: -100px;
-    width: 500px; height: 500px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.2) 0%, transparent 70%);
-    pointer-events: none; z-index: 0;
-  }
-  .hero-left {
-    background: var(--black); display: flex; flex-direction: column;
-    justify-content: space-between; padding: 40px 32px;
-    border-right: 1px solid rgba(255,255,255,0.08); position: relative; z-index: 1;
-  }
-  .hero-left-top { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
-
-  /* Professional logo mark — spine/vertebrae SVG icon */
-  .brand-icon-wrap {
-    width: 60px; height: 60px;
-    background: var(--gold); border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .brand-icon-wrap svg { width: 36px; height: 36px; }
-
-  .brand-name {
-    font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-    font-size: 40px; letter-spacing: 1px; line-height: 1.0;
-    text-transform: uppercase;
-  }
-  .brand-name span { color: var(--gold); }
-  .brand-sub {
-    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-    color: rgba(255,255,255,0.4); margin-top: 10px; display: block;
-  }
-  .brand-text-wrap { display: flex; flex-direction: column; }
-  .hero-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.12); }
-  .read-more-btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-    font-size: 16px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--white); text-decoration: none; transition: color 0.2s;
-    cursor: pointer; background: none; border: none;
-  }
-  .read-more-btn:hover { color: var(--gold); }
-  .read-more-btn svg {
-    width: 30px; height: 30px; border: 2px solid currentColor; border-radius: 50%;
-    padding: 5px; transition: background 0.2s;
-  }
-  .read-more-btn:hover svg { background: var(--gold); border-color: var(--gold); color: var(--black); }
-  .small-star { color: var(--gold); font-size: 14px; position: absolute; }
-  .star-tl { top: 20px; right: 20px; }
-
-  /* HERO IMAGE */
-  .hero-image { position: relative; overflow: hidden; z-index: 1; }
-  .hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 8s ease; }
-  .hero-image:hover img { transform: scale(1.04); }
-  .hero-image-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to right, rgba(10,10,10,0.35) 0%, transparent 30%);
-    pointer-events: none;
-  }
-  .hero-image::after {
-    content: ''; position: absolute; top: 0; right: 0;
-    width: 80px; height: 80px; background: var(--gold);
-    clip-path: polygon(100% 0, 0 0, 100% 100%);
-  }
-  .hero-img-placeholder {
-    width: 100%; height: 100%;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2010 40%, #1a1510 100%);
-    display: flex; align-items: center; justify-content: center; position: relative;
-  }
-  .hero-img-placeholder-text {
-    text-align: center; z-index: 1;
-    font-family: 'Bebas Neue', sans-serif; font-size: clamp(24px,3vw,42px);
-    color: rgba(201,168,76,0.2); letter-spacing: 3px; text-transform: uppercase;
-  }
-
-  /* SOCIAL SIDEBAR */
-  .hero-social {
-    background: var(--black); display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 16px;
-    border-left: 1px solid rgba(255,255,255,0.08); position: relative; z-index: 1;
-  }
-  .social-icon {
-    width: 44px; height: 44px; border-radius: 50%; background: var(--white);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--black); cursor: pointer; transition: background 0.2s, transform 0.2s; text-decoration: none;
-  }
-  .social-icon:hover { background: var(--gold); transform: scale(1.1); }
-  .social-icon svg { width: 20px; height: 20px; }
-
-  /* HEADLINE */
-  .hero-headline {
-    background: var(--black-2); padding: 64px 60px 60px;
-    position: relative; overflow: hidden;
-  }
-  .hero-headline::before {
-    content: ''; position: absolute; bottom: -80px; left: -80px;
-    width: 350px; height: 350px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 65%);
-    pointer-events: none;
-  }
-  .headline-eyebrow {
-    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-    font-size: 12px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold);
-    margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
-  }
-  .headline-eyebrow::before { content: ''; display: block; width: 32px; height: 2px; background: var(--gold); }
-  .big-headline {
-    font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 7vw, 108px);
-    line-height: 0.92; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 28px;
-  }
-  .big-headline .gold { color: var(--gold); }
-  .headline-body {
-    max-width: 680px; font-size: 17px; line-height: 1.7;
-    color: rgba(255,255,255,0.65); margin-bottom: 40px;
-  }
-  .cta-row { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: var(--gold); color: var(--black);
-    font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-    font-size: 14px; letter-spacing: 3px; text-transform: uppercase;
-    padding: 16px 32px; text-decoration: none; border: none; cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-  }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-  .btn-secondary {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: transparent; color: var(--white);
-    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-    font-size: 14px; letter-spacing: 3px; text-transform: uppercase;
-    padding: 15px 32px; text-decoration: none; border: 1px solid rgba(255,255,255,0.3); cursor: pointer;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
-
-  /* SERVICES STRIP */
-  .services-strip {
-    background: var(--gold); padding: 0 60px;
-    display: flex; align-items: center; overflow: hidden;
-  }
-  .strip-item {
-    display: flex; align-items: center; gap: 12px; padding: 18px 28px;
-    font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-    font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--black); white-space: nowrap; border-right: 1px solid rgba(0,0,0,0.2); flex-shrink: 0;
-  }
-  .strip-item:last-child { border-right: none; }
-  .strip-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--black); opacity: 0.35; }
-
-  /* FEATURES */
-  .features { padding: 100px 60px; background: var(--black-2); }
-  .section-label {
-    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-    font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold);
-    margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
-  }
-  .section-label::before { content: ''; display: block; width: 32px; height: 2px; background: var(--gold); }
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 5vw, 64px);
-    line-height: 1; text-transform: uppercase; margin-bottom: 60px; max-width: 600px;
-  }
-  .section-title span { color: var(--gold); }
-  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .feature-card {
-    background: var(--black-3); padding: 44px 36px;
-    position: relative; overflow: hidden; transition: background 0.3s; cursor: default;
-  }
-  .feature-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;
-  }
-  .feature-card:hover::before { transform: scaleX(1); }
-  .feature-card:hover { background: #1a1a1a; }
-  .feature-number { font-family: 'Bebas Neue', sans-serif; font-size: 64px; color: rgba(201,168,76,0.1); line-height: 1; margin-bottom: -8px; }
-  .feature-icon { font-size: 32px; margin-bottom: 16px; }
-  .feature-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 22px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
-  .feature-body { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.55); }
-
-  /* STATS */
-  .stats {
-    padding: 80px 60px; background: var(--black);
-    display: grid; grid-template-columns: repeat(4,1fr);
-    border-top: 1px solid rgba(201,168,76,0.2); border-bottom: 1px solid rgba(201,168,76,0.2);
-  }
-  .stat-item { padding: 24px 40px; border-right: 1px solid rgba(255,255,255,0.08); text-align: center; }
-  .stat-item:last-child { border-right: none; }
-  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 72px; color: var(--gold); line-height: 1; display: block; }
-  .stat-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 6px; display: block; }
-
-  /* EVENTS */
-  .events { padding: 100px 60px; background: var(--black-2); }
-  .events-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap; gap: 20px; }
-  .events-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-  .event-card {
-    background: var(--black-3); padding: 40px;
-    display: flex; gap: 28px; align-items: flex-start;
-    position: relative; overflow: hidden; transition: background 0.3s; cursor: pointer;
-    text-decoration: none; color: inherit; display: flex;
-  }
-  .event-card:hover { background: #1c1c1c; }
-  .event-date-block { background: var(--gold); color: var(--black); min-width: 72px; text-align: center; padding: 12px 8px; flex-shrink: 0; }
-  .event-month { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
-  .event-day { font-family: 'Bebas Neue', sans-serif; font-size: 44px; line-height: 1; }
-  .event-tag { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
-  .event-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 22px; text-transform: uppercase; margin-bottom: 8px; line-height: 1.1; }
-  .event-location { font-size: 14px; color: rgba(255,255,255,0.45); display: flex; align-items: center; gap: 6px; }
-  .event-arrow { position: absolute; bottom: 20px; right: 24px; font-size: 20px; color: var(--gold); opacity: 0; transition: opacity 0.2s, transform 0.2s; transform: translateX(-8px); }
-  .event-card:hover .event-arrow { opacity: 1; transform: translateX(0); }
-
-  /* TESTIMONIAL PREVIEW */
-  .testimonial-section {
-    padding: 100px 60px; background: var(--black);
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-  }
-  .quote-mark { font-family: 'Bebas Neue', sans-serif; font-size: 120px; color: var(--gold); line-height: 0.7; margin-bottom: 20px; opacity: 0.3; }
-  .quote-text { font-style: italic; font-size: 22px; line-height: 1.6; color: rgba(255,255,255,0.85); margin-bottom: 28px; }
-  .quote-author { display: flex; align-items: center; gap: 16px; }
-  .quote-avatar { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; border: 2px solid var(--gold); }
-  .quote-avatar img { width: 100%; height: 100%; object-fit: cover; }
-  .quote-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; }
-  .quote-role { font-size: 13px; color: var(--gold); margin-top: 2px; }
-  .testimonial-right {}
-  .testimonial-visual { background: var(--black-3); padding: 48px; border: 1px solid rgba(201,168,76,0.2); position: relative; }
-  .testimonial-visual::before { content: ''; position: absolute; top: -2px; left: 32px; right: 32px; height: 3px; background: var(--gold); }
-  .t-stat { text-align: center; padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .t-stat:last-child { border-bottom: none; }
-  .t-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: var(--gold); display: block; }
-  .t-stat-label { font-size: 13px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 2px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; }
-  .view-all-link { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; margin-top: 28px; transition: gap 0.2s; }
-  .view-all-link:hover { gap: 14px; }
-
-  /* VIDEO PLACEHOLDER */
-  .video-section { padding: 100px 60px; background: var(--black-2); }
-  .video-wrap {
-    margin-top: 48px; position: relative; width: 100%; padding-bottom: 56.25%; /* 16:9 */
-    background: var(--black-3); border: 1px solid rgba(201,168,76,0.2); overflow: hidden;
-  }
-  .video-placeholder {
-    position: absolute; inset: 0; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 20px;
-  }
-  .video-play-btn {
-    width: 80px; height: 80px; border-radius: 50%;
-    background: var(--gold); display: flex; align-items: center; justify-content: center;
-    cursor: pointer; transition: transform 0.2s, background 0.2s;
-  }
-  .video-play-btn:hover { transform: scale(1.1); background: var(--gold-light); }
-  .video-play-btn svg { width: 32px; height: 32px; fill: var(--black); margin-left: 4px; }
-  .video-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-
-  /* CTA */
-  .cta-section {
-    padding: 100px 60px; background: var(--gold);
-    position: relative; overflow: hidden;
-    display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 60px;
-  }
-  .cta-section::before { content: ''; position: absolute; top: -120px; right: -120px; width: 500px; height: 500px; border-radius: 50%; background: rgba(0,0,0,0.08); }
-  .cta-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 5px; text-transform: uppercase; color: rgba(0,0,0,0.6); margin-bottom: 12px; }
-  .cta-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(42px, 5vw, 70px); line-height: 1; color: var(--black); text-transform: uppercase; }
-  .btn-dark {
-    display: inline-flex; align-items: center; gap: 12px;
-    background: var(--black); color: var(--gold);
-    font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-    font-size: 14px; letter-spacing: 3px; text-transform: uppercase;
-    padding: 20px 40px; text-decoration: none; border: none; cursor: pointer;
-    white-space: nowrap; transition: background 0.2s, transform 0.15s;
-    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-  }
-  .btn-dark:hover { background: #1a1a1a; transform: translateY(-2px); }
-
-  /* FOOTER */
-  footer { background: #050505; padding: 64px 60px 32px; border-top: 1px solid rgba(201,168,76,0.2); }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
-  .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-  .footer-logo-icon { width: 44px; height: 44px; background: var(--gold); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
-  .footer-logo-icon svg { width: 26px; height: 26px; }
-  .footer-logo-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 20px; text-transform: uppercase; letter-spacing: 1px; line-height: 1.05; }
-  .footer-logo-text span { color: var(--gold); }
-  .footer-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.4); margin-bottom: 24px; max-width: 300px; }
-  .footer-socials { display: flex; gap: 12px; }
-  .footer-social-btn { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: background 0.2s, border-color 0.2s, color 0.2s; }
-  .footer-social-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--black); }
-  .footer-social-btn svg { width: 16px; height: 16px; }
-  .footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .footer-links a { text-decoration: none; font-size: 14px; color: rgba(255,255,255,0.45); transition: color 0.2s; }
-  .footer-links a:hover { color: var(--gold); }
-  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.06); }
-  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.25); }
-  .footer-copy span { color: var(--gold); }
-
-  /* BONUS MODAL */
-  .modal-overlay {
-    position: fixed; inset: 0; z-index: 1000;
-    background: rgba(0,0,0,0.85); backdrop-filter: blur(6px);
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none; transition: opacity 0.3s;
-  }
-  .modal-overlay.active { opacity: 1; pointer-events: all; }
-  .modal {
-    background: var(--black-2); width: 90%; max-width: 520px;
-    border: 1px solid rgba(201,168,76,0.3); position: relative;
-    transform: translateY(30px); transition: transform 0.3s;
-  }
-  .modal-overlay.active .modal { transform: translateY(0); }
-  .modal-top { background: var(--gold); padding: 32px 40px; position: relative; }
-  .modal-top::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 3px; background: var(--gold-dark); }
-  .modal-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: rgba(0,0,0,0.6); margin-bottom: 8px; }
-  .modal-title { font-family: 'Bebas Neue', sans-serif; font-size: 40px; line-height: 1; color: var(--black); text-transform: uppercase; }
-  .modal-body { padding: 40px; }
-  .modal-desc { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.65); margin-bottom: 28px; }
-  .modal-form { display: flex; flex-direction: column; gap: 14px; }
-  .modal-form input {
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15);
-    color: var(--white); font-family: 'Barlow', sans-serif; font-size: 15px;
-    padding: 14px 18px; outline: none; transition: border-color 0.2s;
-    border-radius: 0;
-  }
-  .modal-form input::placeholder { color: rgba(255,255,255,0.3); }
-  .modal-form input:focus { border-color: var(--gold); }
-  .modal-submit {
-    background: var(--gold); color: var(--black);
-    font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-    font-size: 15px; letter-spacing: 3px; text-transform: uppercase;
-    padding: 18px; border: none; cursor: pointer; margin-top: 6px;
-    transition: background 0.2s;
-    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-  }
-  .modal-submit:hover { background: var(--gold-light); }
-  .modal-close { position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.2); border: none; color: var(--black); width: 32px; height: 32px; border-radius: 50%; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; }
-  .modal-close:hover { background: rgba(0,0,0,0.35); }
-  .modal-success { display: none; text-align: center; padding: 48px 40px; }
-  .modal-success .check { font-size: 56px; margin-bottom: 16px; }
-  .modal-success h3 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--gold); margin-bottom: 12px; }
-  .modal-success p { color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.6; }
-
-  /* ANIMATIONS */
-  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .stagger > * { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .stagger.visible > *:nth-child(1) { opacity:1;transform:translateY(0);transition-delay:0s }
-  .stagger.visible > *:nth-child(2) { opacity:1;transform:translateY(0);transition-delay:.1s }
-  .stagger.visible > *:nth-child(3) { opacity:1;transform:translateY(0);transition-delay:.2s }
-  .stagger.visible > *:nth-child(4) { opacity:1;transform:translateY(0);transition-delay:.3s }
-
-
-  /* HAMBURGER MENU */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    z-index: 200;
-  }
-  .hamburger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--white);
-    transition: all 0.3s ease;
-    transform-origin: center;
-  }
-  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  .mobile-nav {
-    display: none;
-    position: fixed;
-    top: 76px; left: 0; right: 0;
-    background: rgba(10,10,10,0.98);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-    padding: 24px;
-    z-index: 99;
-    flex-direction: column;
-    gap: 0;
-  }
-  .mobile-nav.open { display: flex; }
-  .mobile-nav a {
-    display: block;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    color: var(--white);
-    text-decoration: none;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .mobile-nav a:last-child { border-bottom: none; }
-  .mobile-nav a:hover { color: var(--gold); }
-  .mobile-nav .mobile-bonus-btn {
-    margin-top: 20px;
-    background: var(--gold);
-    color: var(--black);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 14px 24px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    text-align: center;
-  }
-  @media (max-width: 900px) {
-    nav { padding: 0 20px; }
-    .hamburger { display: flex; }
-    .nav-links { display: none; }
-    .nav-search { display: none; }
-    .nav-bonus-btn { display: none; }
-    .nav-star { display: none; }
-    .nav-search { display: none; }
-    .hero { grid-template-columns: 1fr; height: auto; max-height: none; }
-    .hero-left { flex-direction: column; align-items: flex-start; padding: 24px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 16px; }
-    .hero-left-top { flex-direction: row; align-items: center; gap: 16px; }
-    .hero-divider { display: none; }
-    .next-event-announcement { display: block; width: 100%; }
-    .read-more-btn { display: none; }
-    .hero-image { height: 56vw; min-height: 240px; }
-    .hero-social { flex-direction: row; padding: 16px 24px; border-left: none; border-top: 1px solid rgba(255,255,255,0.08); justify-content: center; }
-    .hero-headline, .features, .events, .testimonial-section, .video-section, .cta-section { padding: 56px 24px; }
-    .features-grid { grid-template-columns: 1fr; }
-    .stats { grid-template-columns: 1fr 1fr; padding: 48px 24px; }
-    .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .events-grid { grid-template-columns: 1fr; }
-    .testimonial-section { grid-template-columns: 1fr; gap: 48px; }
-    .cta-section { grid-template-columns: 1fr; gap: 32px; }
-    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-    footer { padding: 48px 24px 24px; }
-    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-    .events-header { flex-direction: column; align-items: flex-start; }
-    .services-strip { flex-wrap: wrap; padding: 0 24px; }
-    .strip-item { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.1); width: 100%; }
-    .big-headline { font-size: clamp(40px, 10vw, 80px); }
-    .cta-row { flex-direction: column; align-items: flex-start; }
-    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-    .video-wrap { padding-bottom: 56.25%; }
-    .quote-text { font-size: 18px; }
-    .modal { width: 95%; }
-    .modal-body { padding: 24px; }
-    .modal-top { padding: 24px; }
-  }
-  @media (max-width: 480px) {
-    .stats { grid-template-columns: 1fr; }
-    .brand-name { font-size: 28px; }
-    .hero-headline { padding: 40px 20px; }
-    .big-headline { font-size: clamp(36px, 9vw, 60px); }
-    .headline-body { font-size: 15px; }
-    .section-title { font-size: clamp(32px, 8vw, 48px); }
-  }
-
-  /* NEXT EVENT ANNOUNCEMENT */
-  .next-event-announcement {
-    width: 100%;
-    background: rgba(201,168,76,0.06);
-    border: 1px solid rgba(201,168,76,0.25);
-    border-left: 3px solid var(--gold);
-    padding: 20px 22px;
-    position: relative;
-    overflow: hidden;
-  }
-  .next-event-announcement::before {
-    content: '';
-    position: absolute;
-    top: -30px; right: -30px;
-    width: 100px; height: 100px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .nea-eyebrow {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700; font-size: 10px;
-    letter-spacing: 3px; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 10px;
-    display: flex; align-items: center; gap: 6px;
-  }
-  .nea-eyebrow::before {
-    content: ''; display: block;
-    width: 16px; height: 1px; background: var(--gold);
-  }
-  .nea-date {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 30px; line-height: 1; color: var(--white);
-    margin-bottom: 6px;
-  }
-  .nea-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900; font-size: 16px;
-    text-transform: uppercase; letter-spacing: 1px;
-    color: var(--gold); margin-bottom: 8px;
-    line-height: 1.2;
-  }
-  .nea-location {
-    font-size: 12px;
-    color: rgba(255,255,255,0.45);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700; letter-spacing: 1px;
-    text-transform: uppercase;
-    display: flex; align-items: center; gap: 5px;
-    margin-bottom: 16px;
-  }
-  .nea-location svg { color: var(--gold); flex-shrink: 0; }
-  .nea-cta {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900; font-size: 12px;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: var(--black); background: var(--gold);
-    padding: 10px 18px; text-decoration: none;
-    transition: background 0.2s;
-    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
-  }
-  .nea-cta:hover { background: var(--gold-light); }
-  @media (max-width: 900px) {
-    .next-event-announcement { display: block; width: 100%; }
-    .nea-countdown-num { font-size: 22px; }
-  }
-
-
-  /* COUNTDOWN TIMER */
-  .nea-countdown {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 16px;
-    margin-top: 4px;
-  }
-  .nea-countdown-unit {
-    flex: 1;
-    background: rgba(0,0,0,0.3);
-    border: 1px solid rgba(201,168,76,0.2);
-    padding: 8px 4px 6px;
-    text-align: center;
-  }
-  .nea-countdown-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
-    line-height: 1;
-    color: var(--gold);
-    display: block;
-  }
-  .nea-countdown-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 8px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-    display: block;
-    margin-top: 3px;
-  }
-  /* PULSING DOT */
-  .nea-pulse {
-    display: inline-block;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--gold);
-    margin-right: 6px;
-    animation: pulse-dot 1.8s ease-in-out infinite;
-    vertical-align: middle;
-    position: relative;
-    top: -1px;
-  }
-  @keyframes pulse-dot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.7); }
-  }
-  /* HERO SLIDESHOW */
-  .hero-slides { position: absolute; inset: 0; }
-  .hero-slide {
-    position: absolute; inset: 0;
-    background-size: cover;
-    background-position: center center;
-    opacity: 0;
-    z-index: 1;
-    transition: opacity 0.8s ease;
-  }
-  .hero-slide.active {
-    opacity: 1;
-    z-index: 2;
-  }
-
-  .hero-slide-dots {
-    position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
-    display: flex; gap: 8px; z-index: 3;
-  }
-  .hero-dot {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: rgba(255,255,255,0.35); cursor: pointer;
-    transition: background 0.3s, transform 0.3s; border: none;
-  }
-  .hero-dot.active { background: var(--gold); transform: scale(1.3); }
-</style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "The Chiro Event",
-  "url": "https://chiroevent.com/",
-  "description": "Chiropractic continuing education (CE) seminars, spinal decompression & neuropathy certification, and practice growth systems for chiropractors.",
-  "areaServed": "US",
-  "founders": [
-    { "@type": "Person", "name": "Dr. Eric S. Kaplan" },
-    { "@type": "Person", "name": "Dr. Perry M. Bard" }
-  ]
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black:  #0a0a0b;
+  --b2:     #111114;
+  --b3:     #18181c;
+  --b4:     #1f1f24;
+  --white:  #ffffff;
+  --muted:  rgba(255,255,255,0.45);
+  --muted2: rgba(255,255,255,0.22);
+  --border: rgba(255,255,255,0.08);
+  --bord2:  rgba(255,255,255,0.05);
+  --gold:   #b8976a;
+  --gold-h: #cca978;
+  --text:   rgba(255,255,255,0.72);
 }
-</script>
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--white); font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
+/* ─── NAV ─── */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 300; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; background: rgba(10,10,11,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+.nav-logo { font-size: 15px; font-weight: 600; letter-spacing: -0.3px; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.nav-logo-mark { width: 28px; height: 28px; background: var(--gold); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.nav-logo-mark svg { width: 16px; height: 16px; }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a { font-size: 13px; font-weight: 400; color: var(--muted); text-decoration: none; transition: color .15s; cursor: pointer; }
+.nav-links a:hover { color: var(--white); }
+.nav-cta { font-size: 13px; font-weight: 500; color: var(--black); background: var(--gold); padding: 8px 18px; border-radius: 6px; text-decoration: none; transition: background .15s; white-space: nowrap; }
+.nav-cta:hover { background: var(--gold-h); }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--white); transition: all .25s; transform-origin: center; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mob-nav { display: none; position: fixed; top: 60px; left: 0; right: 0; background: rgba(10,10,11,0.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 16px 24px 24px; z-index: 299; flex-direction: column; gap: 2px; }
+.mob-nav.open { display: flex; }
+.mob-nav a { display: block; padding: 13px 0; font-size: 16px; font-weight: 500; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--bord2); transition: color .15s; cursor: pointer; }
+.mob-nav a:last-of-type { border-bottom: none; }
+.mob-nav a:hover { color: var(--white); }
+.mob-cta { display: block; margin-top: 16px; text-align: center; font-size: 15px; font-weight: 600; color: var(--black); background: var(--gold); padding: 14px; border-radius: 8px; text-decoration: none; }
+
+/* ─── STICKY MOBILE BAR ─── */
+.sticky-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 290; background: var(--gold); padding: 14px 20px; text-align: center; }
+.sticky-bar a { font-size: 15px; font-weight: 700; color: var(--black); text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; letter-spacing: -0.2px; }
+
+/* ─── HERO ─── */
+.hero { position: relative; min-height: 100svh; display: flex; align-items: stretch; overflow: hidden; }
+.hero-video-wrap { position: absolute; inset: 0; z-index: 0; }
+.hero-video-wrap iframe { position: absolute; top: 50%; left: 50%; width: 177.78vh; height: 100vh; min-width: 100%; min-height: 56.25vw; transform: translate(-50%,-50%); pointer-events: none; }
+.hero-slides-fallback { position: absolute; inset: 0; z-index: 1; }
+.hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity .8s ease; }
+.hero-slide.active { opacity: 1; }
+.hero-overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(to right, rgba(10,10,11,0.7) 0%, rgba(10,10,11,0.4) 50%, rgba(10,10,11,0.75) 100%); }
+
+/* Hero layout: left content + right card */
+.hero-inner { position: relative; z-index: 3; width: 100%; display: flex; align-items: center; padding: 80px 40px; gap: 40px; max-width: 1200px; margin: 0 auto; }
+.hero-content { flex: 1; min-width: 0; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; background: rgba(184,151,106,0.12); border: 1px solid rgba(184,151,106,0.3); padding: 6px 14px; border-radius: 999px; }
+.hero-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 1.8s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.6)} }
+.hero h1 { font-size: clamp(34px, 4vw, 58px); font-weight: 700; line-height: 1.06; letter-spacing: -2px; color: var(--white); margin-bottom: 20px; }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero-sub { font-size: 16px; font-weight: 400; line-height: 1.65; color: rgba(255,255,255,0.75); max-width: 480px; margin-bottom: 32px; }
+.hero-trust { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+.hero-trust-item { font-size: 13px; font-weight: 400; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.hero-trust-item strong { color: var(--white); font-weight: 600; }
+.hero-trust-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+/* Countdown */
+.countdown { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.cd-label { font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
+.cd-unit { display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 6px; padding: 7px 10px; min-width: 48px; }
+.cd-num { font-size: 20px; font-weight: 700; color: var(--white); line-height: 1; letter-spacing: -1px; font-variant-numeric: tabular-nums; }
+.cd-sub { font-size: 9px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--muted2); margin-top: 3px; }
+.cd-sep { font-size: 18px; font-weight: 300; color: var(--muted2); padding-bottom: 8px; }
+
+/* Hero event card — right side */
+.hero-card { width: 340px; flex-shrink: 0; background: rgba(17,17,20,0.92); border: 1px solid rgba(184,151,106,0.25); border-radius: 14px; backdrop-filter: blur(16px); overflow: hidden; }
+.hero-card-top { background: var(--gold); padding: 14px 20px; }
+.hero-card-top-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(0,0,0,0.6); margin-bottom: 2px; }
+.hero-card-top-title { font-size: 17px; font-weight: 700; color: var(--black); letter-spacing: -.4px; }
+.hero-card-body { padding: 20px; }
+.hero-card-row { display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--bord2); gap: 10px; }
+.hero-card-row:first-child { padding-top: 0; }
+.hcr-key { font-size: 11px; color: var(--muted2); flex-shrink: 0; }
+.hcr-val { font-size: 12px; font-weight: 500; color: var(--white); text-align: right; }
+.hcr-val.hi { color: var(--gold); }
+.hero-card-form { margin-top: 16px; }
+.hero-card-form-label { font-size: 12px; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+.f-field { width: 100%; background: var(--b4); border: 1px solid var(--border); border-radius: 6px; color: var(--white); font-family: 'Inter',sans-serif; font-size: 13px; padding: 9px 12px; margin-bottom: 6px; outline: none; transition: border-color .15s; }
+.f-field::placeholder { color: var(--muted2); }
+.f-field:focus { border-color: rgba(184,151,106,.5); }
+.f-submit { width: 100%; font-family: 'Inter',sans-serif; font-size: 13px; font-weight: 600; color: var(--black); background: var(--gold); border: none; border-radius: 8px; padding: 12px; margin-top: 4px; cursor: pointer; transition: background .15s; }
+.f-submit:hover { background: var(--gold-h); }
+.f-note { font-size: 10px; color: var(--muted2); text-align: center; margin-top: 8px; line-height: 1.5; }
+.f-success { display: none; text-align: center; padding: 20px 0; }
+.f-success h3 { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+.f-success p { font-size: 13px; color: var(--muted); }
+
+/* ─── STORY STRIP ─── */
+.story-strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--b2); }
+.story-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: repeat(3,1fr); }
+.story-item { padding: 40px 28px; border-right: 1px solid var(--border); }
+.story-item:last-child { border-right: none; }
+.story-tag { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.story-body { font-size: 14px; line-height: 1.7; color: var(--text); margin-bottom: 16px; }
+.story-result { font-size: 14px; font-weight: 600; color: var(--white); padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.5; }
+
+/* ─── STATS ─── */
+.stats-wrap { padding: 72px 40px 0; }
+.stats-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; }
+.stat-card { background: var(--b2); padding: 32px 28px; }
+.stat-num { font-size: 42px; font-weight: 700; letter-spacing: -2px; color: var(--white); line-height: 1; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
+.stat-label { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+/* ─── SHARED ─── */
+.sec-label { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.sec-title { font-size: clamp(24px,3vw,38px); font-weight: 700; letter-spacing: -1.2px; color: var(--white); margin-bottom: 36px; line-height: 1.1; }
+.btn-gold { font-size: 14px; font-weight: 600; color: var(--black); background: var(--gold); padding: 13px 28px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; transition: background .15s, transform .1s; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.btn-gold:hover { background: var(--gold-h); transform: translateY(-1px); }
+.btn-ghost { font-size: 14px; font-weight: 500; color: var(--muted); background: none; padding: 13px 24px; border-radius: 8px; text-decoration: none; border: 1px solid var(--border); cursor: pointer; transition: color .15s, border-color .15s; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,.2); }
+
+/* ─── RESULTS ─── */
+.results-sec { background: var(--b2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 0; }
+.results-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+.t-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 48px; }
+.t-card { background: var(--b2); padding: 28px 24px; display: flex; flex-direction: column; }
+.t-stars { display: flex; gap: 2px; margin-bottom: 12px; }
+.t-stars span { color: var(--gold); font-size: 12px; }
+.t-quote { font-size: 14px; line-height: 1.75; color: var(--text); margin-bottom: 18px; flex: 1; }
+.t-author { display: flex; align-items: center; gap: 10px; padding-top: 16px; border-top: 1px solid var(--bord2); }
+.t-avatar { width: 36px; height: 36px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: var(--b3); }
+.t-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.t-name { font-size: 13px; font-weight: 600; color: var(--white); }
+.t-role { font-size: 12px; color: var(--muted); margin-top: 1px; }
+.video-wrap { border-radius: 12px; overflow: hidden; position: relative; padding-bottom: 56.25%; background: var(--b3); border: 1px solid var(--border); }
+.video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+
+/* ─── ABOUT ─── */
+.about-sec { max-width: 1100px; margin: 0 auto; padding: 80px 40px; }
+.about-content-only { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.about-body-text { font-size: 15px; line-height: 1.75; color: var(--text); margin-bottom: 14px; }
+.about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-content: start; }
+.about-pillar { background: var(--b2); border: 1px solid var(--border); border-radius: 8px; padding: 20px 22px; }
+.about-pillar strong { display: block; font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+.about-pillar span { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+/* ─── DOCTORS ─── */
+.doctors-sec { background: var(--b2); border-top: 1px solid var(--border); padding: 80px 0; }
+.doctors-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+.doc-shared-bio { background: var(--black); border: 1px solid var(--border); border-radius: 14px; padding: 40px 44px; margin-bottom: 24px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+.doc-shared-text p { font-size: 15px; line-height: 1.75; color: var(--text); margin-bottom: 0; }
+.doc-shared-text p strong { color: var(--white); }
+.doc-shared-stats { display: flex; flex-direction: column; gap: 20px; flex-shrink: 0; }
+.doc-shared-stat { text-align: right; }
+.doc-shared-num { font-size: 32px; font-weight: 700; color: var(--white); letter-spacing: -1.5px; line-height: 1; font-variant-numeric: tabular-nums; }
+.doc-shared-label { font-size: 11px; color: var(--muted); margin-top: 3px; }
+.doc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.doc-card { background: var(--black); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.doc-hero-stat { background: var(--gold); padding: 18px 24px; display: flex; align-items: baseline; gap: 10px; }
+.doc-hero-num { font-size: 32px; font-weight: 700; color: var(--black); letter-spacing: -1.5px; line-height: 1; font-variant-numeric: tabular-nums; }
+.doc-hero-label { font-size: 12px; font-weight: 600; color: rgba(0,0,0,0.6); line-height: 1.3; max-width: 200px; }
+.doc-info { padding: 22px 24px 24px; }
+.doc-name { font-size: 20px; font-weight: 700; letter-spacing: -.6px; color: var(--white); margin-bottom: 10px; }
+.doc-creds { display: flex; flex-direction: column; gap: 5px; padding-bottom: 14px; border-bottom: 1px solid var(--border); margin-bottom: 14px; }
+.doc-cred { font-size: 12px; font-weight: 500; color: var(--gold); display: flex; align-items: center; gap: 7px; }
+.doc-cred::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+.doc-numbers { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border-radius: 8px; overflow: hidden; }
+.doc-number { background: var(--b2); padding: 11px 8px; text-align: center; }
+.dn-val { display: block; font-size: 18px; font-weight: 700; color: var(--white); letter-spacing: -.8px; line-height: 1; font-variant-numeric: tabular-nums; }
+.dn-label { display: block; font-size: 10px; font-weight: 500; color: var(--muted); margin-top: 3px; letter-spacing: .04em; }
+
+/* ─── FOOTER ─── */
+footer { background: var(--black); border-top: 1px solid var(--border); padding: 56px 40px 28px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 56px; margin-bottom: 44px; }
+.footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; text-decoration: none; }
+.footer-bmark { width: 28px; height: 28px; background: var(--gold); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.footer-bmark svg { width: 16px; height: 16px; }
+.footer-bname { font-size: 15px; font-weight: 600; color: var(--white); letter-spacing: -.3px; }
+.footer-desc { font-size: 13px; line-height: 1.7; color: var(--muted); max-width: 270px; margin-bottom: 18px; }
+.footer-socials { display: flex; gap: 8px; }
+.footer-soc { width: 32px; height: 32px; border-radius: 7px; background: var(--b3); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; transition: background .15s, color .15s, border-color .15s; }
+.footer-soc:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+.footer-soc svg { width: 14px; height: 14px; }
+.footer-col-title { font-size: 12px; font-weight: 600; color: var(--white); margin-bottom: 14px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .15s; cursor: pointer; }
+.footer-links a:hover { color: var(--white); }
+.footer-bot { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding-top: 22px; border-top: 1px solid var(--border); }
+.footer-copy { font-size: 13px; color: var(--muted2); }
+
+/* ─── REVEAL ─── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 960px) {
+  nav { padding: 0 20px; }
+  .hamburger { display: flex; }
+  .nav-links, .nav-cta { display: none; }
+  .sticky-bar { display: block; }
+  body { padding-bottom: 56px; }
+  /* Hero stacks on mobile */
+  .hero { min-height: auto; }
+  .hero-inner { flex-direction: column; padding: 90px 20px 40px; gap: 0; }
+  .hero-card { display: none; }
+  .hero h1 { letter-spacing: -1.2px; }
+  .hero-sub { font-size: 15px; }
+  /* Mobile event section */
+  .mobile-event-sec { display: block !important; }
+  .story-inner { grid-template-columns: 1fr; padding: 0 20px; }
+  .story-item { border-right: none; border-bottom: 1px solid var(--border); padding: 28px 0; }
+  .story-item:last-child { border-bottom: none; }
+  .stats-wrap { padding: 56px 20px 0; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .results-inner { padding: 0 20px; }
+  .results-sec { padding: 60px 0; }
+  .t-grid { grid-template-columns: 1fr; }
+  .about-sec { padding: 60px 20px; }
+  .about-content-only { grid-template-columns: 1fr; gap: 32px; }
+  .doctors-inner { padding: 0 20px; }
+  .doctors-sec { padding: 60px 0; }
+  .doc-shared-bio { grid-template-columns: 1fr; gap: 24px; padding: 28px; }
+  .doc-shared-stats { flex-direction: row; gap: 32px; }
+  .doc-shared-stat { text-align: left; }
+  .doc-grid { grid-template-columns: 1fr; }
+  footer { padding: 44px 20px 24px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px; }
+  .footer-bot { flex-direction: column; gap: 8px; text-align: center; }
+}
+@media (max-width: 580px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .about-pillars { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; }
+}
+
+/* Mobile event section — hidden on desktop */
+.mobile-event-sec { display: none; background: var(--b2); border-top: 1px solid var(--border); padding: 40px 20px; }
+.mob-ev-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; color: var(--gold); background: rgba(184,151,106,0.1); border: 1px solid rgba(184,151,106,0.25); padding: 6px 12px; border-radius: 6px; margin-bottom: 16px; }
+.mob-ev-title { font-size: 22px; font-weight: 700; letter-spacing: -.6px; color: var(--white); margin-bottom: 6px; }
+.mob-ev-loc { font-size: 13px; color: var(--muted); margin-bottom: 20px; display: flex; align-items: center; gap: 5px; }
+.mob-ev-rows { margin-bottom: 20px; }
+.mob-ev-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--bord2); gap: 10px; }
+.mob-ev-key { font-size: 12px; color: var(--muted2); }
+.mob-ev-val { font-size: 12px; font-weight: 500; color: var(--white); text-align: right; }
+.mob-ev-val.hi { color: var(--gold); }
+.mob-ev-form-title { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 12px; margin-top: 20px; }
+</style>
 </head>
 <body>
 
-<!-- BONUS MODAL -->
-<div class="modal-overlay" id="bonusModal">
-  <div class="modal">
-    <div class="modal-top">
-      <button class="modal-close" onclick="closeModal()">✕</button>
-      <div class="modal-eyebrow">Free Resource</div>
-      <div class="modal-title">Claim Your<br>Free Bonus<br>Content</div>
-    </div>
-    <div id="modalFormWrap" class="modal-body">
-      <p class="modal-desc">Get instant access to our exclusive <strong style="color:var(--white)">Free Video Training Series</strong> — short, powerful sessions from Dr. Kaplan &amp; Dr. Bard covering the systems, strategies, and mindset behind the most successful chiropractic practices in the country. 100% free.</p>
-      <form class="modal-form" onsubmit="submitModal(event)">
-        <input type="text" placeholder="First Name" required>
-        <input type="text" placeholder="Last Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="tel" placeholder="Phone Number" required>
-        <input type="text" placeholder="Practice Name">
-        <input type="text" placeholder="City, State">
-        <button type="submit" class="modal-submit">Send Me the Free Toolkit →</button>
-      </form>
-    </div>
-    <div class="modal-success" id="modalSuccess">
-      <div class="check">✦</div>
-      <h3>You're In!</h3>
-      <p>Check your inbox — your free video training series is on its way. We'll be in touch shortly.</p>
-    </div>
-  </div>
-</div>
-
-<!-- NAV -->
 <nav>
-  <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="#home" class="nav-logo" onclick="closeMob()">
+    <div class="nav-logo-mark"><svg viewBox="0 0 16 16" fill="none"><rect x="5" y="1" width="6" height="3.5" rx="1" fill="white"/><rect x="5" y="6" width="6" height="3.5" rx="1" fill="white"/><rect x="5" y="11" width="6" height="3.5" rx="1" fill="white"/><line x1="8" y1="1" x2="8" y2="15" stroke="white" stroke-width=".75" stroke-dasharray="1.5 1.5" opacity=".35"/></svg></div>
+    The Chiro Event
+  </a>
   <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="events.html">Events</a></li>
-    <li><a href="speakers.html">Speakers</a></li>
-    <li><a href="testimonials.html">Testimonials</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="/cdn-cgi/l/email-protection#046c6168686b44676c6d766b6172616a702a676b69">Contact</a></li>
+    <li><a onclick="goTo('about-sec')">About</a></li>
+    <li><a onclick="goTo('results-sec')">Results</a></li>
+    <li><a onclick="goTo('doctors-sec')">Doctors</a></li>
+    <li><a onclick="goTo('chicago')">Chicago &mdash; Jul 11</a></li>
   </ul>
-  <span class="nav-star">✦</span>
-  <div class="nav-right">
-    <div class="nav-search">
-      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input type="text" placeholder="Search...">
-    </div>
-    <button class="nav-bonus-btn" onclick="openModal()">Free Bonus Content</button>
-  </div>
+  <a href="tel:888-990-9660" class="nav-cta">Call 888-990-9660</a>
+  <button class="hamburger" id="hamBtn" onclick="toggleMob()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobileNav">
-  <a href="index.html" onclick="closeMobileNav()">Home</a>
-  <a href="events.html" onclick="closeMobileNav()">Events</a>
-  <a href="speakers.html" onclick="closeMobileNav()">Speakers</a>
-  <a href="testimonials.html" onclick="closeMobileNav()">Testimonials</a>
-  <a href="about.html" onclick="closeMobileNav()">About</a>
-  <a href="/cdn-cgi/l/email-protection#0169646d6d6e41626968736e6477646f752f626e6c" onclick="closeMobileNav()">Contact</a>
-  <button class="mobile-bonus-btn" onclick="closeMobileNav();openModal()">Free Bonus Content</button>
+<div class="mob-nav" id="mobNav">
+  <a onclick="goTo('about-sec');closeMob()">About</a>
+  <a onclick="goTo('results-sec');closeMob()">Results</a>
+  <a onclick="goTo('doctors-sec');closeMob()">Doctors</a>
+  <a onclick="goTo('chicago');closeMob()">Chicago &mdash; Jul 11</a>
+  <a href="tel:888-990-9660" class="mob-cta" onclick="closeMob()">Call 888-990-9660</a>
+</div>
+
+<!-- STICKY MOBILE BAR -->
+<div class="sticky-bar">
+  <a href="tel:888-990-9660">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12a19.79 19.79 0 0 1-3-8.57A2 2 0 0 1 3.11 1.4h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+    Reserve your seat &mdash; Call Lacey &mdash; 888-990-9660
+  </a>
 </div>
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-left">
-    <div class="hero-left-top">
-      <span class="small-star star-tl">✦</span>
-      <!-- Professional spine/chiropractic icon -->
-      <div class="brand-icon-wrap">
-        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Stylized spine vertebrae -->
-          <rect x="13" y="2" width="10" height="6" rx="1.5" fill="#0A0A0A"/>
-          <rect x="11" y="5" width="14" height="2" rx="1" fill="#0A0A0A" opacity="0.5"/>
-          <rect x="13" y="10" width="10" height="6" rx="1.5" fill="#0A0A0A"/>
-          <rect x="11" y="13" width="14" height="2" rx="1" fill="#0A0A0A" opacity="0.5"/>
-          <rect x="13" y="18" width="10" height="6" rx="1.5" fill="#0A0A0A"/>
-          <rect x="11" y="21" width="14" height="2" rx="1" fill="#0A0A0A" opacity="0.5"/>
-          <rect x="13" y="26" width="10" height="6" rx="1.5" fill="#0A0A0A"/>
-          <line x1="18" y1="2" x2="18" y2="32" stroke="#0A0A0A" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.3"/>
-        </svg>
+  <div class="hero-video-wrap" id="heroVideo">
+    <iframe src="https://www.youtube.com/embed/Nbf2UyvFB_c?autoplay=1&mute=1&loop=1&playlist=Nbf2UyvFB_c&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media" allowfullscreen title="The Chiro Event"></iframe>
+  </div>
+  <div class="hero-slides-fallback" id="heroSlides">
+    <div class="hero-slide active" style="background-image:url('site_assets/hero-slide-1.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('site_assets/hero-slide-2.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('site_assets/hero-slide-3.jpg');background-position:center 30%"></div>
+    <div class="hero-slide" style="background-image:url('site_assets/hero-slide-4.jpg')"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <!-- Left: headline + trust + countdown -->
+    <div class="hero-content">
+      <div class="hero-eyebrow">Next Event &mdash; Chicago, July 11</div>
+      <h1>The practice that leads its market<br>doesn't compete for <em>patients.</em></h1>
+      <p class="hero-sub">One day with Dr. Kaplan &amp; Dr. Bard. The systems behind the highest-converting decompression and neuropathy practices in the country.</p>
+      <div class="hero-trust">
+        <div class="hero-trust-item"><strong>250+</strong>&nbsp;clinics in the network</div>
+        <div class="hero-trust-item"><strong>45</strong>&nbsp;states represented</div>
+        <div class="hero-trust-item"><strong>20</strong>&nbsp;new patients/day &mdash; 4 years documented</div>
       </div>
-      <div>
-        <div class="brand-text-wrap">
-          <div class="brand-name">The Chiro<br><span>Event</span></div>
-          <div class="brand-sub">Chiropractic Growth Experts</div>
+      <div class="countdown">
+        <span class="cd-label">July 11 in</span>
+        <div class="cd-unit"><span class="cd-num" id="cd-d">--</span><span class="cd-sub">Days</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit"><span class="cd-num" id="cd-h">--</span><span class="cd-sub">Hrs</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit"><span class="cd-num" id="cd-m">--</span><span class="cd-sub">Min</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit"><span class="cd-num" id="cd-s">--</span><span class="cd-sub">Sec</span></div>
+      </div>
+    </div>
+    <!-- Right: event card with form — desktop only -->
+    <div class="hero-card" id="chicago">
+      <div class="hero-card-top">
+        <div class="hero-card-top-eyebrow">Chicago &middot; July 11, 2026</div>
+        <div class="hero-card-top-title">The Chicago Chiro Event</div>
+      </div>
+      <div class="hero-card-body">
+        <div class="hero-card-row"><span class="hcr-key">Date</span><span class="hcr-val">Saturday, July 11, 2026</span></div>
+        <div class="hero-card-row"><span class="hcr-key">Time</span><span class="hcr-val">9:00 AM &ndash; 4:30 PM</span></div>
+        <div class="hero-card-row"><span class="hcr-key">Location</span><span class="hcr-val">5-Star Property, Chicago</span></div>
+        <div class="hero-card-row"><span class="hcr-key">Price</span><span class="hcr-val hi">$249 &mdash; 1 free staff seat</span></div>
+        <div class="hero-card-row"><span class="hcr-key">Seats</span><span class="hcr-val hi">Limited &mdash; will sell out</span></div>
+        <div class="hero-card-form">
+          <div class="hero-card-form-label">Request your seat</div>
+          <div id="formWrap">
+            <form id="seatForm" onsubmit="submitForm(event)">
+              <input class="f-field" type="text" name="name" placeholder="Your name" required>
+              <input class="f-field" type="text" name="practice" placeholder="Practice name" required>
+              <input class="f-field" type="tel" name="phone" placeholder="Phone number" required>
+              <input class="f-field" type="email" name="email" placeholder="Email address" required>
+              <button type="submit" class="f-submit">Request my seat &rarr;</button>
+            </form>
+            <p class="f-note">Lacey will call or text to confirm within the hour.</p>
+          </div>
+          <div class="f-success" id="formSuccess">
+            <h3>You're in.</h3>
+            <p>Lacey will be in touch shortly.</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="hero-divider"></div>
-        <div class="next-event-announcement">
-      <div class="nea-eyebrow"><span class="nea-pulse"></span>Next Event</div>
-      <div class="nea-date">June 27, 2026</div>
-      <div class="nea-name">The Chiro Event<br>Jupiter, Florida</div>
-      <div class="nea-location">
-        <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Trump National · Jupiter, FL
-      </div>
-      <div class="nea-countdown">
-        <div class="nea-countdown-unit"><span class="nea-countdown-num" id="cd-days">--</span><span class="nea-countdown-label">Days</span></div>
-        <div class="nea-countdown-unit"><span class="nea-countdown-num" id="cd-hrs">--</span><span class="nea-countdown-label">Hrs</span></div>
-        <div class="nea-countdown-unit"><span class="nea-countdown-num" id="cd-min">--</span><span class="nea-countdown-label">Min</span></div>
-        <div class="nea-countdown-unit"><span class="nea-countdown-num" id="cd-sec">--</span><span class="nea-countdown-label">Sec</span></div>
-      </div>
-      <a href="events.html#jupiter-event" class="nea-cta">Reserve My Seat →</a>
-    </div>
-    
-    <div class="hero-divider"></div>
-    <div>
-      <a href="events.html" class="read-more-btn">
-        Learn More
-        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </div>
-
-  <div class="hero-image" id="heroSlider">
-    <div class="hero-slides">
-      <div class="hero-slide active" style="background-image:url('site_assets/hero-slide-1.jpg')"></div>
-      <div class="hero-slide" style="background-image:url('site_assets/hero-slide-2.jpg')"></div>
-      <div class="hero-slide" style="background-image:url('site_assets/hero-slide-3.jpg');background-position:center 30%"></div>
-      <div class="hero-slide" style="background-image:url('site_assets/hero-slide-4.jpg')"></div>
-    </div>
-    <div class="hero-slide-dots">
-      <span class="hero-dot active" onclick="goToSlide(0)"></span>
-      <span class="hero-dot" onclick="goToSlide(1)"></span>
-      <span class="hero-dot" onclick="goToSlide(2)"></span>
-      <span class="hero-dot" onclick="goToSlide(3)"></span>
-    </div>
-    <div class="hero-image-overlay"></div>
-  </div>
-
-  <div class="hero-social">
-    <a class="social-icon" href="https://www.facebook.com/thechiroeventofficial" target="_blank" rel="noopener" aria-label="Facebook">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-    </a>
-    <a class="social-icon" href="https://www.instagram.com/thechiroevent/" target="_blank" rel="noopener" aria-label="Instagram">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
-    </a>
-    <a class="social-icon" href="tel:888-990-9660" aria-label="Phone">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12a19.79 19.79 0 0 1-3-8.57A2 2 0 0 1 3.11 1.4h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
-    </a>
-    <span style="color:var(--gold);font-size:16px">✦</span>
   </div>
 </section>
 
-<!-- HEADLINE -->
-<section class="hero-headline reveal">
-  <div class="headline-eyebrow">Practice Growth Seminars • Decompression • Neuropathy</div>
-  <h1 class="big-headline">The National Authority in<br><span class="gold">Disc & Neuropathy</span><br>Certification & Practice Growth</h1>
-  <p class="headline-body">The Chiro Event is our flagship, in-person practice growth training — built for chiropractors who want the highest-converting decompression and neuropathy systems in the world. Attend for the clinical mastery, the marketing, and the team-driven implementation. Continuing education (CE) credits are available at select events. <br><br>Learn more at <a href="https://thechiroevent.com" style="color:var(--gold);text-decoration:none;font-weight:700" target="_blank" rel="noopener">TheChiroEvent.com</a> and <a href="https://conciergecoaches.com" style="color:var(--gold);text-decoration:none;font-weight:700" target="_blank" rel="noopener">ConciergeCoaches.com</a>.<br><br>Backed by the largest decompression clinic network in the country: <strong style="color:var(--white)">250+ clinics across 45 states</strong>.</p>
-  <div class="cta-row">
-    <a href="events.html" class="btn-primary">View Upcoming Events →</a>
-    <button class="btn-secondary" onclick="openModal()">Get Free Bonus Content</button>
+<!-- MOBILE EVENT SECTION (below hero on mobile) -->
+<div class="mobile-event-sec" id="chicago-mob">
+  <div class="mob-ev-badge">Chicago &middot; July 11, 2026</div>
+  <div class="mob-ev-title">The Chicago Chiro Event</div>
+  <div class="mob-ev-loc">
+    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    5-Star Property &middot; Chicago, IL
   </div>
-</section>
-
-<!-- SERVICES STRIP -->
-<div class="services-strip">
-  <div class="strip-item"><span class="strip-dot"></span>Chiropractic CE Seminars</div>
-  <div class="strip-item"><span class="strip-dot"></span>Spinal Decompression Certification</div>
-  <div class="strip-item"><span class="strip-dot"></span>Neuropathy–Decompression Training</div>
-  <div class="strip-item"><span class="strip-dot"></span>Practice Growth Systems</div>
-  <div class="strip-item"><span class="strip-dot"></span>Case Acceptance &amp; Patient Experience</div>
-  <div class="strip-item"><span class="strip-dot"></span>Multi-Million Dollar Clinics</div>
+  <div class="mob-ev-rows">
+    <div class="mob-ev-row"><span class="mob-ev-key">Date</span><span class="mob-ev-val">July 11, 2026 &middot; 9AM&ndash;4:30PM</span></div>
+    <div class="mob-ev-row"><span class="mob-ev-key">Price</span><span class="mob-ev-val hi">$249 &mdash; includes 1 free staff seat</span></div>
+    <div class="mob-ev-row"><span class="mob-ev-key">Seats</span><span class="mob-ev-val hi">Limited &mdash; will sell out</span></div>
+    <div class="mob-ev-row"><span class="mob-ev-key">Questions</span><span class="mob-ev-val">888-990-9660 &middot; ask for Lacey</span></div>
+  </div>
+  <a href="tel:888-990-9660" class="btn-gold" style="width:100%;justify-content:center;">Call 888-990-9660 to reserve &rarr;</a>
+  <div class="mob-ev-form-title">Or request your seat online</div>
+  <div id="mobFormWrap">
+    <form id="mobSeatForm" onsubmit="submitMobForm(event)">
+      <input class="f-field" type="text" name="name" placeholder="Your name" required>
+      <input class="f-field" type="text" name="practice" placeholder="Practice name" required>
+      <input class="f-field" type="tel" name="phone" placeholder="Phone number" required>
+      <input class="f-field" type="email" name="email" placeholder="Email address" required>
+      <button type="submit" class="f-submit" style="margin-top:4px;">Request my seat &rarr;</button>
+    </form>
+    <p class="f-note" style="text-align:center;margin-top:8px;font-size:11px;color:var(--muted2);">Lacey will call or text to confirm within the hour.</p>
+  </div>
+  <div class="f-success" id="mobFormSuccess" style="display:none;text-align:center;padding:20px 0;">
+    <h3 style="font-size:16px;font-weight:700;color:var(--white);margin-bottom:6px;">You're in.</h3>
+    <p style="font-size:13px;color:var(--muted);">Lacey will be in touch shortly.</p>
+  </div>
 </div>
 
-<!-- FEATURES -->
-<section class="features" id="programs">
-  <div class="reveal">
-    <div class="section-label">What We Offer</div>
-    <h2 class="section-title">Programs Built for <span>Market Leaders</span></h2>
+<!-- STORY STRIP -->
+<div class="story-strip">
+  <div class="story-inner reveal">
+    <div class="story-item">
+      <div class="story-tag">One table. Two years. Stuck.</div>
+      <p class="story-body">A DCOA member in the Pacific Northwest ran a single decompression table for two years. His practice was going nowhere. He came to a Chiro Event and met Dr. Kaplan and Dr. Bard.</p>
+      <div class="story-result">Now runs seven tables. Best collections month of his career.</div>
+    </div>
+    <div class="story-item">
+      <div class="story-tag">60 patients a day. Breaking down.</div>
+      <p class="story-body">Shoulders hurt. Back hurt. He was a chiropractor destroying his body doing chiropractic. One event. Rebuilt his practice around cash-pay decompression.</p>
+      <div class="story-result">20 decompression patients a day, all cash. Practicing into his 50s.</div>
+    </div>
+    <div class="story-item">
+      <div class="story-tag">Inherited a 40-year-old practice.</div>
+      <p class="story-body">Mostly traditional chiropractic. Needed a different model. Applied the systems consistently for nine months after the event.</p>
+      <div class="story-result">Flipped from 75% chiropractic to 75% disc in nine months.</div>
+    </div>
   </div>
-  <div class="features-grid stagger">
-    <div class="feature-card">
-      <div class="feature-number">01</div>
-      <div class="feature-icon">🏛️</div>
-      <div class="feature-title">National Decompression Certification</div>
-      <p class="feature-body">Become the recognized decompression authority in your area with proven clinical protocols, documentation standards, and marketing systems designed for chiropractors who want premium cases and premium outcomes.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-number">02</div>
-      <div class="feature-icon">⚡</div>
-      <div class="feature-title">Neuropathy–Decompression Certification</div>
-      <p class="feature-body">Build a real neuropathy profit center with case selection, patient communication, and scalable operations — taught by the team behind the leading decompression clinic network in the U.S.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-number">03</div>
-      <div class="feature-icon">📈</div>
-      <div class="feature-title">Practice Acceleration Systems</div>
-      <p class="feature-body">Stop guessing. Learn repeatable systems for patient acquisition, case acceptance, and growth. Dr. Bard averaged <strong style="color:var(--white)">20 new patients/day</strong> for four years straight — and we teach the infrastructure that made it possible.</p>
-    </div>
 </div>
-</section>
 
 <!-- STATS -->
-<section class="stats stagger">
-  <div class="stat-item"><span class="stat-num">250+</span><span class="stat-label">Decompression Clinics</span></div>
-  <div class="stat-item"><span class="stat-num">45</span><span class="stat-label">States Represented</span></div>
-  <div class="stat-item"><span class="stat-num">11+</span><span class="stat-label">Multi-Million Practices Built</span></div>
-  <div class="stat-item"><span class="stat-num">20</span><span class="stat-label">New Patients/Day (4 Years)</span></div>
-</section>
-
-<!-- EVENTS PREVIEW -->
-<section class="events" id="events">
-  <div class="events-header reveal">
-    <div>
-      <div class="section-label">Live Events</div>
-      <h2 class="section-title" style="margin-bottom:0">Upcoming <span>Seminars</span></h2>
-    </div>
-    <a href="events.html" class="btn-secondary">View All Events →</a>
+<div class="stats-wrap">
+  <div class="stats-grid reveal">
+    <div class="stat-card"><div class="stat-num" data-target="250" data-suffix="+">250+</div><div class="stat-label">Clinics in the network</div></div>
+    <div class="stat-card"><div class="stat-num" data-target="45">45</div><div class="stat-label">States represented</div></div>
+    <div class="stat-card"><div class="stat-num" data-target="11" data-suffix="+">11+</div><div class="stat-label">Multi-million practices built</div></div>
+    <div class="stat-card"><div class="stat-num" data-target="20">20</div><div class="stat-label">New patients per day, four years running</div></div>
   </div>
-  <div class="events-grid stagger">
-    <a href="events.html#jupiter-june-event" class="event-card">
-      <div class="event-date-block"><div class="event-month">Jun</div><div class="event-day">27</div></div>
-      <div class="event-info">
-        <div class="event-tag">Practice Growth · Cash Practice</div>
-        <div class="event-name">The Chiro Event — Jupiter, FL</div>
-        <div class="event-location"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Trump National · Jupiter, FL</div>
-      </div>
-      <span class="event-arrow">→</span>
-    </a>
-    <a href="events.html#chicago-event" class="event-card">
-      <div class="event-date-block"><div class="event-month">Jul</div><div class="event-day">11</div></div>
-      <div class="event-info">
-        <div class="event-tag">Practice Growth · By Popular Demand</div>
-        <div class="event-name">The Chicago Chiro Event</div>
-        <div class="event-location"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>5-Star Property · Chicago, IL</div>
-      </div>
-      <span class="event-arrow">→</span>
-    </a>
 </div>
-</section>
 
-<!-- TESTIMONIAL PREVIEW -->
-<section class="testimonial-section">
-  <div class="reveal">
-    <div class="quote-mark">"</div>
-    <p class="quote-text">Last year was my best year in 30 years and The Chiro Event made a tremendous impact. Best Decision Ever!</p>
-    <div class="quote-author">
-      <div class="quote-avatar"><img src="site_assets/quote-avatar.png" alt="Dr. Thomas Bianco"></div>
-      <div>
-        <div class="quote-name">Dr. Thomas Bianco</div>
-        <div class="quote-role">5-Star Review</div>
+<!-- RESULTS -->
+<section class="results-sec" id="results-sec">
+  <div class="results-inner">
+    <div class="reveal">
+      <div class="sec-label">What Doctors Say</div>
+      <h2 class="sec-title">Real practices. Real results.</h2>
+    </div>
+    <div class="t-grid reveal">
+      <div class="t-card">
+        <div class="t-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+        <p class="t-quote">Last year was my best year in 30 years and The Chiro Event made a tremendous impact. Best decision ever.</p>
+        <div class="t-author"><div class="t-avatar"><img src="site_assets/testimonials/testimonial-avatar-01.png" alt="Dr. Thomas Bianco"></div><div><div class="t-name">Dr. Thomas Bianco</div><div class="t-role">5-Star Review</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+        <p class="t-quote">I started with one table. Practice was stuck. One Chiro Event changed everything. I now have three tables and just had my best day ever &mdash; all spinal decompression.</p>
+        <div class="t-author"><div class="t-avatar"><img src="site_assets/testimonials/testimonial-avatar-02.png" alt="DCOA Member"></div><div><div class="t-name">DCOA Member</div><div class="t-role">1 Table &rarr; 3 Tables</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+        <p class="t-quote">37-year practitioner, very high volume. My association with Dr. Kaplan and Dr. Bard has enhanced my patient outcomes greater than I'd ever thought possible. Mind-blowing. Unlike anything else clinically.</p>
+        <div class="t-author"><div class="t-avatar"><img src="site_assets/testimonials/testimonial-avatar-04.png" alt="37-Year Practitioner"></div><div><div class="t-name">37-Year Practitioner</div><div class="t-role">High-Volume Practice</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+        <p class="t-quote">I had a dusty decompression table for two years. One Chiro Event. One plan. That one table is now four. My office outgrew its location entirely.</p>
+        <div class="t-author"><div class="t-avatar"><img src="site_assets/testimonials/testimonial-avatar-05.png" alt="DCOA Member"></div><div><div class="t-name">DCOA Member</div><div class="t-role">1 Table &rarr; 4 Tables</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+        <p class="t-quote">We started with two decompression tables and have grown to four. The support from Dr. Bard and Dr. Kaplan is unreal &mdash; they return emails the same day. The patient results are just amazing.</p>
+        <div class="t-author"><div class="t-avatar"><img src="site_assets/testimonials/testimonial-avatar-06.png" alt="DCOA Member"></div><div><div class="t-name">DCOA Member, 4 Years</div><div class="t-role">Multi-Table Practice</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+        <p class="t-quote">Top-notch, first-class group for disc care. Our practice has grown significantly. You can call Dr. Kaplan and Dr. Bard any time, any day. They treat you like family.</p>
+        <div class="t-author"><div class="t-avatar"><img src="site_assets/testimonials/testimonial-avatar-03.png" alt="DCOA Member, 10 Years"></div><div><div class="t-name">DCOA Member, 10 Years</div><div class="t-role">Multi-Table Practice</div></div></div>
       </div>
     </div>
-    <a href="testimonials.html" class="view-all-link">Read All 31 Reviews →</a>
-  </div>
-  <div class="reveal">
-    <div class="testimonial-visual">
-      <div class="t-stat"><span class="t-stat-num">$5K+</span><span class="t-stat-label">Average Patient Value</span></div>
-      <div class="t-stat"><span class="t-stat-num">75+</span><span class="t-stat-label">Combined Years as Chiropractors</span></div>
-      <div class="t-stat"><span class="t-stat-num">100%</span><span class="t-stat-label">Satisfaction Guaranteed</span></div>
+    <div class="video-wrap reveal">
+      <iframe src="https://www.youtube.com/embed/rQ90vIa4JXU?start=887&rel=0&modestbranding=1&color=white" title="Chiro Event Testimonials" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 </section>
 
-<!-- VIDEO SECTION -->
-<section class="video-section" id="video">
-  <div class="reveal">
-    <div class="section-label">See It In Action</div>
-    <h2 class="section-title">Watch What <span>Doctors Say</span></h2>
-  </div>
-  <div class="video-wrap reveal">
-    <iframe
-      style="position:absolute;inset:0;width:100%;height:100%;border:none;"
-      src="https://www.youtube.com/embed/Nbf2UyvFB_c?rel=0&modestbranding=1&color=white"
-      title="The Chiro Event"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div>
-    <div class="cta-eyebrow">Limited Seats Available</div>
-    <h2 class="cta-title">Ready to Dominate<br>Your Market?</h2>
-  </div>
-  <a href="events.html" class="btn-dark">Register Now →</a>
-</section>
-
-<!-- CONTACT / FOOTER -->
-<footer id="contact">
-  <div class="footer-grid">
+<!-- ABOUT -->
+<section class="about-sec" id="about-sec">
+  <div class="about-content-only reveal">
     <div>
-      <div class="footer-logo">
-        <div class="footer-logo-icon">
-          <svg viewBox="0 0 36 36" fill="none"><rect x="13" y="2" width="10" height="6" rx="1.5" fill="#0A0A0A"/><rect x="13" y="10" width="10" height="6" rx="1.5" fill="#0A0A0A"/><rect x="13" y="18" width="10" height="6" rx="1.5" fill="#0A0A0A"/><rect x="13" y="26" width="10" height="6" rx="1.5" fill="#0A0A0A"/></svg>
+      <div class="sec-label">About</div>
+      <h2 class="sec-title" style="margin-bottom:20px;">The training that grows practices. Not just talks about it.</h2>
+      <p class="about-body-text">The Chiro Event is not a lecture weekend. It is an implementation-driven, one-day intensive designed to install the systems that create real growth: lead flow, consult structure, case acceptance, team communication, and patient retention.</p>
+      <p class="about-body-text">Built for chiropractors who want to build or upgrade decompression and neuropathy profit centers. Backed by the largest decompression clinic network in the U.S. &mdash; 250+ clinics, 45 states, frameworks proven at scale.</p>
+      <a href="about-new.html" class="btn-ghost" style="margin-top:8px;display:inline-flex;">Full overview &rarr;</a>
+    </div>
+    <div class="about-pillars">
+      <div class="about-pillar"><strong>Decompression Profit Center</strong><span>Case selection, documentation, and a repeatable consult process your team can run.</span></div>
+      <div class="about-pillar"><strong>Neuropathy Systems</strong><span>A complete clinical pathway with patient communication and operational rhythm.</span></div>
+      <div class="about-pillar"><strong>Cash Practice Building</strong><span>Marketing, offer structure, and ethical positioning that attracts the right cases.</span></div>
+      <div class="about-pillar"><strong>Case Acceptance</strong><span>Scripts, visual explanations, and a report-of-findings framework your team executes.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTORS -->
+<section class="doctors-sec" id="doctors-sec">
+  <div class="doctors-inner">
+    <div class="reveal">
+      <div class="sec-label">The Doctors</div>
+      <h2 class="sec-title">The most credentialed decompression educators in chiropractic.</h2>
+    </div>
+    <!-- Shared bio -->
+    <div class="doc-shared-bio reveal">
+      <div class="doc-shared-text">
+        <p>Together, <strong>Dr. Eric Kaplan and Dr. Perry Bard</strong> combined to create <strong>11 multi-million dollar practices</strong> and have coached hundreds of the most entrepreneurial chiropractors in the country. Their relationship spans over 30 years &mdash; an unmatched business and management acumen (Dr. Kaplan) paired with an unmatched marketing and new patient generation expertise (Dr. Bard). They are Co-Founders of DISC Centers of America, the largest branded decompression network in the U.S., and co-chairs of the International Medical Advisory Board on Spinal Decompression.</p>
+      </div>
+      <div class="doc-shared-stats">
+        <div class="doc-shared-stat">
+          <div class="doc-shared-num">11+</div>
+          <div class="doc-shared-label">Multi-million practices built together</div>
         </div>
-        <div class="footer-logo-text">The Chiro<br><span>Event</span></div>
+        <div class="doc-shared-stat">
+          <div class="doc-shared-num">30+</div>
+          <div class="doc-shared-label">Years as partners</div>
+        </div>
       </div>
-      <p class="footer-desc">Helping chiropractors become the go-to disc & neuropathy doctor in their market through world-class education, coaching, and business systems.</p>
+    </div>
+    <!-- Individual cards -->
+    <div class="doc-grid reveal">
+      <div class="doc-card">
+        <div class="doc-hero-stat">
+          <span class="doc-hero-num">3&times;</span>
+          <span class="doc-hero-label">#1 Bestselling Author &mdash; only chiropractor ever</span>
+        </div>
+        <div class="doc-info">
+          <div class="doc-name">Dr. Eric Kaplan</div>
+          <div class="doc-creds">
+            <span class="doc-cred">Co-Founder &amp; CEO, DISC Centers of America</span>
+            <span class="doc-cred">Former President &amp; COO, NutriSystem</span>
+            <span class="doc-cred">Co-Chair, Intl. Medical Advisory Board on Spinal Decompression</span>
+            <span class="doc-cred">5-Time Award-Winning Author, 3 &num;1 Bestsellers</span>
+            <span class="doc-cred">National Spinal Decompression Certification &mdash; Founder</span>
+          </div>
+          <div class="doc-numbers">
+            <div class="doc-number"><span class="dn-val">250+</span><span class="dn-label">Clinics</span></div>
+            <div class="doc-number"><span class="dn-val">45</span><span class="dn-label">States</span></div>
+            <div class="doc-number"><span class="dn-val">30+</span><span class="dn-label">Yrs Practice</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-hero-stat">
+          <span class="doc-hero-num">20</span>
+          <span class="doc-hero-label">new patients/day &mdash; 4 consecutive years, documented</span>
+        </div>
+        <div class="doc-info">
+          <div class="doc-name">Dr. Perry Bard</div>
+          <div class="doc-creds">
+            <span class="doc-cred">Co-Founder, DISC Centers of America</span>
+            <span class="doc-cred">Neuropathy &amp; Decompression Certification &mdash; Founder</span>
+            <span class="doc-cred">Co-Chair, Intl. Medical Advisory Board on Spinal Decompression</span>
+            <span class="doc-cred">Retired at 40 &mdash; one of the busiest clinics in the country</span>
+          </div>
+          <div class="doc-numbers">
+            <div class="doc-number"><span class="dn-val">20</span><span class="dn-label">Pts/Day</span></div>
+            <div class="doc-number"><span class="dn-val">4</span><span class="dn-label">Yrs Record</span></div>
+            <div class="doc-number"><span class="dn-val">11+</span><span class="dn-label">$1M+ Practices</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="#home" class="footer-brand">
+        <div class="footer-bmark"><svg viewBox="0 0 16 16" fill="none"><rect x="5" y="1" width="6" height="3.5" rx="1" fill="white"/><rect x="5" y="6" width="6" height="3.5" rx="1" fill="white"/><rect x="5" y="11" width="6" height="3.5" rx="1" fill="white"/></svg></div>
+        <span class="footer-bname">The Chiro Event</span>
+      </a>
+      <p class="footer-desc">Helping chiropractors become the go-to disc and neuropathy doctor in their market through world-class education, systems, and coaching.</p>
       <div class="footer-socials">
-        <a class="footer-social-btn" href="https://www.facebook.com/thechiroeventofficial" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a class="footer-social-btn" href="https://www.instagram.com/thechiroevent/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a>
-        <a class="footer-social-btn" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47a2.78 2.78 0 0 0-1.95 1.95A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.5C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg></a>
+        <a class="footer-soc" href="https://www.facebook.com/thechiroeventofficial" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a class="footer-soc" href="https://www.instagram.com/thechiroevent/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a>
+        <a class="footer-soc" href="tel:888-990-9660" aria-label="Phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12a19.79 19.79 0 0 1-3-8.57A2 2 0 0 1 3.11 1.4h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg></a>
       </div>
     </div>
     <div>
-      <div class="footer-col-title">Programs</div>
+      <div class="footer-col-title">Navigate</div>
       <ul class="footer-links">
-        <li><a href="about.html">Practice Growth Seminars</a></li>
-        <!-- hidden: Disc Mastery -->
-        <!-- hidden: Neuropathy Training -->
-        <!-- hidden: Practice Consulting -->
-        <!-- hidden: CE Seminars -->
-        <!-- hidden: Online Courses -->
+        <li><a onclick="goTo('about-sec')">About</a></li>
+        <li><a onclick="goTo('results-sec')">Results</a></li>
+        <li><a onclick="goTo('doctors-sec')">Doctors</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Company</div>
+      <div class="footer-col-title">Events</div>
       <ul class="footer-links">
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="speakers.html">Our Speakers</a></li>
-        <li><a href="testimonials.html">Testimonials</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#78101d141417381b10110a171d0e1d160c561b1715">Contact</a></li>
+        <li><a onclick="goTo('chicago')">Chicago &mdash; Jul 11</a></li>
+        <li><a href="events.html">All Events</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Contact</div>
       <ul class="footer-links">
-        <li><a href="/cdn-cgi/l/email-protection#96fef3fafaf9d6f5feffe4f9f3e0f3f8e2b8f5f9fb"><span class="__cf_email__" data-cfemail="d9b1bcb5b5b699bab1b0abb6bcafbcb7adf7bab6b4">[email&#160;protected]</span></a></li>
         <li><a href="tel:888-990-9660">888-990-9660</a></li>
-        <li><a href="#" onclick="openModal();return false;">Get Free Bonus Content</a></li>
-        <li><a href="events.html">Register for an Event</a></li>
+        <li><a href="mailto:info@chiroevent.com">info@chiroevent.com</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
       </ul>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 <span>The Chiro Event</span>. All rights reserved.</div>
-    <div class="footer-copy"><a href="privacy-policy.html" style="color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Privacy Policy</a></div>
+  <div class="footer-bot">
+    <div class="footer-copy">&copy; 2026 The Chiro Event. All rights reserved.</div>
+    <div class="footer-copy"><a href="privacy-policy.html" style="color:var(--muted2);text-decoration:none;">Privacy Policy</a></div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+function toggleMob() {
+  const n=document.getElementById('mobNav'),b=document.getElementById('hamBtn');
+  n.classList.toggle('open');b.classList.toggle('open');
+  document.body.style.overflow=n.classList.contains('open')?'hidden':'';
+}
+function closeMob() {
+  document.getElementById('mobNav').classList.remove('open');
+  document.getElementById('hamBtn').classList.remove('open');
+  document.body.style.overflow='';
+}
+function goTo(id) { document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); }
 
-  // Mobile nav
-  function toggleMobileNav() {
-    const nav = document.getElementById('mobileNav');
-    const btn = document.getElementById('hamburgerBtn');
-    nav.classList.toggle('open');
-    btn.classList.toggle('open');
-    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+// Hero: video on desktop, slides on mobile
+(function(){
+  const mob = window.innerWidth < 960;
+  if(mob){
+    document.getElementById('heroVideo').style.display='none';
+    const slides=document.querySelectorAll('.hero-slide');
+    let cur=0;
+    setInterval(()=>{
+      slides[cur].classList.remove('active');
+      cur=(cur+1)%slides.length;
+      slides[cur].classList.add('active');
+    },4000);
+  } else {
+    document.getElementById('heroSlides').style.display='none';
   }
-  function closeMobileNav() {
-    document.getElementById('mobileNav').classList.remove('open');
-    document.getElementById('hamburgerBtn').classList.remove('open');
-    document.body.style.overflow = '';
+})();
+
+// Countdown to July 11 2026 9am CT
+(function(){
+  const target=new Date('2026-07-11T09:00:00-05:00').getTime();
+  function tick(){
+    const diff=target-Date.now();
+    if(diff<=0){['d','h','m','s'].forEach(x=>document.getElementById('cd-'+x).textContent='0');return;}
+    document.getElementById('cd-d').textContent=String(Math.floor(diff/86400000)).padStart(2,'0');
+    document.getElementById('cd-h').textContent=String(Math.floor(diff%86400000/3600000)).padStart(2,'0');
+    document.getElementById('cd-m').textContent=String(Math.floor(diff%3600000/60000)).padStart(2,'0');
+    document.getElementById('cd-s').textContent=String(Math.floor(diff%60000/1000)).padStart(2,'0');
   }
+  tick();setInterval(tick,1000);
+})();
 
-  // Modal
-  function openModal() { document.getElementById('bonusModal').classList.add('active'); document.body.style.overflow='hidden'; }
-  function closeModal() { document.getElementById('bonusModal').classList.remove('active'); document.body.style.overflow=''; }
-  document.getElementById('bonusModal').addEventListener('click', function(e){ if(e.target===this) closeModal(); });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
-function submitModal(e) {
-    e.preventDefault();
-    const form = e.target;
-    const inputs = form.querySelectorAll('input');
-    const data = new FormData();
-    data.append('entry.903233644',  inputs[0].value); // First Name
-    data.append('entry.1315110832', inputs[1].value); // Last Name
-    data.append('entry.472339817',  inputs[2].value); // Email
-    data.append('entry.724827533',  inputs[3].value); // Phone
-    data.append('entry.605481896',  inputs[4].value); // Practice Name
-    data.append('entry.1702631455', inputs[5].value); // City, State
-    fetch('https://docs.google.com/forms/d/e/1FAIpQLSd6dXGrExv5uT6GLsNumBc76X6PXnyrJsJ5REImLNGxMSADZA/formResponse', { method: 'POST', mode: 'no-cors', body: data });
-    document.getElementById('modalFormWrap').style.display='none';
-    document.getElementById('modalSuccess').style.display='block';
-  }
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-  // Scroll reveal
-  const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.12 });
-  document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
-
-
-  // Countdown to April 18, 2026
-  (function() {
-    const target = new Date('2026-06-27T08:00:00-05:00').getTime();
-    function tick() {
-      const now = Date.now();
-      const diff = target - now;
-      if (diff <= 0) {
-        document.getElementById('cd-days').textContent = '0';
-        document.getElementById('cd-hrs').textContent = '0';
-        document.getElementById('cd-min').textContent = '0';
-        document.getElementById('cd-sec').textContent = '0';
-        return;
-      }
-      const days = Math.floor(diff / 86400000);
-      const hrs  = Math.floor((diff % 86400000) / 3600000);
-      const min  = Math.floor((diff % 3600000) / 60000);
-      const sec  = Math.floor((diff % 60000) / 1000);
-      document.getElementById('cd-days').textContent = String(days).padStart(2,'0');
-      document.getElementById('cd-hrs').textContent  = String(hrs).padStart(2,'0');
-      document.getElementById('cd-min').textContent  = String(min).padStart(2,'0');
-      document.getElementById('cd-sec').textContent  = String(sec).padStart(2,'0');
+// Stat count-up
+const sObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('[data-target]').forEach(el=>{
+        const t=parseInt(el.dataset.target),sx=el.dataset.suffix||'';
+        let s=null;
+        const step=ts=>{if(!s)s=ts;const p=Math.min((ts-s)/1400,1),ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*t)+sx;if(p<1)requestAnimationFrame(step);else el.textContent=t+sx;};
+        requestAnimationFrame(step);
+      });
+      sObs.unobserve(e.target);
     }
-    tick();
-    setInterval(tick, 1000);
-  })();
-  // Hero slideshow
-  (function() {
-    const slider = document.getElementById('heroSlider');
-    const slides = slider.querySelectorAll('.hero-slide');
-    const dots = slider.querySelectorAll('.hero-dot');
-    let current = 0;
-    window.goToSlide = function(n) {
-      slides[current].classList.remove('active');
-      dots[current].classList.remove('active');
-      current = n;
-      slides[current].classList.add('active');
-      dots[current].classList.add('active');
-    };
-    setInterval(function() {
-      goToSlide((current + 1) % slides.length);
-    }, 4000);
-  })();
+  });
+},{threshold:.3});
+document.querySelectorAll('.stats-grid').forEach(el=>sObs.observe(el));
 
-  // Stat count-up
-  function animateCount(el, target, suffix='') {
-    let start=0; const duration=1600;
-    const step = ts => {
-      if(!start) start=ts;
-      const p = Math.min((ts-start)/duration,1);
-      const ease = 1 - Math.pow(1-p,3);
-      el.textContent = Math.floor(ease*parseFloat(target))+suffix;
-      if(p<1) requestAnimationFrame(step);
-      else el.textContent = target+suffix;
-    };
-    requestAnimationFrame(step);
-  }
-  const statsObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(e.isIntersecting) {
-        e.target.querySelectorAll('.stat-num,.t-stat-num').forEach(n => {
-          const m = n.textContent.match(/^(\d+)(.*)$/);
-          if(m) animateCount(n, m[1], m[2]);
-        });
-        statsObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  document.querySelectorAll('.stats,.testimonial-visual').forEach(el => statsObs.observe(el));
+// Form submit — Formspree
+async function submitForm(e){
+  e.preventDefault();
+  try{
+    await fetch('https://formspree.io/f/mojzdywv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+  }catch(_){}
+  document.getElementById('formWrap').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
+}
+async function submitMobForm(e){
+  e.preventDefault();
+  try{
+    await fetch('https://formspree.io/f/mojzdywv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+  }catch(_){}
+  document.getElementById('mobFormWrap').style.display='none';
+  document.getElementById('mobFormSuccess').style.display='block';
+}
 </script>
 </body>
 </html>
